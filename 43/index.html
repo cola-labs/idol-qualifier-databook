@@ -2636,6 +2636,67 @@ html, body {
 }
 </style>
 
+<style>
+/* --- 第43回 競技別トーナメント表 追加CSS --- */
+.bracket-insert {
+  margin:18px 0 26px;
+}
+.bracket-insert .bracket-lead {
+  margin:0 0 12px;
+  color:#344054;
+  font-size:14px;
+  line-height:1.75;
+}
+.bracket-insert .svg-wrap {
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  border:1px solid var(--line, #d1d5db);
+  border-radius:16px;
+  background:#fbfdff;
+  box-shadow:0 6px 18px rgba(31,41,55,.04);
+}
+.bracket-insert svg.bracket {
+  display:block;
+  min-width:1040px;
+  width:100%;
+  height:auto;
+}
+.bracket-insert .bracket-bg { fill:#fbfdff; }
+.bracket-insert .bracket-title { fill:#111827; font-size:22px; font-weight:900; }
+.bracket-insert .round-label { fill:#6b7280; font-size:12px; font-weight:900; letter-spacing:.12em; }
+.bracket-insert .match-box { fill:#ffffff; stroke:#d1d5db; stroke-width:1.2; rx:10; }
+.bracket-insert .winner-box { fill:#fff7e6; stroke:#f2c96d; stroke-width:1.5; rx:10; }
+.bracket-insert .final-winner-box { fill:#fff1c2; stroke:#d97706; stroke-width:2; rx:12; }
+.bracket-insert .league-table-bg { fill:#ffffff; stroke:#d1d5db; stroke-width:1.2; rx:12; }
+.bracket-insert .league-head { fill:#374151; }
+.bracket-insert .league-rank1 { fill:#fff7e6; }
+.bracket-insert .league-rank2 { fill:#f9fafb; }
+.bracket-insert .league-rank3 { fill:#f9fafb; }
+.bracket-insert .grid-line { stroke:#d1d5db; stroke-width:1; }
+.bracket-insert .player { fill:#1f2937; font-size:13px; font-weight:700; }
+.bracket-insert .player-muted { fill:#6b7280; font-size:12px; font-weight:700; }
+.bracket-insert .player-win { fill:#7a4a00; font-size:13px; font-weight:900; }
+.bracket-insert .league-header-text { fill:#ffffff; font-size:11px; font-weight:900; }
+.bracket-insert .league-text { fill:#1f2937; font-size:11px; font-weight:800; }
+.bracket-insert .league-win { fill:#7a4a00; font-size:12px; font-weight:900; }
+.bracket-insert .league-lose { fill:#6b7280; font-size:12px; font-weight:800; }
+.bracket-insert .score { fill:#6b7280; font-size:11px; font-weight:700; }
+.bracket-insert .connector { fill:none; stroke:#9ca3af; stroke-width:1.5; }
+.bracket-insert .connector-win { fill:none; stroke:#d97706; stroke-width:2; }
+.bracket-insert .note {
+  margin-top:12px;
+  padding:12px 14px;
+  border:1px solid #d1d5db;
+  border-left:5px solid #6b7280;
+  border-radius:14px;
+  background:#f9fafb;
+  color:#374151;
+  font-size:13px;
+}
+@media (max-width:860px) {
+  .bracket-insert svg.bracket { min-width:980px; }
+}
+</style>
 </head>
 <body id="top">
 <header class="hero edition-hero" id="top">
@@ -2719,10 +2780,203 @@ html, body {
 <div class="table-wrap"><table><tr><th>順位</th><th>選手</th><th>得点</th></tr><tr><td>1位</td><td>結城りな</td><td>150pt</td></tr><tr><td>2位タイ</td><td>清司麗菜</td><td>125pt</td></tr><tr><td>2位タイ</td><td>大信田美月</td><td>125pt</td></tr><tr><td>4位</td><td>佐藤莉華</td><td>110pt</td></tr><tr><td>5位</td><td>涼海すう</td><td>105pt</td></tr><tr><td>6位</td><td>塩釜菜那</td><td>100pt</td></tr><tr><td>7位</td><td>伊藤実希</td><td>95pt</td></tr><tr><td>8位</td><td>風見和香</td><td>65pt</td></tr><tr><td>9位</td><td>瀧脇笙古</td><td>55pt</td></tr><tr><td>10位</td><td>坂下真心</td><td>35pt</td></tr><tr><td>11位</td><td>桐原美月</td><td>5pt</td></tr><tr><td>12位</td><td>白石まゆみ</td><td>0pt</td></tr></table></div>
 <h4>ビーチフラッグス勝ち上がり</h4>
 <div class="table-wrap"><table><tr><th>ラウンド</th><th>出場者</th><th>勝ち上がり・内容メモ</th></tr><tr><td>1回戦</td><td>白石まゆみ / 清司麗菜 / 佐藤莉華 / 伊藤実希</td><td>清司麗菜、伊藤実希が勝ち上がり。</td></tr><tr><td>1回戦</td><td>風見和香 / 大信田美月 / 涼海すう / 結城りな</td><td>大信田美月、結城りなが勝ち上がり。強豪が集まった激戦区。</td></tr><tr><td>1回戦</td><td>坂下真心 / 塩釜菜那 / 瀧脇笙古 / 桐原美月</td><td>塩釜菜那、瀧脇笙古が勝ち上がり。</td></tr><tr><td>2回戦</td><td>塩釜菜那 / 大信田美月 / 清司麗菜</td><td>大信田美月が勝ち上がり。</td></tr><tr><td>2回戦</td><td>瀧脇笙古 / 結城りな / 伊藤実希</td><td>結城りなが勝ち上がり。</td></tr><tr><td>決勝</td><td>結城りな vs 大信田美月</td><td>結城りなが優勝。</td></tr></table></div>
+<!-- ビーチフラッグス トーナメント表 ここから -->
+<div class="bracket-insert" id="beach-flags-bracket">
+  <h4>ビーチフラッグス トーナメント表</h4>
+  <p class="bracket-lead">1回戦は3組に分かれ、各組から2名が勝ち上がり。2回戦を経て、結城りなと大信田美月が決勝へ進出。決勝は結城りなが制しました。</p>
+
+  <div class="svg-wrap">
+    <svg class="bracket" viewBox="0 0 1040 520" role="img" aria-label="第43回 ビーチフラッグス トーナメント表">
+      <rect class="bracket-bg" x="0" y="0" width="1040" height="520"/>
+      <text class="bracket-title" x="40" y="42">第43回 ビーチフラッグス</text>
+
+      <text class="round-label" x="70" y="82">1回戦</text>
+      <text class="round-label" x="390" y="82">2回戦</text>
+      <text class="round-label" x="720" y="82">決勝</text>
+
+      <rect class="match-box" x="40" y="105" width="245" height="104" rx="10"/>
+      <text class="player-muted" x="58" y="130">1回戦 A組</text>
+      <text class="player" x="58" y="154">白石まゆみ</text>
+      <text class="player-win" x="58" y="176">清司麗菜 ◎</text>
+      <text class="player" x="168" y="176">佐藤莉華</text>
+      <text class="player-win" x="58" y="198">伊藤実希 ◎</text>
+
+      <rect class="match-box" x="40" y="230" width="245" height="104" rx="10"/>
+      <text class="player-muted" x="58" y="255">1回戦 B組</text>
+      <text class="player" x="58" y="279">風見和香</text>
+      <text class="player-win" x="58" y="301">大信田美月 ◎</text>
+      <text class="player" x="168" y="301">涼海すう</text>
+      <text class="player-win" x="58" y="323">結城りな ◎</text>
+
+      <rect class="match-box" x="40" y="355" width="245" height="104" rx="10"/>
+      <text class="player-muted" x="58" y="380">1回戦 C組</text>
+      <text class="player" x="58" y="404">坂下真心</text>
+      <text class="player-win" x="58" y="426">塩釜菜那 ◎</text>
+      <text class="player-win" x="168" y="426">瀧脇笙古 ◎</text>
+      <text class="player" x="58" y="448">桐原美月</text>
+
+      <path class="connector" d="M285 157 C335 157 335 155 380 155"/>
+      <path class="connector" d="M285 282 C335 282 335 155 380 155"/>
+      <path class="connector" d="M285 407 C335 407 335 155 380 155"/>
+
+      <rect class="match-box" x="380" y="112" width="250" height="86" rx="10"/>
+      <text class="player-muted" x="398" y="137">2回戦 A組</text>
+      <text class="player" x="398" y="162">塩釜菜那</text>
+      <text class="player-win" x="498" y="162">大信田美月 ◎</text>
+      <text class="player" x="398" y="184">清司麗菜</text>
+
+      <path class="connector" d="M285 282 C335 282 335 315 380 315"/>
+      <path class="connector" d="M285 407 C335 407 335 315 380 315"/>
+
+      <rect class="match-box" x="380" y="270" width="250" height="86" rx="10"/>
+      <text class="player-muted" x="398" y="295">2回戦 B組</text>
+      <text class="player" x="398" y="320">瀧脇笙古</text>
+      <text class="player-win" x="498" y="320">結城りな ◎</text>
+      <text class="player" x="398" y="342">伊藤実希</text>
+
+      <path class="connector-win" d="M630 155 C680 155 680 236 720 236"/>
+      <path class="connector-win" d="M630 315 C680 315 680 236 720 236"/>
+
+      <rect class="final-winner-box" x="720" y="192" width="260" height="96" rx="12"/>
+      <text class="player-muted" x="740" y="218">決勝</text>
+      <text class="player-win" x="740" y="248">結城りな ◎ 優勝</text>
+      <text class="player" x="740" y="272">大信田美月</text>
+
+      <text class="score" x="720" y="320">最終順位：1位 結城りな / 2位 大信田美月</text>
+    </svg>
+  </div>
+</div>
+<!-- ビーチフラッグス トーナメント表 ここまで -->
 <h4>テイルインポッシブル順位</h4>
 <div class="table-wrap"><table><tr><th>順位</th><th>選手</th><th>メモ</th></tr><tr><td>1位</td><td>涼海すう</td><td>決勝レース1着。60pt。</td></tr><tr><td>2位</td><td>風見和香</td><td>決勝レース2着。50pt。</td></tr><tr><td>3位</td><td>塩釜菜那</td><td>決勝レース3着。45pt。</td></tr><tr><td>4位</td><td>伊藤実希</td><td>第3レース脱落。40pt。</td></tr><tr><td>5位</td><td>結城りな</td><td>第3レース脱落。35pt。</td></tr><tr><td>6位</td><td>瀧脇笙古</td><td>第3レース脱落。30pt。</td></tr><tr><td>7位</td><td>佐藤莉華</td><td>第2レース脱落。25pt＋救済5pt。</td></tr><tr><td>8位</td><td>清司麗菜</td><td>第2レース脱落。20pt。</td></tr><tr><td>9位</td><td>大信田美月</td><td>第2レース脱落。15pt。</td></tr><tr><td>10位</td><td>坂下真心</td><td>第1レース脱落。10pt。</td></tr><tr><td>11位</td><td>桐原美月</td><td>第1レース脱落。5pt。</td></tr><tr><td>12位</td><td>白石まゆみ</td><td>第1レース脱落。0pt。</td></tr></table></div>
 <h4>パワーフォース勝ち上がり</h4>
 <div class="table-wrap"><table><tr><th>段階</th><th>対戦</th><th>勝者</th></tr><tr><td>1回戦</td><td>塩釜菜那 vs 桐原美月</td><td>塩釜菜那（桐原棄権）</td></tr><tr><td>1回戦</td><td>大信田美月 vs 伊藤実希</td><td>大信田美月</td></tr><tr><td>1回戦</td><td>瀧脇笙古 vs 涼海すう</td><td>涼海すう</td></tr><tr><td>1回戦</td><td>清司麗菜 vs 坂下真心</td><td>清司麗菜</td></tr><tr><td>1回戦</td><td>白石まゆみ vs 佐藤莉華</td><td>佐藤莉華</td></tr><tr><td>1回戦</td><td>風見和香 vs 結城りな</td><td>結城りな</td></tr><tr><td>2回戦</td><td>塩釜菜那 vs 大信田美月</td><td>大信田美月</td></tr><tr><td>2回戦</td><td>涼海すう vs 清司麗菜</td><td>涼海すう</td></tr><tr><td>2回戦</td><td>佐藤莉華 vs 結城りな</td><td>佐藤莉華</td></tr><tr><td>決勝1</td><td>大信田美月 vs 涼海すう</td><td>大信田美月</td></tr><tr><td>決勝2</td><td>佐藤莉華 vs 涼海すう</td><td>佐藤莉華</td></tr><tr><td>決勝3</td><td>佐藤莉華 vs 大信田美月</td><td>佐藤莉華</td></tr></table></div>
+<!-- パワーフォース トーナメント表 ここから -->
+<div class="bracket-insert" id="power-force-bracket">
+  <h4>パワーフォース トーナメント表</h4>
+  <p class="bracket-lead">1回戦から勝ち上がった6名が2回戦へ進出。2回戦を突破した3名による決勝総当たりで、佐藤莉華が2勝0敗で優勝しました。</p>
+
+  <div class="svg-wrap">
+    <svg class="bracket" viewBox="0 0 1040 620" role="img" aria-label="第43回 パワーフォース トーナメント表">
+      <rect class="bracket-bg" x="0" y="0" width="1040" height="620"/>
+      <text class="bracket-title" x="40" y="42">第43回 パワーフォース</text>
+
+      <text class="round-label" x="70" y="82">1回戦</text>
+      <text class="round-label" x="380" y="82">2回戦</text>
+      <text class="round-label" x="690" y="82">決勝総当たり</text>
+
+      <!-- Round 1 -->
+      <rect class="match-box" x="40" y="100" width="240" height="58" rx="10"/>
+      <text class="player-win" x="58" y="125">塩釜菜那 ◎</text>
+      <text class="player" x="58" y="147">桐原美月（棄権）</text>
+
+      <rect class="match-box" x="40" y="176" width="240" height="58" rx="10"/>
+      <text class="player-win" x="58" y="201">大信田美月 ◎</text>
+      <text class="player" x="58" y="223">伊藤実希</text>
+
+      <rect class="match-box" x="40" y="252" width="240" height="58" rx="10"/>
+      <text class="player" x="58" y="277">瀧脇笙古</text>
+      <text class="player-win" x="58" y="299">涼海すう ◎</text>
+
+      <rect class="match-box" x="40" y="328" width="240" height="58" rx="10"/>
+      <text class="player-win" x="58" y="353">清司麗菜 ◎</text>
+      <text class="player" x="58" y="375">坂下真心</text>
+
+      <rect class="match-box" x="40" y="404" width="240" height="58" rx="10"/>
+      <text class="player" x="58" y="429">白石まゆみ</text>
+      <text class="player-win" x="58" y="451">佐藤莉華 ◎</text>
+
+      <rect class="match-box" x="40" y="480" width="240" height="58" rx="10"/>
+      <text class="player" x="58" y="505">風見和香</text>
+      <text class="player-win" x="58" y="527">結城りな ◎</text>
+
+      <!-- Round 2 -->
+      <path class="connector" d="M280 129 C330 129 330 160 360 160"/>
+      <path class="connector" d="M280 205 C330 205 330 160 360 160"/>
+      <rect class="match-box" x="360" y="124" width="250" height="72" rx="10"/>
+      <text class="player-muted" x="378" y="148">2回戦 A</text>
+      <text class="player" x="378" y="171">塩釜菜那</text>
+      <text class="player-win" x="478" y="171">大信田美月 ◎</text>
+
+      <path class="connector" d="M280 281 C330 281 330 322 360 322"/>
+      <path class="connector" d="M280 357 C330 357 330 322 360 322"/>
+      <rect class="match-box" x="360" y="286" width="250" height="72" rx="10"/>
+      <text class="player-muted" x="378" y="310">2回戦 B</text>
+      <text class="player-win" x="378" y="333">涼海すう ◎</text>
+      <text class="player" x="478" y="333">清司麗菜</text>
+
+      <path class="connector" d="M280 433 C330 433 330 484 360 484"/>
+      <path class="connector" d="M280 509 C330 509 330 484 360 484"/>
+      <rect class="match-box" x="360" y="448" width="250" height="72" rx="10"/>
+      <text class="player-muted" x="378" y="472">2回戦 C</text>
+      <text class="player-win" x="378" y="495">佐藤莉華 ◎</text>
+      <text class="player" x="478" y="495">結城りな</text>
+
+      <!-- Round 2 winners to final league -->
+      <path class="connector-win" d="M610 160 C655 160 655 172 690 172"/>
+      <path class="connector-win" d="M610 322 C655 322 655 172 690 172"/>
+      <path class="connector-win" d="M610 484 C655 484 655 172 690 172"/>
+
+      <!-- Final round-robin table -->
+      <rect class="league-table-bg" x="690" y="120" width="310" height="318" rx="12"/>
+
+      <rect class="league-head" x="690" y="120" width="310" height="38" rx="12"/>
+      <rect class="league-head" x="690" y="146" width="310" height="12"/>
+      <text class="league-header-text" x="710" y="145">決勝総当たり表</text>
+
+      <!-- Header row -->
+      <rect class="league-head" x="705" y="174" width="280" height="34" rx="6"/>
+      <text class="league-header-text" x="716" y="196">選手</text>
+      <text class="league-header-text" x="788" y="196">大信田</text>
+      <text class="league-header-text" x="850" y="196">涼海</text>
+      <text class="league-header-text" x="905" y="196">佐藤</text>
+      <text class="league-header-text" x="958" y="196">順位</text>
+
+      <!-- Row backgrounds -->
+      <rect class="league-rank2" x="705" y="208" width="280" height="48"/>
+      <rect class="league-rank3" x="705" y="256" width="280" height="48"/>
+      <rect class="league-rank1" x="705" y="304" width="280" height="48"/>
+
+      <!-- Grid lines -->
+      <path class="grid-line" d="M705 208 H985 M705 256 H985 M705 304 H985 M705 352 H985"/>
+      <path class="grid-line" d="M775 174 V352 M840 174 V352 M895 174 V352 M950 174 V352"/>
+
+      <!-- 大信田 row -->
+      <text class="league-text" x="716" y="237">大信田</text>
+      <text class="league-text" x="804" y="237">—</text>
+      <text class="league-win" x="861" y="237">○</text>
+      <text class="league-lose" x="917" y="237">●</text>
+      <text class="league-text" x="964" y="237">2</text>
+
+      <!-- 涼海 row -->
+      <text class="league-text" x="716" y="285">涼海</text>
+      <text class="league-lose" x="801" y="285">●</text>
+      <text class="league-text" x="859" y="285">—</text>
+      <text class="league-lose" x="917" y="285">●</text>
+      <text class="league-text" x="964" y="285">3</text>
+
+      <!-- 佐藤 row -->
+      <text class="league-win" x="716" y="333">佐藤莉華</text>
+      <text class="league-win" x="801" y="333">○</text>
+      <text class="league-win" x="861" y="333">○</text>
+      <text class="league-text" x="917" y="333">—</text>
+      <text class="league-win" x="964" y="333">1</text>
+
+      <!-- Ranking summary -->
+      <rect class="final-winner-box" x="690" y="462" width="310" height="86" rx="12"/>
+      <text class="player-muted" x="710" y="489">最終順位</text>
+      <text class="player-win" x="710" y="516">1位 佐藤莉華　2勝0敗</text>
+      <text class="player" x="710" y="540">2位 大信田美月　1勝1敗 / 3位 涼海すう　0勝2敗</text>
+
+      <text class="score" x="690" y="580">※決勝は3名による総当たりとして整理。○＝勝利、●＝敗戦。</text>
+    </svg>
+  </div>
+
+  <div class="note">
+    ※パワーフォースは最後が通常の一本トーナメントではないため、「1回戦 → 2回戦 → 決勝総当たり表」として整理しています。
+  </div>
+</div>
+<!-- パワーフォース トーナメント表 ここまで -->
 <h4>SASUKEタイムレース順位</h4>
 <div class="table-wrap"><table><tr><th>順位</th><th>選手</th><th>メモ</th></tr><tr><td>1位</td><td>清司麗菜</td><td>25.22秒／80pt。2大会連続の最終競技1位。</td></tr><tr><td>2位</td><td>結城りな</td><td>30.96秒／60pt。王者として最後も上位で締めた。</td></tr><tr><td>3位</td><td>大信田美月</td><td>31.36秒／50pt。障害物処理でも上位。</td></tr><tr><td>4位</td><td>伊藤実希</td><td>32.32秒／40pt。初代王者の安定感。</td></tr><tr><td>5位</td><td>佐藤莉華</td><td>34.70秒／35pt。パワーだけでなく処理でも得点。</td></tr><tr><td>6位</td><td>塩釜菜那</td><td>35.40秒／30pt。全競技得点につなげた。</td></tr><tr><td>7位</td><td>坂下真心</td><td>35.48秒／25pt。今後の得点源候補。</td></tr><tr><td>8位</td><td>涼海すう</td><td>36.59秒／20pt。伸びしろ領域。</td></tr><tr><td>9位</td><td>風見和香</td><td>37.02秒／15pt。KUNOICHI経験との接続に期待。</td></tr><tr><td>10位</td><td>瀧脇笙古</td><td>38.37秒／10pt。緑山経験の再変換が課題。</td></tr><tr><td>11位</td><td>白石まゆみ</td><td>タイムアップ。</td></tr><tr><td>12位</td><td>桐原美月</td><td>棄権／0pt。</td></tr></table></div>
 <h4>総論</h4>
