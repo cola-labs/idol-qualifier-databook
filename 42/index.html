@@ -2461,6 +2461,46 @@ html, body {
 }
 </style>
 
+<style>
+/* --- 第42回 ビーチフラッグス トーナメント表 追加CSS --- */
+.bracket-insert {
+  margin:18px 0 26px;
+}
+.bracket-insert .bracket-lead {
+  margin:0 0 12px;
+  color:#344054;
+  font-size:14px;
+  line-height:1.75;
+}
+.bracket-insert .svg-wrap {
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  border:1px solid var(--line, #d1d5db);
+  border-radius:16px;
+  background:#fbfdff;
+  box-shadow:0 6px 18px rgba(31,41,55,.04);
+}
+.bracket-insert svg.bracket {
+  display:block;
+  min-width:1040px;
+  width:100%;
+  height:auto;
+}
+.bracket-insert .bracket-bg { fill:#fbfdff; }
+.bracket-insert .bracket-title { fill:#111827; font-size:22px; font-weight:900; }
+.bracket-insert .round-label { fill:#6b7280; font-size:12px; font-weight:900; letter-spacing:.12em; }
+.bracket-insert .match-box { fill:#ffffff; stroke:#d1d5db; stroke-width:1.2; rx:10; }
+.bracket-insert .final-winner-box { fill:#fff1c2; stroke:#d97706; stroke-width:2; rx:12; }
+.bracket-insert .player { fill:#1f2937; font-size:13px; font-weight:700; }
+.bracket-insert .player-muted { fill:#6b7280; font-size:12px; font-weight:700; }
+.bracket-insert .player-win { fill:#7a4a00; font-size:13px; font-weight:900; }
+.bracket-insert .score { fill:#6b7280; font-size:11px; font-weight:700; }
+.bracket-insert .connector { fill:none; stroke:#9ca3af; stroke-width:1.5; }
+.bracket-insert .connector-win { fill:none; stroke:#d97706; stroke-width:2; }
+@media (max-width:860px) {
+  .bracket-insert svg.bracket { min-width:980px; }
+}
+</style>
 </head>
 <body id="top">
 <header class="hero edition-hero" id="top">
@@ -2544,6 +2584,79 @@ html, body {
 <div class="table-wrap"><table><tr><th>順位</th><th>選手</th><th>得点</th></tr><tr><td>1位</td><td>伊藤実希</td><td>160pt</td></tr><tr><td>2位</td><td>結城りな</td><td>155pt</td></tr><tr><td>3位</td><td>清司麗菜</td><td>150pt</td></tr><tr><td>4位</td><td>大信田美月</td><td>125pt</td></tr><tr><td>5位</td><td>風見和香</td><td>120pt</td></tr><tr><td>6位</td><td>岩本理瑚</td><td>115pt</td></tr><tr><td>7位</td><td>真中まな</td><td>110pt</td></tr><tr><td>8位</td><td>正鋳真優</td><td>85pt</td></tr><tr><td>9位</td><td>辻野かなみ</td><td>60pt</td></tr><tr><td>10位</td><td>白石まゆみ</td><td>35pt</td></tr><tr><td>11位</td><td>姫野ひなの</td><td>25pt</td></tr><tr><td>12位</td><td>菅波美玲</td><td>10pt</td></tr></table></div>
 <h4>ビーチフラッグス勝ち上がり</h4>
 <div class="table-wrap"><table><tr><th>ラウンド</th><th>出場者</th><th>勝ち上がり・内容メモ</th></tr><tr><td>1回戦 第1レース</td><td>伊藤実希 / 姫野ひなの / 結城りな / 正鋳真優</td><td>伊藤実希、結城りなが勝ち上がり。</td></tr><tr><td>1回戦 第2レース</td><td>大信田美月 / 真中まな / 辻野かなみ / 岩本理瑚</td><td>大信田美月、岩本理瑚が勝ち上がり。</td></tr><tr><td>1回戦 第3レース</td><td>菅波美玲 / 白石まゆみ / 風見和香 / 清司麗菜</td><td>風見和香、清司麗菜が勝ち上がり。</td></tr><tr><td>2回戦 第1レース</td><td>清司麗菜 / 岩本理瑚 / 結城りな</td><td>結城りなが勝ち上がり。</td></tr><tr><td>2回戦 第2レース</td><td>風見和香 / 大信田美月 / 伊藤実希</td><td>大信田美月が勝ち上がり。</td></tr><tr><td>決勝</td><td>結城りな vs 大信田美月</td><td>結城りなが優勝。</td></tr></table></div>
+<!-- 第42回 ビーチフラッグス トーナメント表 ここから -->
+<div class="bracket-insert" id="beach-flags-bracket-42">
+  <h4>ビーチフラッグス トーナメント表</h4>
+  <p class="bracket-lead">1回戦は3レースに分かれ、各レースから2名が勝ち上がり。2回戦を経て、結城りなと大信田美月が決勝へ進出。決勝は結城りなが制しました。</p>
+
+  <div class="svg-wrap">
+    <svg class="bracket" viewBox="0 0 1040 520" role="img" aria-label="第42回 ビーチフラッグス トーナメント表">
+      <rect class="bracket-bg" x="0" y="0" width="1040" height="520"/>
+      <text class="bracket-title" x="40" y="42">第42回 ビーチフラッグス</text>
+
+      <text class="round-label" x="70" y="82">1回戦</text>
+      <text class="round-label" x="390" y="82">2回戦</text>
+      <text class="round-label" x="720" y="82">決勝</text>
+
+      <!-- Round 1 Race 1 -->
+      <rect class="match-box" x="40" y="105" width="245" height="104" rx="10"/>
+      <text class="player-muted" x="58" y="130">1回戦 第1レース</text>
+      <text class="player-win" x="58" y="154">伊藤実希 ◎</text>
+      <text class="player" x="168" y="154">姫野ひなの</text>
+      <text class="player-win" x="58" y="176">結城りな ◎</text>
+      <text class="player" x="168" y="176">正鋳真優</text>
+
+      <!-- Round 1 Race 2 -->
+      <rect class="match-box" x="40" y="230" width="245" height="104" rx="10"/>
+      <text class="player-muted" x="58" y="255">1回戦 第2レース</text>
+      <text class="player-win" x="58" y="279">大信田美月 ◎</text>
+      <text class="player" x="168" y="279">真中まな</text>
+      <text class="player" x="58" y="301">辻野かなみ</text>
+      <text class="player-win" x="168" y="301">岩本理瑚 ◎</text>
+
+      <!-- Round 1 Race 3 -->
+      <rect class="match-box" x="40" y="355" width="245" height="104" rx="10"/>
+      <text class="player-muted" x="58" y="380">1回戦 第3レース</text>
+      <text class="player" x="58" y="404">菅波美玲</text>
+      <text class="player" x="168" y="404">白石まゆみ</text>
+      <text class="player-win" x="58" y="426">風見和香 ◎</text>
+      <text class="player-win" x="168" y="426">清司麗菜 ◎</text>
+
+      <!-- Connectors to Round 2 -->
+      <path class="connector" d="M285 157 C335 157 335 155 380 155"/>
+      <path class="connector" d="M285 282 C335 282 335 155 380 155"/>
+      <path class="connector" d="M285 407 C335 407 335 155 380 155"/>
+
+      <rect class="match-box" x="380" y="112" width="250" height="86" rx="10"/>
+      <text class="player-muted" x="398" y="137">2回戦 第1レース</text>
+      <text class="player" x="398" y="162">清司麗菜</text>
+      <text class="player" x="498" y="162">岩本理瑚</text>
+      <text class="player-win" x="398" y="184">結城りな ◎</text>
+
+      <path class="connector" d="M285 157 C335 157 335 315 380 315"/>
+      <path class="connector" d="M285 282 C335 282 335 315 380 315"/>
+      <path class="connector" d="M285 407 C335 407 335 315 380 315"/>
+
+      <rect class="match-box" x="380" y="270" width="250" height="86" rx="10"/>
+      <text class="player-muted" x="398" y="295">2回戦 第2レース</text>
+      <text class="player" x="398" y="320">風見和香</text>
+      <text class="player-win" x="498" y="320">大信田美月 ◎</text>
+      <text class="player" x="398" y="342">伊藤実希</text>
+
+      <!-- Final -->
+      <path class="connector-win" d="M630 155 C680 155 680 236 720 236"/>
+      <path class="connector-win" d="M630 315 C680 315 680 236 720 236"/>
+
+      <rect class="final-winner-box" x="720" y="192" width="260" height="96" rx="12"/>
+      <text class="player-muted" x="740" y="218">決勝</text>
+      <text class="player-win" x="740" y="248">結城りな ◎ 優勝</text>
+      <text class="player" x="740" y="272">大信田美月</text>
+
+      <text class="score" x="720" y="320">最終順位：1位 結城りな / 2位 大信田美月</text>
+    </svg>
+  </div>
+</div>
+<!-- 第42回 ビーチフラッグス トーナメント表 ここまで -->
 <h4>地獄のシャトルラン順位</h4>
 <div class="table-wrap"><table><tr><th>順位</th><th>選手</th><th>メモ</th></tr><tr><td>1位</td><td>岩本理瑚</td><td>種目優勝／60pt</td></tr><tr><td>2位</td><td>風見和香</td><td>最終レースで敗北／50pt</td></tr><tr><td>3位</td><td>結城りな</td><td>第10レースで脱落／45pt</td></tr><tr><td>4位</td><td>伊藤実希</td><td>第9レースで脱落／40pt</td></tr><tr><td>5位</td><td>大信田美月</td><td>第8レースで脱落／35pt</td></tr><tr><td>6位</td><td>真中まな</td><td>第7レースで脱落／30pt</td></tr><tr><td>7位</td><td>清司麗菜</td><td>第6レースで脱落／25pt</td></tr><tr><td>8位</td><td>正鋳真優</td><td>第5レースで脱落／20pt</td></tr><tr><td>9位</td><td>白石まゆみ</td><td>第4レースで脱落／15pt</td></tr><tr><td>10位</td><td>辻野かなみ</td><td>第3レースで脱落／10pt</td></tr><tr><td>11位</td><td>菅波美玲</td><td>第2レースで脱落／5pt</td></tr><tr><td>12位</td><td>姫野ひなの</td><td>第1レースで脱落／0pt</td></tr></table></div>
 <h4>無限ジャンプ対決順位</h4>
