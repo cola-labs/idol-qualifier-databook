@@ -1,0 +1,3590 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>第42回 SASUKEアイドル予選会 非公式データブック</title>
+<meta content="42回大会出場選手データ＆戦力分析。成績・能力値・プレースタイル・次回注目点を整理した非公式データブック。" name="description"/>
+<meta content="第42回 SASUKEアイドル予選会 非公式データブック" property="og:title"/>
+<meta content="42回大会出場選手データ＆戦力分析。成績・能力値・プレースタイル・次回注目点を整理した非公式データブック。" property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<style>
+:root {
+  --blue:#1f4e79;
+  --blue2:#0f3b61;
+  --light:#eef5fb;
+  --line:#bfd0df;
+  --text:#1f2933;
+  --muted:#667085;
+  --bg:#f6f8fb;
+  --card:#ffffff;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP",Meiryo,sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,#f7f9fc,#eef4f9);
+  line-height:1.75;
+}
+a { color:inherit; }
+.hero {
+  background:linear-gradient(135deg,var(--blue2),#2f6f9e);
+  color:white;
+  padding:64px 20px 72px;
+  text-align:center;
+}
+.hero h1 { margin:0 0 10px; font-size:clamp(28px,5vw,54px); letter-spacing:.04em; }
+.hero p { margin:0; font-size:clamp(15px,2.4vw,22px); opacity:.95; }
+.hero .date { margin-top:28px; font-size:14px; opacity:.8; }
+.layout {
+  display:grid;
+  grid-template-columns:250px minmax(0,1fr);
+  gap:28px;
+  max-width:1180px;
+  margin:0 auto;
+  padding:28px 18px 72px;
+}
+.sidebar {
+  position:sticky;
+  top:16px;
+  align-self:start;
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 8px 28px rgba(31,78,121,.08);
+  max-height:calc(100vh - 32px);
+  overflow:auto;
+}
+.sidebar h2 { font-size:14px; margin:0 0 10px; color:var(--blue); }
+.sidebar a {
+  display:block;
+  text-decoration:none;
+  padding:7px 9px;
+  border-radius:10px;
+  font-size:13px;
+  color:#314256;
+}
+.sidebar a:hover { background:var(--light); color:var(--blue2); }
+main { min-width:0; }
+section {
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:26px;
+  margin-bottom:22px;
+  box-shadow:0 8px 28px rgba(31,78,121,.06);
+}
+h2 {
+  font-size:clamp(23px,3vw,34px);
+  color:var(--blue2);
+  margin:0 0 18px;
+  border-bottom:3px solid var(--line);
+  padding-bottom:8px;
+}
+h3 { color:var(--blue2); font-size:24px; margin:0; }
+h4 { color:var(--blue); margin:18px 0 8px; font-size:16px; }
+.lead { font-size:16px; color:#344054; }
+.point-grid, .profile-grid, .story-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+.info-box {
+  background:var(--light);
+  border-left:5px solid var(--blue);
+  border-radius:14px;
+  padding:14px 16px;
+}
+.info-box h4 { margin-top:0; }
+.table-wrap {
+  overflow-x:auto;
+  margin:12px 0 20px;
+  border-radius:14px;
+  border:1px solid var(--line);
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  min-width:620px;
+  background:white;
+}
+th {
+  background:var(--blue);
+  color:white;
+  text-align:left;
+  font-weight:700;
+  white-space:nowrap;
+}
+th, td {
+  padding:10px 12px;
+  border:1px solid var(--line);
+  vertical-align:top;
+  font-size:14px;
+}
+tr:nth-child(even) td { background:#f5f9fc; }
+.compact table { min-width:560px; }
+.profile-card { scroll-margin-top:16px; }
+.profile-head {
+  display:flex;
+  gap:14px;
+  align-items:center;
+  margin-bottom:10px;
+}
+.num {
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  background:var(--blue);
+  color:white;
+  font-weight:800;
+  letter-spacing:.04em;
+}
+.catch { color:var(--blue); font-weight:700; margin:4px 0 0; }
+.basic {
+  background:#fafcff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px 14px;
+}
+details {
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px 14px;
+  margin-top:14px;
+  background:#fff;
+}
+summary {
+  cursor:pointer;
+  font-weight:800;
+  color:var(--blue2);
+  font-size:17px;
+}
+.ability-bars {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:14px 0;
+}
+.bar-row {
+  background:#f8fbfe;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px 12px;
+}
+.bar-label {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-weight:700;
+  color:var(--blue2);
+}
+.bar {
+  height:9px;
+  background:#dce8f1;
+  border-radius:99px;
+  overflow:hidden;
+  margin:7px 0;
+}
+.bar span {
+  display:block;
+  height:100%;
+  background:linear-gradient(90deg,#2d6f9f,#6fb0d4);
+  border-radius:99px;
+}
+.bar-row p {
+  margin:0;
+  color:#475467;
+  font-size:13px;
+  line-height:1.55;
+}
+.badges {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:10px 0;
+}
+.badges a {
+  text-decoration:none;
+  background:#eaf3fb;
+  color:var(--blue2);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:6px 11px;
+  font-size:13px;
+}
+.refs li { margin-bottom:7px; word-break:break-all; }
+@media (max-width: 860px) {
+  .layout { display:block; padding:18px 12px 52px; }
+  .sidebar { position:relative; top:auto; max-height:none; margin-bottom:16px; }
+  .sidebar .profile-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2px; }
+  section { padding:18px; border-radius:16px; }
+  .point-grid, .profile-grid, .story-grid, .ability-bars { grid-template-columns:1fr; }
+  table { min-width:700px; }
+  th, td { font-size:13px; padding:9px 10px; }
+  .hero { padding:48px 18px 54px; }
+}
+
+
+/* --- table layout refinement v2 --- */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table-wrap table {
+  min-width: 100% !important;
+  width: 100% !important;
+  table-layout: auto;
+}
+.table-wrap th,
+.table-wrap td,
+.table-wrap th *,
+.table-wrap td * {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+.table-wrap th,
+.table-wrap td {
+  padding: 9px 10px !important;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+.table-wrap.compact table {
+  min-width: 100% !important;
+}
+@media (max-width: 860px) {
+  .table-wrap table {
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+  .table-wrap th,
+  .table-wrap td,
+  .table-wrap th *,
+  .table-wrap td * {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+  .table-wrap th,
+  .table-wrap td {
+    padding: 8px 9px !important;
+  }
+  .table-wrap td:first-child,
+  .table-wrap th:first-child {
+    width: auto !important;
+  }
+}
+
+
+
+/* --- ability overview no-wrap fix v8 --- */
+#ability .table-wrap:first-of-type table {
+  min-width: 930px !important;
+  table-layout: auto !important;
+}
+#ability .table-wrap:first-of-type th:nth-child(1),
+#ability .table-wrap:first-of-type td:nth-child(1),
+#ability .table-wrap:first-of-type th:nth-child(2),
+#ability .table-wrap:first-of-type td:nth-child(2) {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+
+/* Type classification table should stay compact and normal-sized */
+#ability .table-wrap:not(:first-of-type) table {
+  min-width: 100% !important;
+  table-layout: auto !important;
+}
+#ability .table-wrap:not(:first-of-type) th,
+#ability .table-wrap:not(:first-of-type) td,
+#ability .table-wrap:not(:first-of-type) th *,
+#ability .table-wrap:not(:first-of-type) td * {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}
+@media (max-width: 860px) {
+  #ability .table-wrap:not(:first-of-type) th,
+  #ability .table-wrap:not(:first-of-type) td,
+  #ability .table-wrap:not(:first-of-type) th *,
+  #ability .table-wrap:not(:first-of-type) td * {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+@media print {
+  body { background:white; }
+  .sidebar { display:none; }
+  .layout { display:block; max-width:none; padding:0; }
+  section { page-break-inside:avoid; box-shadow:none; border-color:#ddd; }
+  details { page-break-inside:avoid; }
+  details:not([open]) > *:not(summary) { display:block; }
+}
+
+/* --- public-site polish v13 --- */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:"";
+  position:absolute;
+  inset:-80px -60px auto auto;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background:rgba(255,255,255,.10);
+}
+.hero::after {
+  content:"";
+  position:absolute;
+  left:-80px;
+  bottom:-110px;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+}
+.hero > * { position:relative; z-index:1; }
+.hero .catchcopy {
+  max-width:860px;
+  margin:18px auto 0;
+  font-size:clamp(15px,2.2vw,20px);
+  line-height:1.75;
+  opacity:.94;
+}
+.hero .hero-badges {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:9px;
+  margin:24px auto 0;
+}
+.hero .hero-badges span {
+  display:inline-flex;
+  align-items:center;
+  border:1px solid rgba(255,255,255,.38);
+  background:rgba(255,255,255,.14);
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:13px;
+  backdrop-filter: blur(6px);
+}
+.dashboard {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin:16px 0 22px;
+}
+.stat-card {
+  background:linear-gradient(180deg,#ffffff,#f7fbff);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px 15px;
+  box-shadow:0 7px 18px rgba(31,78,121,.06);
+}
+.stat-card .label {
+  color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.03em;
+}
+.stat-card .value {
+  color:var(--blue2);
+  font-size:18px;
+  font-weight:900;
+  margin-top:4px;
+}
+.profile-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:10px 0 14px;
+}
+.pill {
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:12.5px;
+  line-height:1;
+  font-weight:800;
+  border:1px solid var(--line);
+  background:#f4f8fc;
+  color:var(--blue2);
+}
+.pill.rank { background:#fff7e6; color:#915c00; border-color:#f2d28b; }
+.pill.type { background:#eef5fb; color:var(--blue2); }
+.pill.strong { background:#edf9f1; color:#247447; border-color:#b9e4c7; }
+.pill.type-complete { background:#eaf3ff; color:#19558c; border-color:#b9d7f2; }
+.pill.type-ceiling { background:#f3ecff; color:#6540a6; border-color:#d4c2f2; }
+.pill.type-hero { background:#fff0f5; color:#a63a63; border-color:#efbfd0; }
+.pill.type-specialist { background:#fff4e8; color:#a45110; border-color:#f1c79e; }
+.pill.type-stack { background:#edf9f1; color:#247447; border-color:#b9e4c7; }
+.pill.type-retry { background:#edf7fb; color:#286d82; border-color:#b5dce8; }
+.bar-row.top-ability {
+  border-color:#f2c96d;
+  background:linear-gradient(180deg,#fffaf0,#fff);
+  box-shadow:0 8px 22px rgba(180,126,20,.08);
+}
+.bar-row.top-ability .bar-label::after {
+  content:"★";
+  color:#d99a00;
+  margin-left:6px;
+}
+.site-note {
+  background:#fffdf7;
+  border:1px solid #ecd9a4;
+  border-left:5px solid #d6a62f;
+  border-radius:16px;
+  padding:14px 16px;
+  color:#594a24;
+}
+.back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue2), #2f6f9e);
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(15,59,97,.28);
+  border: 1px solid rgba(255,255,255,.45);
+  opacity: .94;
+}
+.back-to-top:active { transform: translateY(1px); }
+@media (max-width: 860px) {
+  .dashboard { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .stat-card .value { font-size:16px; }
+  .back-to-top { right:16px; bottom:18px; width:50px; height:50px; font-size:23px; }
+}
+@media (max-width: 520px) {
+  .dashboard { grid-template-columns:1fr; }
+}
+@media print {
+  .back-to-top { display:none; }
+}
+
+
+/* --- competition explanation final balance v16 --- */
+.comp-desc-table table {
+  table-layout: fixed !important;
+  min-width: 100% !important;
+  width: 100% !important;
+}
+.comp-desc-table th:first-child,
+.comp-desc-table td:first-child {
+  width: 40% !important;
+  min-width: 40% !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict;
+}
+.comp-desc-table th:nth-child(2),
+.comp-desc-table td:nth-child(2) {
+  width: 60% !important;
+}
+@media (max-width: 860px) {
+  .comp-desc-table th:first-child,
+  .comp-desc-table td:first-child {
+    width: 40% !important;
+    min-width: 40% !important;
+    font-size: 13.5px !important;
+    line-height: 1.65 !important;
+  }
+  .comp-desc-table th:nth-child(2),
+  .comp-desc-table td:nth-child(2) {
+    width: 60% !important;
+  }
+}
+
+
+/* --- KUNOICHI/SASUKE related records table balance v20 --- */
+.ks-records table {
+  table-layout: fixed !important;
+  min-width: 100% !important;
+  width: 100% !important;
+}
+.ks-records th:first-child,
+.ks-records td:first-child {
+  width: 38% !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+.ks-records th:nth-child(2),
+.ks-records td:nth-child(2) {
+  width: 22% !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}
+.ks-records th:nth-child(3),
+.ks-records td:nth-child(3) {
+  width: 40% !important;
+}
+@media (max-width: 860px) {
+  .ks-records th:first-child,
+  .ks-records td:first-child {
+    width: 38% !important;
+    font-size: 13.2px !important;
+  }
+  .ks-records th:nth-child(2),
+  .ks-records td:nth-child(2) {
+    width: 22% !important;
+    font-size: 13.2px !important;
+  }
+  .ks-records th:nth-child(3),
+  .ks-records td:nth-child(3) {
+    width: 40% !important;
+  }
+}
+
+
+/* --- KUNOICHI/SASUKE event label style v21 --- */
+.ks-records td:first-child,
+.ks-records th:first-child {
+  white-space: normal !important;
+  line-height: 1.45 !important;
+  text-align: left;
+}
+.ks-records td:first-child {
+  font-weight: 700;
+  color: var(--blue2);
+}
+
+
+/* --- KUNOICHI/SASUKE related records narrower event column v22 --- */
+.ks-records colgroup col:nth-child(1) { width: 30% !important; }
+.ks-records colgroup col:nth-child(2) { width: 24% !important; }
+.ks-records colgroup col:nth-child(3) { width: 46% !important; }
+
+.ks-records th:first-child,
+.ks-records td:first-child {
+  width: 30% !important;
+  min-width: 30% !important;
+}
+.ks-records th:nth-child(2),
+.ks-records td:nth-child(2) {
+  width: 24% !important;
+}
+.ks-records th:nth-child(3),
+.ks-records td:nth-child(3) {
+  width: 46% !important;
+}
+@media (max-width: 860px) {
+  .ks-records colgroup col:nth-child(1) { width: 30% !important; }
+  .ks-records colgroup col:nth-child(2) { width: 24% !important; }
+  .ks-records colgroup col:nth-child(3) { width: 46% !important; }
+
+  .ks-records th:first-child,
+  .ks-records td:first-child {
+    width: 30% !important;
+    min-width: 30% !important;
+  }
+  .ks-records th:nth-child(2),
+  .ks-records td:nth-child(2) {
+    width: 24% !important;
+  }
+  .ks-records th:nth-child(3),
+  .ks-records td:nth-child(3) {
+    width: 46% !important;
+  }
+}
+
+
+/* --- gray base + colorful accents v25 --- */
+:root {
+  --blue:#475569;
+  --blue2:#1f2937;
+  --light:#f3f4f6;
+  --line:#d1d5db;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --bg:#f5f5f5;
+  --card:#ffffff;
+}
+body {
+  background:linear-gradient(180deg,#f7f7f7,#edf0f3);
+}
+.hero {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(96,165,250,.28), transparent 28%),
+    radial-gradient(circle at 82% 22%, rgba(244,114,182,.22), transparent 30%),
+    linear-gradient(135deg,#111827,#4b5563) !important;
+}
+th {
+  background:#374151 !important;
+}
+.num {
+  background:linear-gradient(135deg,#374151,#64748b) !important;
+}
+.info-box {
+  background:#f8fafc;
+  border-left-color:#64748b;
+}
+.sidebar {
+  box-shadow:0 8px 28px rgba(31,41,55,.08);
+}
+section {
+  box-shadow:0 8px 28px rgba(31,41,55,.06);
+}
+.table-wrap {
+  border-color:#d1d5db;
+}
+tr:nth-child(even) td {
+  background:#f8fafc;
+}
+.back-to-top {
+  background:linear-gradient(135deg,#111827,#4b5563) !important;
+  box-shadow:0 10px 24px rgba(31,41,55,.26);
+}
+
+/* 色味は残す：サマリーカードを淡い多色アクセントに */
+.dashboard .stat-card:nth-child(1) { border-left:5px solid #f59e0b; }
+.dashboard .stat-card:nth-child(2) { border-left:5px solid #60a5fa; }
+.dashboard .stat-card:nth-child(3) { border-left:5px solid #fb7185; }
+.dashboard .stat-card:nth-child(4) { border-left:5px solid #34d399; }
+.dashboard .stat-card:nth-child(5) { border-left:5px solid #f97316; }
+.dashboard .stat-card:nth-child(6) { border-left:5px solid #a78bfa; }
+.stat-card {
+  background:linear-gradient(180deg,#ffffff,#f8fafc);
+}
+.stat-card .value {
+  color:#1f2937;
+}
+
+/* タイプ・順位・強みバッジはカラフルさを維持 */
+.pill.rank { background:#fff7e6; color:#915c00; border-color:#f2d28b; }
+.pill.strong { background:#edf9f1; color:#247447; border-color:#b9e4c7; }
+.pill.type-complete { background:#eaf3ff; color:#19558c; border-color:#b9d7f2; }
+.pill.type-ceiling { background:#f3ecff; color:#6540a6; border-color:#d4c2f2; }
+.pill.type-hero { background:#fff0f5; color:#a63a63; border-color:#efbfd0; }
+.pill.type-specialist { background:#fff4e8; color:#a45110; border-color:#f1c79e; }
+.pill.type-stack { background:#edf9f1; color:#247447; border-color:#b9e4c7; }
+.pill.type-retry { background:#edf7fb; color:#286d82; border-color:#b5dce8; }
+
+/* 能力バーはグレー基調。ただし評価10は金色で特別感を残す */
+.bar span {
+  background:linear-gradient(90deg,#475569,#94a3b8) !important;
+}
+.bar-row.top-ability {
+  border-color:#f2c96d;
+  background:linear-gradient(180deg,#fffaf0,#fff);
+  box-shadow:0 8px 22px rgba(180,126,20,.08);
+}
+.bar-row.top-ability .bar span {
+  background:linear-gradient(90deg,#d97706,#fbbf24) !important;
+}
+.bar-row.top-ability .bar-label::after {
+  color:#d99a00;
+}
+
+/* 参照情報の注記は落ち着いたグレーに */
+.site-note {
+  background:#f9fafb;
+  border-color:#d1d5db;
+  border-left-color:#6b7280;
+  color:#374151;
+}
+
+
+/* --- gray dashboard cards v26 --- */
+.dashboard .stat-card {
+  border-left:1px solid var(--line) !important;
+  background:linear-gradient(180deg,#ffffff,#f8fafc) !important;
+}
+.dashboard .stat-card::before {
+  content:"";
+  display:block;
+  width:42px;
+  height:4px;
+  border-radius:999px;
+  background:#9ca3af;
+  margin-bottom:10px;
+}
+.dashboard .stat-card .label {
+  color:#6b7280 !important;
+}
+.dashboard .stat-card .value {
+  color:#1f2937 !important;
+}
+
+
+
+/* --- ability overview width tune v39 --- */
+#ability .table-wrap:first-of-type table {
+  min-width: 970px !important;
+  table-layout: auto !important;
+}
+#ability .table-wrap:first-of-type th:nth-child(1),
+#ability .table-wrap:first-of-type td:nth-child(1) {
+  width: 124px !important;
+  min-width: 124px !important;
+  white-space: nowrap !important;
+}
+#ability .table-wrap:first-of-type th:nth-child(2),
+#ability .table-wrap:first-of-type td:nth-child(2) {
+  width: 170px !important;
+  min-width: 170px !important;
+  white-space: nowrap !important;
+}
+#ability .table-wrap:first-of-type th:nth-child(3),
+#ability .table-wrap:first-of-type td:nth-child(3) {
+  width: 155px !important;
+  min-width: 155px !important;
+}
+#ability .table-wrap:first-of-type th:nth-child(n+4),
+#ability .table-wrap:first-of-type td:nth-child(n+4) {
+  width: 72px !important;
+  min-width: 72px !important;
+  text-align: center;
+}
+@media (max-width: 860px) {
+  #ability .table-wrap:first-of-type table {
+    min-width: 930px !important;
+  }
+  #ability .table-wrap:first-of-type th:nth-child(1),
+  #ability .table-wrap:first-of-type td:nth-child(1) {
+    width: 116px !important;
+    min-width: 116px !important;
+  }
+  #ability .table-wrap:first-of-type th:nth-child(2),
+  #ability .table-wrap:first-of-type td:nth-child(2) {
+    width: 150px !important;
+    min-width: 150px !important;
+  }
+  #ability .table-wrap:first-of-type th:nth-child(3),
+  #ability .table-wrap:first-of-type td:nth-child(3) {
+    width: 142px !important;
+    min-width: 142px !important;
+  }
+  #ability .table-wrap:first-of-type th:nth-child(n+4),
+  #ability .table-wrap:first-of-type td:nth-child(n+4) {
+    width: 68px !important;
+    min-width: 68px !important;
+  }
+}
+
+
+
+/* --- ability split tables compact fix v43 --- */
+#ability .ability-name-wrap {
+  overflow-x: visible !important;
+}
+#ability .ability-name-wrap table {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+}
+#ability .ability-name-wrap th,
+#ability .ability-name-wrap td,
+#ability .ability-name-wrap th *,
+#ability .ability-name-wrap td * {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+#ability .ability-name-wrap th,
+#ability .ability-name-wrap td {
+  padding: 8px 10px !important;
+}
+#ability .ability-name-wrap th:nth-child(1),
+#ability .ability-name-wrap td:nth-child(1) {
+  width: 25% !important;
+  min-width: 0 !important;
+  white-space: nowrap !important;
+}
+#ability .ability-name-wrap th:nth-child(2),
+#ability .ability-name-wrap td:nth-child(2) {
+  width: 75% !important;
+  min-width: 0 !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+}
+#ability .ability-score-wrap table {
+  min-width: 650px !important;
+  width: 100% !important;
+  table-layout: auto !important;
+}
+#ability .ability-score-wrap th,
+#ability .ability-score-wrap td,
+#ability .ability-score-wrap th *,
+#ability .ability-score-wrap td * {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+@media (max-width: 860px) {
+  #ability .ability-name-wrap th,
+  #ability .ability-name-wrap td,
+  #ability .ability-name-wrap th *,
+  #ability .ability-name-wrap td * {
+    font-size: 12.5px !important;
+  }
+  #ability .ability-name-wrap th,
+  #ability .ability-name-wrap td {
+    padding: 7px 9px !important;
+  }
+  #ability .ability-name-wrap th:nth-child(1),
+  #ability .ability-name-wrap td:nth-child(1) {
+    width: 23% !important;
+  }
+  #ability .ability-score-wrap th,
+  #ability .ability-score-wrap td,
+  #ability .ability-score-wrap th *,
+  #ability .ability-score-wrap td * {
+    font-size: 13.5px !important;
+  }
+}
+
+
+/* --- v45: restore and compact name/alias table --- */
+#ability .name-alias-fixed {
+  overflow-x: visible !important;
+  max-width: 100% !important;
+}
+
+#ability .name-alias-fixed table {
+  display: table !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+}
+
+#ability .name-alias-fixed tr {
+  display: table-row !important;
+}
+
+#ability .name-alias-fixed th,
+#ability .name-alias-fixed td {
+  display: table-cell !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  padding: 7px 9px !important;
+  overflow: visible !important;
+}
+
+#ability .name-alias-fixed th:nth-child(1),
+#ability .name-alias-fixed td:nth-child(1) {
+  width: 32% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+
+#ability .name-alias-fixed th:nth-child(2),
+#ability .name-alias-fixed td:nth-child(2) {
+  width: 68% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+}
+
+@media (max-width: 860px) {
+  #ability .name-alias-fixed th,
+  #ability .name-alias-fixed td {
+    font-size: 12.5px !important;
+    line-height: 1.42 !important;
+    padding: 7px 8px !important;
+  }
+
+  #ability .name-alias-fixed th:nth-child(1),
+  #ability .name-alias-fixed td:nth-child(1) {
+    width: 33% !important;
+  }
+
+  #ability .name-alias-fixed th:nth-child(2),
+  #ability .name-alias-fixed td:nth-child(2) {
+    width: 67% !important;
+  }
+}
+
+
+/* --- v46: stronger compact fix for name/alias table --- */
+#ability .table-wrap.ability-name-wrap.name-alias-fixed {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+#ability .table-wrap.ability-name-wrap.name-alias-fixed table {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+}
+
+#ability .table-wrap.ability-name-wrap.name-alias-fixed th,
+#ability .table-wrap.ability-name-wrap.name-alias-fixed td,
+#ability .table-wrap.ability-name-wrap.name-alias-fixed th *,
+#ability .table-wrap.ability-name-wrap.name-alias-fixed td * {
+  font-size: 13px !important;
+  line-height: 1.42 !important;
+}
+
+#ability .table-wrap.ability-name-wrap.name-alias-fixed th,
+#ability .table-wrap.ability-name-wrap.name-alias-fixed td {
+  padding: 7px 9px !important;
+}
+
+#ability .table-wrap.ability-name-wrap.name-alias-fixed th:nth-child(1),
+#ability .table-wrap.ability-name-wrap.name-alias-fixed td:nth-child(1) {
+  width: 32% !important;
+  min-width: 0 !important;
+  max-width: 32% !important;
+  white-space: nowrap !important;
+}
+
+#ability .table-wrap.ability-name-wrap.name-alias-fixed th:nth-child(2),
+#ability .table-wrap.ability-name-wrap.name-alias-fixed td:nth-child(2) {
+  width: 68% !important;
+  min-width: 0 !important;
+  max-width: 68% !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+@media (max-width: 860px) {
+  #ability .table-wrap.ability-name-wrap.name-alias-fixed th,
+  #ability .table-wrap.ability-name-wrap.name-alias-fixed td,
+  #ability .table-wrap.ability-name-wrap.name-alias-fixed th *,
+  #ability .table-wrap.ability-name-wrap.name-alias-fixed td * {
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  #ability .table-wrap.ability-name-wrap.name-alias-fixed th,
+  #ability .table-wrap.ability-name-wrap.name-alias-fixed td {
+    padding: 7px 8px !important;
+  }
+
+  #ability .table-wrap.ability-name-wrap.name-alias-fixed th:nth-child(1),
+  #ability .table-wrap.ability-name-wrap.name-alias-fixed td:nth-child(1) {
+    width: 31% !important;
+    max-width: 31% !important;
+  }
+
+  #ability .table-wrap.ability-name-wrap.name-alias-fixed th:nth-child(2),
+  #ability .table-wrap.ability-name-wrap.name-alias-fixed td:nth-child(2) {
+    width: 69% !important;
+    max-width: 69% !important;
+  }
+}
+
+
+
+/* --- v53: fix PROFILE label overflow in profile number badge --- */
+.num {
+  justify-content:center !important;
+  align-items:center !important;
+  overflow:hidden !important;
+}
+.num small {
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  text-align:center !important;
+  white-space:nowrap !important;
+  font-size:7.2px !important;
+  letter-spacing:.055em !important;
+  line-height:1 !important;
+  transform:none !important;
+}
+.num b {
+  display:block !important;
+  width:100% !important;
+  text-align:center !important;
+  line-height:1.05 !important;
+}
+ (max-width: 860px) {
+  .num small {
+    font-size:6.8px !important;
+    letter-spacing:.045em !important;
+  }
+}
+
+
+
+/* --- v8: podium decoration for 42nd review top 3 --- */
+#review42 .stat-card.podium {
+  position: relative;
+  overflow: hidden;
+  padding-top: 16px;
+}
+#review42 .stat-card.podium::after {
+  position:absolute;
+  top:12px;
+  right:14px;
+  font-size:20px;
+  line-height:1;
+  opacity:.95;
+}
+#review42 .stat-card.podium .label {
+  font-weight:800;
+}
+#review42 .stat-card.podium .value {
+  font-size:19px;
+}
+#review42 .stat-card.podium .value::before {
+  display:inline-block;
+  margin-right:6px;
+  font-size:14px;
+  vertical-align:0.08em;
+}
+#review42 .stat-card.podium-gold {
+  border:1px solid #e7c770 !important;
+  background:linear-gradient(180deg,#fff9eb 0%, #fff2cf 100%) !important;
+  box-shadow:0 10px 22px rgba(192,145,32,.12);
+}
+#review42 .stat-card.podium-gold::before {
+  background:linear-gradient(90deg,#b8860b,#f2c94c) !important;
+}
+#review42 .stat-card.podium-gold::after,
+#review42 .stat-card.podium-gold .value::before {
+  content:"♛";
+}
+#review42 .stat-card.podium-gold .label { color:#8a6408 !important; }
+#review42 .stat-card.podium-gold .value { color:#5c4304 !important; }
+
+#review42 .stat-card.podium-silver {
+  border:1px solid #cfd5de !important;
+  background:linear-gradient(180deg,#fbfcfe 0%, #edf2f7 100%) !important;
+  box-shadow:0 10px 22px rgba(107,114,128,.10);
+}
+#review42 .stat-card.podium-silver::before {
+  background:linear-gradient(90deg,#8b95a1,#cdd5df) !important;
+}
+#review42 .stat-card.podium-silver::after,
+#review42 .stat-card.podium-silver .value::before {
+  content:"♕";
+}
+#review42 .stat-card.podium-silver .label { color:#687384 !important; }
+#review42 .stat-card.podium-silver .value { color:#344054 !important; }
+
+#review42 .stat-card.podium-bronze {
+  border:1px solid #ddb7a0 !important;
+  background:linear-gradient(180deg,#fff8f4 0%, #f5dfd2 100%) !important;
+  box-shadow:0 10px 22px rgba(151,89,49,.10);
+}
+#review42 .stat-card.podium-bronze::before {
+  background:linear-gradient(90deg,#a85d32,#d59b73) !important;
+}
+#review42 .stat-card.podium-bronze::after,
+#review42 .stat-card.podium-bronze .value::before {
+  content:"♛";
+}
+#review42 .stat-card.podium-bronze .label { color:#8d5633 !important; }
+#review42 .stat-card.podium-bronze .value { color:#5d3721 !important; }
+
+
+/* --- home navigation links v1 --- */
+.hero { position: relative; }
+.home-link-top {
+  position:absolute;
+  left:18px;
+  top:16px;
+  z-index:10;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 12px;
+  border-radius:999px;
+  color:#f8fafc;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.02em;
+  background:rgba(17,24,39,.48);
+  border:1px solid rgba(255,255,255,.24);
+  box-shadow:0 8px 22px rgba(17,24,39,.20);
+  backdrop-filter:blur(8px);
+}
+.home-link-top:hover {
+  background:rgba(17,24,39,.68);
+  transform:translateY(-1px);
+}
+.bottom-home-nav {
+  text-align:center;
+  margin:30px 0 0;
+}
+.home-button-bottom {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:min(100%, 320px);
+  padding:13px 22px;
+  border-radius:999px;
+  color:#fff;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:.03em;
+  background:linear-gradient(135deg,#111827,#4b5563);
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:0 12px 26px rgba(31,41,55,.22);
+}
+.home-button-bottom:hover {
+  transform:translateY(-1px);
+  box-shadow:0 16px 30px rgba(31,41,55,.26);
+}
+@media (max-width: 520px) {
+  .home-link-top {
+    left:12px;
+    top:12px;
+    padding:7px 10px;
+    font-size:12px;
+  }
+  .home-button-bottom {
+    width:100%;
+    font-size:14px;
+  }
+}
+@media print {
+  .home-link-top, .bottom-home-nav { display:none; }
+}
+
+</style>
+<style>
+/* --- v52: magazine-style cool polish --- */
+body {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(148,163,184,.18), transparent 30%),
+    radial-gradient(circle at 88% 8%, rgba(96,165,250,.14), transparent 28%),
+    linear-gradient(180deg,#f8fafc,#edf0f3) !important;
+}
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(31,41,55,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31,41,55,.035) 1px, transparent 1px);
+  background-size:34px 34px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.10));
+}
+.hero {
+  padding:72px 20px 78px !important;
+  background:
+    linear-gradient(115deg, rgba(17,24,39,.96), rgba(55,65,81,.86)),
+    radial-gradient(circle at 22% 20%, rgba(96,165,250,.42), transparent 32%),
+    radial-gradient(circle at 78% 18%, rgba(251,113,133,.34), transparent 34%) !important;
+}
+.hero h1 {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  line-height:1.08;
+  letter-spacing:.03em;
+}
+.hero .hero-kicker,
+.hero .hero-title-en {
+  font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing:.22em;
+  font-size:clamp(11px,1.8vw,14px);
+  font-weight:800;
+  color:rgba(255,255,255,.72);
+}
+.hero .hero-title-main {
+  font-size:clamp(28px,5.2vw,56px);
+  font-weight:900;
+}
+.hero .hero-title-sub {
+  display:inline-block;
+  margin-top:2px;
+  padding:.12em .34em .18em;
+  border:1px solid rgba(255,255,255,.38);
+  border-radius:14px;
+  background:rgba(255,255,255,.10);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.20);
+  font-size:clamp(24px,4.6vw,48px);
+  font-weight:900;
+}
+.hero p {
+  margin-top:16px !important;
+  font-weight:800;
+}
+.hero .hero-badges span {
+  text-transform:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22);
+}
+section {
+  position:relative;
+  overflow:hidden;
+}
+section::before {
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:4px;
+  background:linear-gradient(90deg,#111827,#9ca3af,transparent);
+  opacity:.88;
+}
+h2[data-label] {
+  border-bottom:none;
+  padding-bottom:0;
+  margin-bottom:20px;
+}
+h2[data-label]::before {
+  content:attr(data-label);
+  display:block;
+  margin:0 0 4px;
+  font-size:12px;
+  line-height:1;
+  letter-spacing:.18em;
+  color:#6b7280;
+  font-weight:900;
+}
+h2[data-label]::after {
+  content:"";
+  display:block;
+  width:72px;
+  height:3px;
+  margin-top:10px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#111827,#9ca3af);
+}
+.sidebar h2 {
+  letter-spacing:.18em;
+  font-weight:900;
+}
+.sidebar a {
+  border:1px solid transparent;
+  transition:background .15s ease, transform .15s ease, border-color .15s ease;
+}
+.sidebar a:hover {
+  transform:translateX(2px);
+  border-color:#d1d5db;
+  background:linear-gradient(90deg,#f8fafc,#eef2f7);
+}
+.profile-card {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(148,163,184,.14), transparent 28%),
+    linear-gradient(180deg,#ffffff,#fbfdff);
+}
+.profile-head {
+  align-items:flex-start;
+}
+.num {
+  width:62px !important;
+  height:62px !important;
+  border-radius:18px !important;
+  display:flex !important;
+  flex-direction:column;
+  gap:2px;
+  line-height:1;
+  box-shadow:0 10px 22px rgba(31,41,55,.16);
+}
+.num small {
+  font-size:9px;
+  letter-spacing:.12em;
+  opacity:.78;
+  font-weight:900;
+}
+.num b {
+  font-size:23px;
+  letter-spacing:.03em;
+}
+.profile-card h3 {
+  font-size:clamp(25px,3vw,34px);
+  line-height:1.18;
+}
+.catch {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#374151 !important;
+}
+.catch::before {
+  content:"";
+  width:18px;
+  height:2px;
+  border-radius:999px;
+  background:#9ca3af;
+}
+.profile-tagline {
+  margin:6px 0 13px;
+  padding:10px 12px;
+  border-left:4px solid #9ca3af;
+  border-radius:12px;
+  background:#f8fafc;
+  color:#374151;
+  font-weight:800;
+  line-height:1.65;
+}
+.basic {
+  background:linear-gradient(180deg,#fbfdff,#f8fafc) !important;
+}
+.bar-label b {
+  min-width:2.4em;
+  text-align:right;
+  padding:2px 7px;
+  border-radius:999px;
+  background:#eef2f7;
+  color:#111827;
+  font-variant-numeric:tabular-nums;
+}
+.bar-row.top-ability .bar-label b {
+  background:#fff7e6;
+  color:#7a4a00;
+  box-shadow:inset 0 0 0 1px #f2d28b;
+}
+.bar-row.top-ability .bar-label b::before {
+  color:#d99a00 !important;
+}
+.table-wrap {
+  box-shadow:0 6px 18px rgba(31,41,55,.04);
+}
+th {
+  letter-spacing:.02em;
+}
+@media (max-width: 860px) {
+  .hero { padding:58px 16px 62px !important; }
+  .hero .hero-title-sub { border-radius:12px; }
+  .num {
+    width:56px !important;
+    height:56px !important;
+  }
+  .num b { font-size:21px; }
+  .profile-tagline {
+    font-size:14px;
+  }
+}
+@media print {
+  body::before { display:none; }
+  section::before { display:none; }
+}
+
+/* --- v55: mobile collapsible contents + horizontal player chips --- */
+/* --- v57: align first player chip with helper text on mobile --- */
+.toc-toggle {
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+.toc-toggle-label {
+  display:none;
+}
+.toc-body {
+  display:block;
+}
+@media (max-width: 860px) {
+  .sidebar {
+    padding:12px !important;
+    overflow:hidden !important;
+  }
+  .toc-toggle-label {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    width:100%;
+    padding:12px 13px;
+    border:1px solid #d1d5db;
+    border-radius:14px;
+    background:linear-gradient(180deg,#ffffff,#f8fafc);
+    color:#111827;
+    cursor:pointer;
+    box-shadow:0 6px 16px rgba(31,41,55,.06);
+  }
+  .toc-toggle-label span {
+    font-size:12px;
+    letter-spacing:.18em;
+    font-weight:900;
+    color:#6b7280;
+  }
+  .toc-toggle-label b {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+  }
+  .toc-toggle-label b::after {
+    content:"＋";
+    display:inline-grid;
+    place-items:center;
+    width:22px;
+    height:22px;
+    border-radius:999px;
+    background:#eef2f7;
+    color:#374151;
+    font-weight:900;
+  }
+  .toc-toggle:checked + .toc-toggle-label b {
+    font-size:0;
+  }
+  .toc-toggle:checked + .toc-toggle-label b::before {
+    content:"目次を閉じる";
+    font-size:14px;
+  }
+  .toc-toggle:checked + .toc-toggle-label b::after {
+    content:"－";
+  }
+  .toc-body {
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(-4px);
+    transition:max-height .28s ease, opacity .2s ease, transform .2s ease;
+  }
+  .toc-toggle:checked ~ .toc-body {
+    max-height:760px;
+    opacity:1;
+    transform:translateY(0);
+    padding-top:10px;
+  }
+  .toc-body h2 {
+    display:none;
+  }
+  .sidebar .profile-links {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:4px;
+  }
+
+  #profiles .badges {
+    flex-wrap:nowrap !important;
+    overflow-x:auto;
+    overflow-y:hidden;
+    gap:8px;
+    margin-left:-18px;
+    margin-right:-18px;
+    padding:2px 18px 12px 18px;
+    scroll-padding-left:18px;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  #profiles .badges::-webkit-scrollbar {
+    height:6px;
+  }
+  #profiles .badges::-webkit-scrollbar-thumb {
+    background:#cbd5e1;
+    border-radius:999px;
+  }
+  #profiles .badges a {
+    flex:0 0 auto;
+    white-space:nowrap;
+    scroll-snap-align:start;
+    padding:8px 12px;
+    background:linear-gradient(180deg,#ffffff,#f8fafc);
+    box-shadow:0 5px 14px rgba(31,41,55,.06);
+  }
+  #profiles::after {
+    content:"横にスクロールして選手を選べます →";
+    display:block;
+    margin-top:-6px;
+    color:#6b7280;
+    font-size:12px;
+    font-weight:700;
+  }
+}
+@media print {
+  .toc-toggle, .toc-toggle-label { display:none !important; }
+  .toc-body { display:block !important; max-height:none !important; opacity:1 !important; transform:none !important; }
+}
+
+/* --- v58: premium mobile TOC button + closed-by-default guard --- */
+@media (max-width: 860px) {
+  .toc-toggle:not(:checked) ~ .toc-body {
+    max-height:0 !important;
+    opacity:0 !important;
+    transform:translateY(-4px) !important;
+    padding-top:0 !important;
+  }
+  .toc-toggle-label {
+    position:relative;
+    overflow:hidden;
+    padding:14px 14px !important;
+    border:1px solid rgba(209,213,219,.95) !important;
+    border-radius:18px !important;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255,255,255,.90), transparent 32%),
+      linear-gradient(135deg,#ffffff 0%,#f8fafc 48%,#eef2f7 100%) !important;
+    box-shadow:0 10px 24px rgba(31,41,55,.10), inset 0 1px 0 rgba(255,255,255,.95) !important;
+  }
+  .toc-toggle-label::before {
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:5px;
+    background:linear-gradient(180deg,#111827,#64748b);
+  }
+  .toc-toggle-label::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.55) 36%,transparent 64%);
+    transform:translateX(-70%);
+    pointer-events:none;
+  }
+  .toc-toggle-label span {
+    position:relative;
+    z-index:1;
+    padding-left:8px;
+    font-size:11px !important;
+    letter-spacing:.22em !important;
+    color:#64748b !important;
+  }
+  .toc-toggle-label b {
+    position:relative;
+    z-index:1;
+    padding:6px 7px 6px 10px;
+    border-radius:999px;
+    background:rgba(255,255,255,.74);
+    box-shadow:inset 0 0 0 1px rgba(203,213,225,.95);
+    color:#111827;
+    font-weight:900;
+  }
+  .toc-toggle-label b::after {
+    width:24px !important;
+    height:24px !important;
+    background:linear-gradient(135deg,#111827,#475569) !important;
+    color:#ffffff !important;
+    box-shadow:0 6px 14px rgba(31,41,55,.16);
+  }
+  .toc-toggle:checked + .toc-toggle-label {
+    background:radial-gradient(circle at 18% 20%, rgba(255,255,255,.22), transparent 32%), linear-gradient(135deg,#111827,#475569) !important;
+    border-color:rgba(17,24,39,.25) !important;
+    box-shadow:0 12px 26px rgba(31,41,55,.18) !important;
+  }
+  .toc-toggle:checked + .toc-toggle-label span,
+  .toc-toggle:checked + .toc-toggle-label b,
+  .toc-toggle:checked + .toc-toggle-label b::before {
+    color:#ffffff !important;
+  }
+  .toc-toggle:checked + .toc-toggle-label b {
+    background:rgba(255,255,255,.12);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.20);
+  }
+  .toc-toggle:checked + .toc-toggle-label b::after {
+    background:rgba(255,255,255,.18) !important;
+    color:#ffffff !important;
+  }
+}
+
+
+
+/* --- v59: make mobile TOC button typography/colors blend with page --- */
+@media (max-width: 860px) {
+  .toc-toggle-label {
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255,255,255,.78), transparent 34%),
+      linear-gradient(135deg,#ffffff 0%,#fbfdff 52%,#f3f6f9 100%) !important;
+    border-color:#d6dce3 !important;
+  }
+  .toc-toggle-label::before {
+    width:4px !important;
+    background:linear-gradient(180deg,#475569,#94a3b8) !important;
+  }
+  .toc-toggle-label span {
+    color:#6b7280 !important;
+    font-family:inherit !important;
+    font-weight:900 !important;
+    letter-spacing:.20em !important;
+  }
+  .toc-toggle-label b {
+    font-family:inherit !important;
+    font-size:15px !important;
+    font-weight:800 !important;
+    letter-spacing:.02em !important;
+    color:#1f2937 !important;
+    background:rgba(255,255,255,.58) !important;
+    box-shadow:inset 0 0 0 1px rgba(209,213,219,.90), 0 4px 12px rgba(31,41,55,.04) !important;
+  }
+  .toc-toggle-label b::after {
+    background:linear-gradient(135deg,#475569,#64748b) !important;
+    color:#ffffff !important;
+    font-family:inherit !important;
+    font-size:18px !important;
+    line-height:1 !important;
+    box-shadow:0 5px 12px rgba(71,85,105,.16) !important;
+  }
+  .toc-toggle:checked + .toc-toggle-label {
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255,255,255,.20), transparent 34%),
+      linear-gradient(135deg,#374151,#64748b) !important;
+  }
+  .toc-toggle:checked + .toc-toggle-label b::before {
+    font-size:15px !important;
+    font-weight:800 !important;
+    letter-spacing:.02em !important;
+  }
+}
+
+
+/* --- v62: clean mobile TOC button text switching --- */
+@media (max-width: 860px) {
+  .toc-toggle-label {
+    min-height:58px !important;
+  }
+  .toc-toggle-label b {
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    white-space:nowrap !important;
+    flex:0 0 auto !important;
+    min-width:118px !important;
+    font-size:15px !important;
+    line-height:1.2 !important;
+  }
+  .toc-toggle-label b::before {
+    content:none !important;
+    display:none !important;
+  }
+  .toc-toggle-label b .toc-text-closed,
+  .toc-toggle-label b .toc-text-open {
+    display:inline-block !important;
+    font:inherit !important;
+    color:inherit !important;
+    letter-spacing:inherit !important;
+    line-height:1.2 !important;
+  }
+  .toc-toggle-label b .toc-text-open {
+    display:none !important;
+  }
+  .toc-toggle:checked + .toc-toggle-label b {
+    font-size:15px !important;
+  }
+  .toc-toggle:checked + .toc-toggle-label b .toc-text-closed {
+    display:none !important;
+  }
+  .toc-toggle:checked + .toc-toggle-label b .toc-text-open {
+    display:inline-block !important;
+  }
+  .toc-toggle-label b::after {
+    content:"＋" !important;
+    flex:0 0 24px !important;
+    margin-left:0 !important;
+  }
+  .toc-toggle:checked + .toc-toggle-label b::after {
+    content:"－" !important;
+  }
+}
+</style>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#111827">
+
+<style>
+/* --- v4: 評価10の星を43回版と同じく数値ピル内に統合 --- */
+.bar-row.top-ability .bar-label::after {
+  content: none !important;
+  display: none !important;
+}
+.bar-row.top-ability .bar-label b {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  min-width: 2.4em !important;
+  background:#fff7e6 !important;
+  color:#7a4a00 !important;
+  box-shadow:inset 0 0 0 1px #f2d28b !important;
+  border-radius:999px !important;
+  padding:2px 7px !important;
+  font-variant-numeric:tabular-nums;
+}
+.bar-row.top-ability .bar-label b::before {
+  content:"★" !important;
+  color:#d99a00 !important;
+  margin-right:2px !important;
+  font-weight:900 !important;
+}
+</style>
+<style>
+/* --- v5: fixed back-to-top button like 43rd edition --- */
+.back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#111827,#4b5563) !important;
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(31,41,55,.26);
+  border: 1px solid rgba(255,255,255,.45);
+  opacity: .94;
+}
+.back-to-top:active { transform: translateY(1px); }
+@media (max-width: 860px) {
+  .back-to-top { right:16px; bottom:18px; width:50px; height:50px; font-size:23px; }
+}
+@media print {
+  .back-to-top { display:none !important; }
+}
+
+
+/* --- v66: match 43rd mobile TOC button text color --- */
+@media (max-width: 860px) {
+  .toc-toggle-label b {
+    color:#6b7280 !important;
+  }
+  .toc-toggle-label b .toc-text-closed,
+  .toc-toggle-label b .toc-text-open {
+    color:#6b7280 !important;
+  }
+  .toc-toggle:checked + .toc-toggle-label b,
+  .toc-toggle:checked + .toc-toggle-label b .toc-text-closed,
+  .toc-toggle:checked + .toc-toggle-label b .toc-text-open {
+    color:#ffffff !important;
+  }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* --- v6: remove unwanted frame around subtitle in beach-style hero --- */
+.hero .hero-title-sub {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background: linear-gradient(135deg,#fff 22%, #ffd700 78%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+</style>
+
+<style>
+/* --- v7: 42nd title matched to fixed top page hero --- */
+.edition-hero {
+  position:relative !important;
+  min-height:760px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  padding:88px 0 72px !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+  text-align:left !important;
+  color:#f0ede6 !important;
+  background:none !important;
+}
+.edition-hero::before { content:none !important; display:none !important; }
+.edition-hero::after {
+  content:"IDOL QUALIFIER" !important;
+  position:absolute !important;
+  right:-2vw !important;
+  top:44% !important;
+  left:auto !important;
+  bottom:auto !important;
+  transform:translateY(-50%) rotate(-3deg) !important;
+  font-family:'Bebas Neue', sans-serif !important;
+  font-size:clamp(74px,16vw,210px) !important;
+  line-height:.8 !important;
+  letter-spacing:-2px !important;
+  color:rgba(255,69,0,.055) !important;
+  white-space:nowrap !important;
+  pointer-events:none !important;
+  user-select:none !important;
+  z-index:-1 !important;
+  width:auto !important;
+  height:auto !important;
+  border-radius:0 !important;
+  background:none !important;
+}
+.edition-hero .hero-bg {
+  position:absolute !important;
+  inset:0 !important;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 30%, rgba(255,69,0,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 66%, rgba(255,215,0,.08) 0%, transparent 70%),
+    repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,215,0,.017) 40px, rgba(255,215,0,.017) 41px),
+    linear-gradient(180deg,#0d0d0d 0%,#1a0a00 52%,#0d0d0d 100%) !important;
+  z-index:-3 !important;
+}
+.edition-hero .hero-noise {
+  position:absolute !important;
+  inset:0 !important;
+  opacity:.045 !important;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") !important;
+  background-size:200px 200px !important;
+  z-index:-2 !important;
+}
+.edition-hero .hero-tag {
+  position:absolute !important;
+  top:32px !important;
+  left:40px !important;
+  width:auto !important;
+  max-width:calc(100% - 80px) !important;
+  margin:0 !important;
+  padding-left:12px !important;
+  border-left:2px solid #ff4500 !important;
+  color:#c9a96e !important;
+  font-family:'Oswald', sans-serif !important;
+  font-size:11px !important;
+  line-height:1.55 !important;
+  letter-spacing:4px !important;
+  text-transform:uppercase !important;
+  z-index:3 !important;
+}
+.edition-hero .unofficial-badge {
+  position:absolute !important;
+  top:28px !important;
+  right:40px !important;
+  z-index:3 !important;
+  display:inline-block !important;
+  width:auto !important;
+  padding:4px 10px !important;
+  border:1px solid #333 !important;
+  color:#8e8e8e !important;
+  background:transparent !important;
+  font-size:9px !important;
+  line-height:1.4 !important;
+  letter-spacing:2px !important;
+  text-transform:uppercase !important;
+}
+.edition-hero .hero-content,
+.edition-hero > .hero-content {
+  position:relative !important;
+  z-index:2 !important;
+  width:min(1040px,100%) !important;
+  max-width:100% !important;
+  margin:0 auto !important;
+  padding:0 72px !important;
+  animation:fadeUp .85s ease both;
+}
+.edition-hero .home-link-top {
+  position:static !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:auto !important;
+  max-width:100% !important;
+  margin:0 0 28px !important;
+  padding:9px 14px !important;
+  border-radius:0 !important;
+  border:1px solid #333 !important;
+  background:rgba(255,255,255,.035) !important;
+  color:#c9a96e !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  font-family:'Oswald','Noto Sans JP',sans-serif !important;
+  font-size:12px !important;
+  font-weight:900 !important;
+  line-height:1.35 !important;
+  letter-spacing:1.2px !important;
+  text-decoration:none !important;
+  white-space:nowrap !important;
+}
+.edition-hero .home-link-top:hover { border-color:#ff4500 !important; color:#ffd700 !important; }
+.edition-hero .hero-edition {
+  margin:0 0 12px !important;
+  padding:0 !important;
+  color:#ff4500 !important;
+  font-family:'Bebas Neue',sans-serif !important;
+  font-size:clamp(14px,2vw,18px) !important;
+  line-height:1.2 !important;
+  letter-spacing:6px !important;
+  text-transform:uppercase !important;
+  font-weight:400 !important;
+}
+.edition-hero .hero-title {
+  display:block !important;
+  width:100% !important;
+  max-width:980px !important;
+  margin:0 0 22px !important;
+  padding:0 !important;
+  border:none !important;
+  box-shadow:none !important;
+  font-family:'Bebas Neue','Noto Sans JP',sans-serif !important;
+  font-size:clamp(48px,5.6vw,74px) !important;
+  line-height:1.08 !important;
+  letter-spacing:1px !important;
+  background:linear-gradient(135deg,#fff 24%,#ffd700 72%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  color:transparent !important;
+  text-align:left !important;
+  overflow:visible !important;
+}
+.edition-hero .hero-title span {
+  display:block !important;
+  width:auto !important;
+  max-width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:none !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  line-height:inherit !important;
+  font:inherit !important;
+  letter-spacing:inherit !important;
+  background:inherit !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  color:transparent !important;
+}
+.edition-hero .hero-title span:first-child { white-space:nowrap !important; }
+.edition-hero .hero-title span + span { margin-top:8px !important; }
+.edition-hero .hero-sub {
+  margin:0 0 30px !important;
+  padding:0 !important;
+  color:#aaa !important;
+  font-size:14px !important;
+  line-height:1.8 !important;
+  letter-spacing:2px !important;
+  font-weight:900 !important;
+  text-transform:uppercase !important;
+  text-align:left !important;
+}
+.edition-hero .hero-sub::after { content:none !important; display:none !important; }
+.edition-hero .hero-divider {
+  width:72px !important;
+  height:3px !important;
+  margin:0 0 28px !important;
+  background:linear-gradient(90deg,#ff4500,#ffd700) !important;
+}
+.edition-hero .hero-lead,
+.edition-hero .catchcopy {
+  max-width:760px !important;
+  width:100% !important;
+  margin:0 0 28px !important;
+  padding:0 !important;
+  color:#c9c9c9 !important;
+  font-size:clamp(15px,2vw,17px) !important;
+  line-height:1.9 !important;
+  letter-spacing:0 !important;
+  font-weight:700 !important;
+  text-align:left !important;
+}
+.edition-hero .hero-lead::after { content:none !important; display:none !important; }
+.edition-hero .hero-badges {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  justify-content:flex-start !important;
+  gap:10px !important;
+  width:100% !important;
+  max-width:760px !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+.edition-hero .hero-badges span {
+  display:inline-flex !important;
+  align-items:center !important;
+  width:auto !important;
+  padding:5px 10px !important;
+  border:1px solid #444 !important;
+  border-radius:0 !important;
+  background:rgba(255,255,255,.035) !important;
+  color:#c9a96e !important;
+  font-family:'Oswald','Noto Sans JP',sans-serif !important;
+  font-size:10px !important;
+  line-height:1.35 !important;
+  letter-spacing:1.5px !important;
+  font-weight:900 !important;
+  text-transform:uppercase !important;
+  box-shadow:none !important;
+}
+.edition-hero .date {
+  width:100% !important;
+  max-width:760px !important;
+  margin:18px 0 0 !important;
+  color:#777 !important;
+  font-size:11px !important;
+  line-height:1.4 !important;
+  letter-spacing:1px !important;
+  opacity:1 !important;
+  text-align:left !important;
+}
+@media (min-width:801px) and (max-width:1180px) {
+  .edition-hero .hero-title {
+    font-size:clamp(44px,5.2vw,64px) !important;
+    line-height:1.12 !important;
+  }
+  .edition-hero .hero-title span:first-child { white-space:normal !important; }
+}
+@media (max-width:800px) {
+  .edition-hero {
+    display:block !important;
+    min-height:auto !important;
+    padding:24px 0 48px !important;
+  }
+  .edition-hero .hero-tag {
+    position:relative !important;
+    top:auto !important;
+    left:auto !important;
+    right:auto !important;
+    display:block !important;
+    width:auto !important;
+    max-width:none !important;
+    margin:0 24px 12px !important;
+    font-size:10px !important;
+    letter-spacing:2px !important;
+    line-height:1.55 !important;
+  }
+  .edition-hero .unofficial-badge {
+    position:relative !important;
+    top:auto !important;
+    left:auto !important;
+    right:auto !important;
+    display:inline-block !important;
+    margin:0 24px 34px !important;
+  }
+  .edition-hero .hero-content,
+  .edition-hero > .hero-content {
+    width:100% !important;
+    padding:0 24px !important;
+  }
+  .edition-hero .home-link-top {
+    margin-bottom:28px !important;
+  }
+  .edition-hero .hero-edition {
+    font-size:14px !important;
+    letter-spacing:4px !important;
+    margin-bottom:12px !important;
+  }
+  .edition-hero .hero-title {
+    max-width:100% !important;
+    font-size:clamp(24px,7.2vw,34px) !important;
+    line-height:1.16 !important;
+    letter-spacing:.5px !important;
+    margin-bottom:22px !important;
+  }
+  .edition-hero .hero-title span,
+  .edition-hero .hero-title span:first-child {
+    white-space:normal !important;
+  }
+  .edition-hero .hero-title span + span { margin-top:6px !important; }
+  .edition-hero .hero-sub {
+    font-size:13px !important;
+    letter-spacing:1px !important;
+    line-height:1.8 !important;
+  }
+  .edition-hero::after {
+    top:34% !important;
+    right:-26vw !important;
+    white-space:normal !important;
+    width:520px !important;
+    line-height:.82 !important;
+  }
+}
+@media print {
+  .edition-hero .hero-bg, .edition-hero .hero-noise, .edition-hero::after { display:none !important; }
+}
+</style>
+
+
+<style>
+/* --- v8: make 42nd hero full-bleed like fixed top page --- */
+html, body {
+  overflow-x:hidden !important;
+}
+.edition-hero {
+  width:100vw !important;
+  max-width:none !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 30%, rgba(255,69,0,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 66%, rgba(255,215,0,.08) 0%, transparent 70%),
+    repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,215,0,.017) 40px, rgba(255,215,0,.017) 41px),
+    linear-gradient(180deg,#0d0d0d 0%,#1a0a00 52%,#0d0d0d 100%) !important;
+  z-index:0 !important;
+}
+.edition-hero .hero-bg {
+  display:none !important;
+}
+.edition-hero .hero-noise {
+  z-index:0 !important;
+  pointer-events:none !important;
+}
+.edition-hero::after {
+  z-index:1 !important;
+}
+.edition-hero .hero-tag,
+.edition-hero .unofficial-badge,
+.edition-hero .hero-content {
+  position:relative;
+  z-index:2 !important;
+}
+.edition-hero .hero-tag {
+  position:absolute !important;
+}
+.edition-hero .unofficial-badge {
+  position:absolute !important;
+}
+@media (max-width:800px) {
+  .edition-hero {
+    width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+}
+</style>
+
+
+<style>
+/* --- v9: mobile fix - keep top link separated from hero tag --- */
+@media (max-width:800px) {
+  .edition-hero .hero-tag {
+    position:relative !important;
+    top:auto !important;
+    left:auto !important;
+    right:auto !important;
+    display:block !important;
+    width:auto !important;
+    max-width:calc(100% - 48px) !important;
+    margin:0 24px 18px !important;
+    padding-left:12px !important;
+    z-index:3 !important;
+  }
+  .edition-hero .unofficial-badge {
+    position:relative !important;
+    top:auto !important;
+    left:auto !important;
+    right:auto !important;
+    display:inline-block !important;
+    margin:0 24px 26px !important;
+    z-index:3 !important;
+  }
+  .edition-hero .hero-content,
+  .edition-hero > .hero-content {
+    position:relative !important;
+    z-index:3 !important;
+    padding:0 24px !important;
+  }
+  .edition-hero .home-link-top {
+    position:relative !important;
+    display:inline-flex !important;
+    clear:both !important;
+    margin:0 0 36px !important;
+    z-index:4 !important;
+  }
+}
+</style>
+
+
+
+<style>
+/* --- v10: desktop sidebar final - below hero, then fixed during content --- */
+@media (min-width: 861px) {
+  .layout {
+    display: block !important;
+    position: relative !important;
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+    padding: 28px 18px 72px 296px !important;
+    overflow: visible !important;
+  }
+
+  .layout > main {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .layout > .sidebar {
+    position: absolute !important;
+    top: 28px !important;
+    left: 18px !important;
+    width: 250px !important;
+    max-width: 250px !important;
+    max-height: calc(100vh - 32px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    z-index: 30 !important;
+    align-self: auto !important;
+  }
+
+  .layout > .sidebar.is-fixed {
+    position: fixed !important;
+    top: 16px !important;
+    left: var(--sidebar-left, 18px) !important;
+  }
+
+  .layout > .sidebar.is-bottom {
+    position: absolute !important;
+    top: var(--sidebar-bottom-top, 28px) !important;
+    left: 18px !important;
+  }
+
+  .layout > .sidebar .toc-toggle,
+  .layout > .sidebar .toc-toggle-label {
+    display: none !important;
+  }
+
+  .layout > .sidebar .toc-body {
+    display: block !important;
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    padding-top: 0 !important;
+  }
+
+  .layout > .sidebar .toc-body h2 {
+    display: block !important;
+  }
+}
+
+@media (min-width: 861px) and (max-width: 1040px) {
+  .layout {
+    padding-left: 286px !important;
+    padding-right: 14px !important;
+  }
+  .layout > .sidebar {
+    left: 14px !important;
+    width: 244px !important;
+    max-width: 244px !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .layout {
+    display: block !important;
+    padding: 18px 12px 52px !important;
+  }
+
+  .layout > .sidebar {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    margin-bottom: 16px !important;
+  }
+}
+</style>
+
+
+<style>
+/* --- safe patch: appendix-only update + TOC plus alignment --- */
+@media (max-width: 860px) {
+  .toc-toggle-label b::after {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translateY(-1px) !important;
+  }
+}
+
+#appendix .appendix-event-title {
+  margin: 22px 0 12px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  color: #1f2937 !important;
+  font-size: clamp(20px, 3vw, 28px) !important;
+  line-height: 1.45 !important;
+  font-weight: 900 !important;
+  letter-spacing: .01em !important;
+}
+
+#appendix .appendix-subtitle {
+  margin: 18px 0 6px !important;
+  color: #1f2937 !important;
+  font-size: 17px !important;
+  font-weight: 900 !important;
+}
+
+#appendix .appendix-table-wrap table {
+  min-width: 560px !important;
+  table-layout: fixed !important;
+}
+
+#appendix .appendix-table-wrap th,
+#appendix .appendix-table-wrap td {
+  padding: 7px 8px !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  vertical-align: middle !important;
+}
+
+#appendix .appendix-table-wrap th:nth-child(1),
+#appendix .appendix-table-wrap td:nth-child(1) {
+  width: 20% !important;
+  white-space: nowrap !important;
+}
+
+#appendix .appendix-table-wrap th:nth-child(2),
+#appendix .appendix-table-wrap td:nth-child(2) {
+  width: 28% !important;
+  white-space: nowrap !important;
+}
+
+#appendix .appendix-table-wrap th:nth-child(3),
+#appendix .appendix-table-wrap td:nth-child(3) {
+  width: 52% !important;
+}
+
+#appendix .appendix-records-card {
+  margin-top: 28px !important;
+  padding: 22px 24px !important;
+  border: 1px solid #d1d5db !important;
+  border-left: 6px solid #6b7280 !important;
+  border-radius: 20px !important;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255,255,255,.86), transparent 34%),
+    linear-gradient(180deg,#ffffff,#f8fafc) !important;
+  box-shadow: 0 10px 26px rgba(31,41,55,.08) !important;
+}
+
+#appendix .appendix-records-card h4 {
+  margin: 0 0 10px !important;
+  color: #1f2937 !important;
+  font-size: clamp(18px, 2.8vw, 24px) !important;
+  font-weight: 900 !important;
+}
+
+#appendix .appendix-records-card p {
+  margin: 0 0 16px !important;
+  color: #374151 !important;
+  font-size: 14px !important;
+  line-height: 1.85 !important;
+  font-weight: 600 !important;
+}
+
+#appendix .records-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: min(100%, 320px) !important;
+  padding: 13px 22px !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 15px !important;
+  font-weight: 900 !important;
+  letter-spacing: .03em !important;
+  background: linear-gradient(135deg,#111827,#4b5563) !important;
+  border: 1px solid rgba(255,255,255,.55) !important;
+  box-shadow: 0 12px 26px rgba(31,41,55,.22) !important;
+}
+
+@media (max-width: 520px) {
+  #appendix .appendix-table-wrap table {
+    min-width: 500px !important;
+  }
+  #appendix .records-link {
+    width: 100% !important;
+    font-size: 14px !important;
+  }
+}
+</style>
+
+
+<style>
+/* --- safe patch: 42nd appendix scroll hint aligned with 43rd --- */
+#appendix .scroll-hint {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 2px 0 7px !important;
+  padding: 5px 9px !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 999px !important;
+  background: #f8fafc !important;
+  color: #6b7280 !important;
+  font-size: 11.5px !important;
+  line-height: 1.4 !important;
+  font-weight: 800 !important;
+  letter-spacing: .02em !important;
+}
+
+#appendix .scroll-hint::before {
+  content: "↔" !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 999px !important;
+  background: #e5e7eb !important;
+  color: #374151 !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+}
+
+@media (max-width: 860px) {
+  #appendix .scroll-hint {
+    font-size: 11.5px !important;
+    padding: 5px 9px !important;
+    margin: 2px 0 7px !important;
+  }
+}
+</style>
+
+</head>
+<body id="top">
+<header class="hero edition-hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <span class="hero-tag">SASUKE IDOL QUALIFIER / 42ND DATA BOOK</span>
+  <span class="unofficial-badge">非公式ファンサイト</span>
+
+  <div class="hero-content">
+    <a class="home-link-top" href="../index.html" aria-label="トップページへ戻る">← トップページへ戻る</a>
+    <p class="hero-edition">42nd Edition</p>
+    <h1 class="hero-title"><span>SASUKEアイドル予選会</span><span>非公式データブック</span></h1>
+    <p class="hero-sub">42回大会出場選手データ＆戦力分析</p>
+    <div class="hero-divider"></div>
+    <p class="hero-lead">
+      すべてはここから始まった。初代女王を決める、未知数だらけのアイドル予選会。<br/>
+      成績・能力・物語・第43回への伏線までまとめる非公式データブック。
+    </p>
+    <div class="hero-badges">
+      <span>第42回大会データ</span>
+      <span>掲載選手12名</span>
+      <span>競技別順位</span>
+      <span>本戦出場枠1枠</span>
+    </div>
+    <div class="date">v2 / 2026年5月</div>
+  </div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<input type="checkbox" id="toc-toggle" class="toc-toggle">
+<label for="toc-toggle" class="toc-toggle-label"><span>CONTENTS</span><b><span class="toc-text-closed">目次を開く</span><span class="toc-text-open">目次を閉じる</span></b></label>
+<div class="toc-body">
+<h2>CONTENTS</h2>
+<a href="#about">導入</a>
+<a href="#review42">第42回大会の振り返り</a>
+<a href="#ability">能力値一覧</a>
+<a href="#profiles">選手名鑑</a>
+<div class="profile-links"><a href="#p01">1. 伊藤実希</a><a href="#p02">2. 結城りな</a><a href="#p03">3. 清司麗菜</a><a href="#p04">4. 大信田美月</a><a href="#p05">5. 風見和香</a><a href="#p06">6. 岩本理瑚</a><a href="#p07">7. 真中まな</a><a href="#p08">8. 正鋳真優</a><a href="#p09">9. 辻野かなみ</a><a href="#p10">10. 白石まゆみ</a><a href="#p11">11. 姫野ひなの</a><a href="#p12">12. 菅波美玲</a></div>
+<a href="#story43">第43回への伏線</a>
+<a href="#appendix">巻末データ</a>
+<a href="#refs">参照情報</a>
+</div>
+</aside>
+<main>
+<section id="about">
+<h2 data-label="INTRODUCTION">SASUKEアイドル予選会とは</h2>
+<p class="lead">第42回SASUKEアイドル予選会は、女性アイドルたちがSASUKE本戦の出場枠「1枠」をかけて挑んだ初のサバイバル企画である。まだ誰も、この予選会の正解を知らなかった。</p>
+<div class="point-grid">
+<div class="info-box"><h4>初代予選会の位置づけ</h4><p>勝者だけがSASUKE本戦への切符をつかむ、1枠をめぐる真剣勝負。走力、持久力、跳躍力、そして障害物への対応力が4つの競技で試された。</p></div>
+<div class="info-box"><h4>このデータブックについて</h4><p>初代女王に輝いたのはSKE48の伊藤実希。このデータブックでは、第42回大会の結果をもとに、各選手の特徴・適性・課題を非公式に整理していく。</p></div>
+</div>
+</section>
+<section id="review42">
+<h2 data-label="42ND TOURNAMENT REVIEW">第42回大会の振り返り</h2>
+<div class="dashboard">
+<div class="stat-card podium podium-gold"><div class="label">本戦出場枠獲得</div><div class="value">伊藤実希</div></div>
+<div class="stat-card podium podium-silver"><div class="label">総合2位</div><div class="value">結城りな</div></div>
+<div class="stat-card podium podium-bronze"><div class="label">総合3位</div><div class="value">清司麗菜</div></div>
+<div class="stat-card"><div class="label">ビーチフラッグス優勝</div><div class="value">結城りな</div></div>
+<div class="stat-card"><div class="label">シャトルラン優勝</div><div class="value">岩本理瑚</div></div>
+<div class="stat-card"><div class="label">無限ジャンプ優勝</div><div class="value">風見和香</div></div>
+<div class="stat-card"><div class="label">SASUKEタイムレース1位</div><div class="value">清司麗菜</div></div>
+</div>
+<h4>出場者</h4>
+<div class="table-wrap"><table><tr><th>選手</th><th>グループ</th></tr><tr><td>結城りな</td><td>ukka</td></tr><tr><td>正鋳真優</td><td>AKB48</td></tr><tr><td>伊藤実希</td><td>SKE48</td></tr><tr><td>清司麗菜</td><td>NGT48</td></tr><tr><td>風見和香</td><td>私立恵比寿中学</td></tr><tr><td>白石まゆみ</td><td>SWEET STEADY</td></tr><tr><td>辻野かなみ</td><td>超ときめき♡宣伝部</td></tr><tr><td>大信田美月</td><td>≒JOY</td></tr><tr><td>菅波美玲</td><td>≠ME</td></tr><tr><td>真中まな</td><td>FRUITS ZIPPER</td></tr><tr><td>岩本理瑚</td><td>僕が見たかった青空</td></tr><tr><td>姫野ひなの</td><td>#Mooove!</td></tr></table></div>
+<h4>競技説明</h4>
+<div class="table-wrap comp-desc-table"><table><tr><th>競技</th><th>内容</th></tr><tr><td>ビーチ<wbr/>フラッグス</td><td>20m先のフラッグを取りに行く瞬発系競技。1回戦は4人で2本、2回戦は3人で1本、決勝は2人で1本。</td></tr><tr><td>地獄の<wbr/>シャトルラン</td><td>片道25m・往復50mを走り、各レース最下位が脱落する持久系競技。</td></tr><tr><td>無限<wbr/>ジャンプ対決</td><td>回転するバーを両足ジャンプで飛び越え続ける競技。片足ジャンプになると失格。</td></tr><tr><td>SASUKE<wbr/>タイムレース</td><td>ハードルくぐり、平均台、縮小版そり立つ壁の3エリアで構成されたタイムレース。</td></tr></table></div>
+<h4>第42回 総合順位</h4>
+<div class="table-wrap"><table><tr><th>順位</th><th>選手</th><th>得点</th></tr><tr><td>1位</td><td>伊藤実希</td><td>160pt</td></tr><tr><td>2位</td><td>結城りな</td><td>155pt</td></tr><tr><td>3位</td><td>清司麗菜</td><td>150pt</td></tr><tr><td>4位</td><td>大信田美月</td><td>125pt</td></tr><tr><td>5位</td><td>風見和香</td><td>120pt</td></tr><tr><td>6位</td><td>岩本理瑚</td><td>115pt</td></tr><tr><td>7位</td><td>真中まな</td><td>110pt</td></tr><tr><td>8位</td><td>正鋳真優</td><td>85pt</td></tr><tr><td>9位</td><td>辻野かなみ</td><td>60pt</td></tr><tr><td>10位</td><td>白石まゆみ</td><td>35pt</td></tr><tr><td>11位</td><td>姫野ひなの</td><td>25pt</td></tr><tr><td>12位</td><td>菅波美玲</td><td>10pt</td></tr></table></div>
+<h4>ビーチフラッグス勝ち上がり</h4>
+<div class="table-wrap"><table><tr><th>ラウンド</th><th>出場者</th><th>勝ち上がり・内容メモ</th></tr><tr><td>1回戦 第1レース</td><td>伊藤実希 / 姫野ひなの / 結城りな / 正鋳真優</td><td>伊藤実希、結城りなが勝ち上がり。</td></tr><tr><td>1回戦 第2レース</td><td>大信田美月 / 真中まな / 辻野かなみ / 岩本理瑚</td><td>大信田美月、岩本理瑚が勝ち上がり。</td></tr><tr><td>1回戦 第3レース</td><td>菅波美玲 / 白石まゆみ / 風見和香 / 清司麗菜</td><td>風見和香、清司麗菜が勝ち上がり。</td></tr><tr><td>2回戦 第1レース</td><td>清司麗菜 / 岩本理瑚 / 結城りな</td><td>結城りなが勝ち上がり。</td></tr><tr><td>2回戦 第2レース</td><td>風見和香 / 大信田美月 / 伊藤実希</td><td>大信田美月が勝ち上がり。</td></tr><tr><td>決勝</td><td>結城りな vs 大信田美月</td><td>結城りなが優勝。</td></tr></table></div>
+<h4>地獄のシャトルラン順位</h4>
+<div class="table-wrap"><table><tr><th>順位</th><th>選手</th><th>メモ</th></tr><tr><td>1位</td><td>岩本理瑚</td><td>種目優勝／60pt</td></tr><tr><td>2位</td><td>風見和香</td><td>最終レースで敗北／50pt</td></tr><tr><td>3位</td><td>結城りな</td><td>第10レースで脱落／45pt</td></tr><tr><td>4位</td><td>伊藤実希</td><td>第9レースで脱落／40pt</td></tr><tr><td>5位</td><td>大信田美月</td><td>第8レースで脱落／35pt</td></tr><tr><td>6位</td><td>真中まな</td><td>第7レースで脱落／30pt</td></tr><tr><td>7位</td><td>清司麗菜</td><td>第6レースで脱落／25pt</td></tr><tr><td>8位</td><td>正鋳真優</td><td>第5レースで脱落／20pt</td></tr><tr><td>9位</td><td>白石まゆみ</td><td>第4レースで脱落／15pt</td></tr><tr><td>10位</td><td>辻野かなみ</td><td>第3レースで脱落／10pt</td></tr><tr><td>11位</td><td>菅波美玲</td><td>第2レースで脱落／5pt</td></tr><tr><td>12位</td><td>姫野ひなの</td><td>第1レースで脱落／0pt</td></tr></table></div>
+<h4>無限ジャンプ対決順位</h4>
+<div class="table-wrap"><table><tr><th>順位</th><th>選手</th><th>記録・メモ</th></tr><tr><td>1位</td><td>風見和香</td><td>152回／60pt</td></tr><tr><td>2位</td><td>伊藤実希</td><td>144回／50pt</td></tr><tr><td>3位</td><td>岩本理瑚</td><td>129回／45pt</td></tr><tr><td>4位</td><td>真中まな</td><td>95回／40pt</td></tr><tr><td>5位</td><td>正鋳真優</td><td>63回／35pt</td></tr><tr><td>6位</td><td>辻野かなみ</td><td>61回／30pt</td></tr><tr><td>7位</td><td>姫野ひなの</td><td>60回／25pt</td></tr><tr><td>8位</td><td>大信田美月</td><td>51回／20pt</td></tr><tr><td>9位</td><td>清司麗菜</td><td>50回／15pt</td></tr><tr><td>10位</td><td>白石まゆみ</td><td>43回／10pt</td></tr><tr><td>11位</td><td>菅波美玲</td><td>2回・片足ジャンプで失格／5pt</td></tr><tr><td>12位</td><td>結城りな</td><td>棄権／0pt</td></tr></table></div>
+<h4>SASUKEタイムレース順位</h4>
+<div class="table-wrap"><table><tr><th>順位</th><th>選手</th><th>結果</th></tr><tr><td>1位</td><td>清司麗菜</td><td>16.66秒／100pt</td></tr><tr><td>2位</td><td>結城りな</td><td>19.75秒／80pt</td></tr><tr><td>3位</td><td>伊藤実希</td><td>20.00秒／60pt</td></tr><tr><td>4位</td><td>大信田美月</td><td>20.20秒／50pt</td></tr><tr><td>5位</td><td>真中まな</td><td>21.01秒／40pt</td></tr><tr><td>6位</td><td>正鋳真優</td><td>22.06秒／30pt</td></tr><tr><td>7位</td><td>辻野かなみ</td><td>23.01秒／20pt</td></tr><tr><td>8位</td><td>白石まゆみ</td><td>30.90秒／10pt</td></tr><tr><td>9位</td><td>姫野ひなの</td><td>34.38秒／0pt</td></tr><tr><td>10位</td><td>風見和香</td><td>40.43秒／0pt</td></tr><tr><td>11位</td><td>菅波美玲</td><td>45.33秒／0pt</td></tr><tr><td>12位</td><td>岩本理瑚</td><td>平均台リタイア／0pt</td></tr></table></div>
+<h4>総論</h4>
+<p>第42回大会は、伊藤実希が全体の安定感で初代王者となった一方、結城りな、清司麗菜、風見和香、岩本理瑚がそれぞれ種目別に強烈な個性を残した大会でした。初開催らしく競技ごとの相性差が大きく、翌43回へ続くライバル関係やリベンジの物語がここで生まれました。</p>
+</section>
+<section id="ability">
+<h2 data-label="ABILITY DATA">能力値一覧・タイプ別分類</h2>
+<h4>選手・異名一覧</h4>
+<div class="table-wrap ability-name-wrap name-alias-fixed"><table><tr><th>選手</th><th>異名</th></tr><tr><td>伊藤実希</td><td>すべての始まりを制した女</td></tr><tr><td>結城りな</td><td>覚醒前夜の韋駄天</td></tr><tr><td>清司麗菜</td><td>16秒66の大逆襲</td></tr><tr><td>大信田美月</td><td>号砲で目覚める快速ジョーカー</td></tr><tr><td>風見和香</td><td>スタミナで殴るエビ中の跳躍娘</td></tr><tr><td>岩本理瑚</td><td>全力で本戦を呼び込んだ突撃者</td></tr><tr><td>真中まな</td><td>ゼロから巻き返すFRUITS ZIPPERの粘着力</td></tr><tr><td>正鋳真優</td><td>柔らかボディで食らいつくAKBの隠し玉</td></tr><tr><td>辻野かなみ</td><td>後半で息を吹き返すとき宣の粘り腰</td></tr><tr><td>白石まゆみ</td><td>最後まで舞台を降りないSWEET STEADYの根性姫</td></tr><tr><td>姫野ひなの</td><td>60回跳んだ#Mooove!の反骨アイドル</td></tr><tr><td>菅波美玲</td><td>45秒33で爪痕を残した≠MEの完走者</td></tr></table></div>
+<h4>能力値一覧</h4>
+<p>10 = 予選会内で明確な最上位、8-9 = 上位級、6-7 = 中位以上、4-5 = 課題あり、1-3 = 明確な弱点。第42回の競技成績と予選会内での見え方を土台にした非公式評価です。</p>
+<div class="table-wrap ability-score-wrap"><table><tr><th>選手</th><th>スプリント</th><th>スタミナ</th><th>ジャンプ</th><th>障害物適性</th><th>メンタル</th><th>伸びしろ</th></tr><tr><td>伊藤実希</td><td>8</td><td>8</td><td>8</td><td>9</td><td>10</td><td>8</td></tr><tr><td>結城りな</td><td>10</td><td>8</td><td>4</td><td>9</td><td>9</td><td>10</td></tr><tr><td>清司麗菜</td><td>7</td><td>6</td><td>5</td><td>10</td><td>9</td><td>9</td></tr><tr><td>大信田美月</td><td>9</td><td>7</td><td>5</td><td>8</td><td>8</td><td>8</td></tr><tr><td>風見和香</td><td>7</td><td>9</td><td>9</td><td>5</td><td>8</td><td>9</td></tr><tr><td>岩本理瑚</td><td>8</td><td>10</td><td>9</td><td>7</td><td>10</td><td>10</td></tr><tr><td>真中まな</td><td>4</td><td>7</td><td>8</td><td>8</td><td>8</td><td>8</td></tr><tr><td>正鋳真優</td><td>4</td><td>6</td><td>7</td><td>7</td><td>7</td><td>9</td></tr><tr><td>辻野かなみ</td><td>4</td><td>5</td><td>7</td><td>6</td><td>7</td><td>7</td></tr><tr><td>白石まゆみ</td><td>5</td><td>4</td><td>5</td><td>6</td><td>7</td><td>7</td></tr><tr><td>姫野ひなの</td><td>4</td><td>3</td><td>7</td><td>4</td><td>6</td><td>7</td></tr><tr><td>菅波美玲</td><td>4</td><td>4</td><td>2</td><td>5</td><td>7</td><td>7</td></tr></table></div>
+<h4>タイプ別分類</h4>
+<div class="table-wrap"><table><tr><th>タイプ</th><th>選手</th></tr><tr><td>初代王者・総合力型</td><td>伊藤実希</td></tr><tr><td>スピード・障害物型</td><td>結城りな、清司麗菜、大信田美月</td></tr><tr><td>持久・跳躍型</td><td>風見和香、岩本理瑚</td></tr><tr><td>巻き返し・身体操作型</td><td>真中まな、正鋳真優、辻野かなみ</td></tr><tr><td>根性・伸びしろ型</td><td>白石まゆみ、姫野ひなの、菅波美玲</td></tr></table></div>
+</section>
+<section id="profiles"><h2 data-label="PLAYER INDEX">選手名鑑</h2><div class="badges"><a href="#p01">1. 伊藤実希</a><a href="#p02">2. 結城りな</a><a href="#p03">3. 清司麗菜</a><a href="#p04">4. 大信田美月</a><a href="#p05">5. 風見和香</a><a href="#p06">6. 岩本理瑚</a><a href="#p07">7. 真中まな</a><a href="#p08">8. 正鋳真優</a><a href="#p09">9. 辻野かなみ</a><a href="#p10">10. 白石まゆみ</a><a href="#p11">11. 姫野ひなの</a><a href="#p12">12. 菅波美玲</a></div>
+</section>
+<section class="profile-card" id="p01">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>01</b></span>
+<div>
+<h3>伊藤実希</h3>
+<p class="catch">すべての始まりを制した女</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 1位</span><span class="pill type type-complete">初代王者・総合力型</span><span class="pill strong">強み：総合力 / メンタル</span></div><p class="profile-tagline">初代アイドル予選会を制した、総合力型の女王。</p>
+<p class="basic">所属：SKE48／タイプ：初代王者・総合力型。第42回SASUKEアイドル予選会で初代優勝者となり、本戦出場権を獲得した選手。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>スプリント・スタミナ・ジャンプ・障害物適性を高い水準でまとめた総合型。特定の一種目だけで突き抜けたというより、初開催で競技傾向が読みにくい中、全体を崩さず勝ち切った点が最大の強み。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>まだ誰も正解を知らなかった初代予選会で、最初に答えを出した存在。優勝者として「アイドル予選会」の基準を作り、本戦への扉を開いた。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>第43回以降は、初代女王として追われる立場でどこまで安定感を維持できるかが焦点。総合力型から、さらに勝負どころで抜け出す決定力を上積みできるかに注目。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>ビーチフラッグスは2回戦敗退だが、上位争いに絡むだけの初速は見せた。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>シャトルラン4位。持久力でも上位級の安定感。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>無限ジャンプ2位・144回。跳躍系でも高水準。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>タイムレース3位・20.00秒。障害物処理でも上位。</p>
+</div>
+<div class="bar-row top-ability">
+<div class="bar-label">メンタル<b>10</b></div>
+<div class="bar"><span style="width:100%"></span></div>
+<p>初開催の読めない状況で最後まで崩れず優勝。勝負強さは最上位。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">伸びしろ<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>完成度は高いが、本戦経験でさらに上積みが狙える。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合1位／160pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス2回戦敗退・10pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン4位・40pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ2位・144回・50pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース3位・20.00秒・60pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>SASUKE 第42回本戦出場。アイドル予選会初代王者として本戦に進出。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p02">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>02</b></span>
+<div>
+<h3>結城りな</h3>
+<p class="catch">覚醒前夜の韋駄天</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 2位</span><span class="pill type type-ceiling">瞬発・障害物型</span><span class="pill strong">強み：スプリント / 障害物適性</span></div><p class="profile-tagline">第42回大会で、最も“次”を感じさせたスピードスター。</p>
+<p class="basic">所属：ukka／タイプ：瞬発・障害物型。ビーチフラッグス優勝、タイムレース2位で総合2位に入った、第43回への飛躍を予感させる存在。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>走力系と障害物処理で大きく点を取るスピード型。ビーチフラッグスでは初速と反応で優勝し、SASUKEタイムレースでも2位に入るなど、短い勝負での強さが際立った。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>無限ジャンプは棄権となり、全種目を完走しての完成形には届かなかった。それでも総合2位まで押し上げた地力の高さが、第43回での覚醒につながる伏線となった。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>課題だったジャンプ系・全種目完走の部分をどう埋めるかが注目点。スピードと障害物適性はすでにトップ級で、完成すれば優勝候補筆頭になり得る。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row top-ability">
+<div class="bar-label">スプリント<b>10</b></div>
+<div class="bar"><span style="width:100%"></span></div>
+<p>ビーチフラッグス優勝。初速と勝負勘は第42回トップ。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>シャトルラン3位。持久力も上位級。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>4</b></div>
+<div class="bar"><span style="width:40%"></span></div>
+<p>無限ジャンプは棄権。明確な空白として残った。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>タイムレース2位・19.75秒。障害物対応はトップ級。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">メンタル<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>棄権がありながら総合2位にまとめた勝負強さ。</p>
+</div>
+<div class="bar-row top-ability">
+<div class="bar-label">伸びしろ<b>10</b></div>
+<div class="bar"><span style="width:100%"></span></div>
+<p>未完で2位。第43回への飛躍を強く予感させた。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合2位／155pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス優勝・30pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン3位・45pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ棄権・0pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース2位・19.75秒・80pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>第43回アイドル予選会で総合優勝。第42回の未完さを回収する物語につながった。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p03">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>03</b></span>
+<div>
+<h3>清司麗菜</h3>
+<p class="catch">16秒66の大逆襲</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 3位</span><span class="pill type type-specialist">障害物特化型</span><span class="pill strong">強み：障害物適性 / メンタル</span></div><p class="profile-tagline">最終種目で一気に評価を跳ね上げた、逆襲のタイムレース女王。</p>
+<p class="basic">所属：NGT48／タイプ：障害物特化型。最終種目のSASUKEタイムレースで16.66秒を記録し、総合3位へ浮上した選手。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>序盤3種目では上位陣を追う展開だったが、障害物レースで一気に流れを変えるタイプ。短いコースでの判断、身体の運び、ミスなくまとめる力が強み。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>ビーチフラッグス、シャトルラン、無限ジャンプでは大きく抜け出せなかったが、最後の一発で種目優勝。100ptを獲得し、表彰台圏内まで駆け上がった。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>タイムレース適性は第42回屈指。今後は走力・持久力・ジャンプ系で底上げできれば、最終競技だけでなく総合優勝争いにも絡める。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>ビーチフラッグスは2回戦敗退。初速は中位以上。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>6</b></div>
+<div class="bar"><span style="width:60%"></span></div>
+<p>シャトルラン7位。上位勢とは差があった。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>5</b></div>
+<div class="bar"><span style="width:50%"></span></div>
+<p>無限ジャンプ9位・50回。跳躍系は課題。</p>
+</div>
+<div class="bar-row top-ability">
+<div class="bar-label">障害物適性<b>10</b></div>
+<div class="bar"><span style="width:100%"></span></div>
+<p>タイムレース1位・16.66秒。第42回最速。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">メンタル<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>最終種目で一気に総合3位へ浮上した勝負強さ。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">伸びしろ<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>障害物適性を軸に、他種目が伸びれば大きく化ける。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合3位／150pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス2回戦敗退・10pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン7位・25pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ9位・50回・15pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース1位・16.66秒・100pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>第43回でもSASUKEタイムレース1位。最終競技に強い選手として存在感を継続。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p04">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>04</b></span>
+<div>
+<h3>大信田美月</h3>
+<p class="catch">号砲で目覚める快速ジョーカー</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 4位</span><span class="pill type type-complete">快速総合型</span><span class="pill strong">強み：スプリント / 安定感</span></div><p class="profile-tagline">派手な一撃よりも、全競技で崩れない総合力で上位へ食い込んだ快速型。</p>
+<p class="basic">所属：≒JOY／タイプ：快速総合型。ビーチフラッグスで決勝まで進み、総合4位に入ったバランス型の上位候補。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>最大の見せ場はビーチフラッグス決勝進出。合図への反応、立ち上がり、フラッグまでの加速が強く、さらにシャトルランとタイムレースでも中位以上を確保した。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>種目優勝こそなかったが、大きく崩れる競技を作らず総合4位までまとめた。上位陣の派手さに隠れがちながら、初代予選会の安定感はかなり高い。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>無限ジャンプでの取りこぼしを減らせば、さらに上位を狙える。スプリントの強みを軸に、障害物処理と持久力をどう伸ばすかが焦点。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>ビーチフラッグス決勝進出。短距離の反応と加速は上位級。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>シャトルラン5位。中位以上で粘った。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>5</b></div>
+<div class="bar"><span style="width:50%"></span></div>
+<p>無限ジャンプ8位・51回。跳躍系はやや課題。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>タイムレース4位・20.20秒。障害物でも安定。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">メンタル<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>全競技で大崩れせず総合4位。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">伸びしろ<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>スプリントを軸に、弱点補強で表彰台が見える。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合4位／125pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス決勝敗退・20pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン5位・35pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ8位・51回・20pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース4位・20.20秒・50pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>第43回では総合2位タイ。第42回で見せた快速総合型の評価をさらに高めた。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p05">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>05</b></span>
+<div>
+<h3>風見和香</h3>
+<p class="catch">スタミナで殴るエビ中の跳躍娘</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 5位</span><span class="pill type type-stack">持久・跳躍型</span><span class="pill strong">強み：スタミナ / ジャンプ</span></div><p class="profile-tagline">走って、跳んで、粘って上位へ食い込んだエビ中の身体能力枠。</p>
+<p class="basic">所属：私立恵比寿中学／タイプ：持久・跳躍型。シャトルラン2位、無限ジャンプ優勝で、体力系種目に強さを見せた選手。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>長く動き続ける力と跳び続ける脚力が武器。ビーチフラッグスでは状況を見て目標の旗を隣へ切り替える判断力も見せ、競技中の対応力も印象に残した。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>無限ジャンプでは、優勝が確定した後も限界まで跳び続けた。勝敗だけでなく、一つひとつの競技に全力で向き合う姿勢こそが大きな魅力。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>障害物タイムレースでは上位に絡めなかったため、SASUKE的な技術が加わればさらに化ける。スタミナとジャンプを土台に、総合型への進化が期待される。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>ビーチフラッグスは2回戦敗退だが、判断力と反応を見せた。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>シャトルラン2位。持久力は大会上位。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>無限ジャンプ優勝・152回。跳躍力と粘りはトップ級。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>5</b></div>
+<div class="bar"><span style="width:50%"></span></div>
+<p>タイムレース10位・40.43秒。障害物は課題。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">メンタル<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>優勝確定後も跳び続けるひたむきさ。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">伸びしろ<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>技術習得で大きく伸びる身体能力を持つ。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合5位／120pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス2回戦敗退・10pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン2位・50pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ1位・152回・60pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース10位・40.43秒・0pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>第43回にも出場。体力系の強みを持つ選手として継続して注目。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p06">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>06</b></span>
+<div>
+<h3>岩本理瑚</h3>
+<p class="catch">全力で本戦を呼び込んだ突撃者</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 6位</span><span class="pill type type-hero">全力突撃型</span><span class="pill strong">強み：スタミナ / メンタル</span></div><p class="profile-tagline">優勝を狙える位置から、勝ちに行って散った敢闘賞。</p>
+<p class="basic">所属：僕が見たかった青空／タイプ：全力突撃型。総合6位ながら敢闘賞でSASUKE本戦出場へつながった、第42回の物語上の重要人物。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>シャトルラン優勝、無限ジャンプ3位と、持久力と脚力で初代女王争いの中心にいた選手。最終競技前までは優勝を狙える位置につけていた。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>最後のSASUKEタイムレースでは、優勝を狙って攻めた結果、平均台で落下し失格。安全にまとめるのではなく、勝ちに行ったからこその敗退だった。その全力の挑戦が敢闘賞として評価され、本戦出場へつながった。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>障害物処理の精度が最大の課題。ただし、全力で勝ちに行く姿勢と体力系の強さは大きな武器で、SASUKE本戦経験を経た成長に期待したい。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>ビーチフラッグス2回戦敗退。走力は上位級。</p>
+</div>
+<div class="bar-row top-ability">
+<div class="bar-label">スタミナ<b>10</b></div>
+<div class="bar"><span style="width:100%"></span></div>
+<p>シャトルラン優勝。持久力は第42回トップ。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>無限ジャンプ3位・129回。脚力も高い。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>タイムレースは平均台でリタイア。攻めた結果だが精度は課題。</p>
+</div>
+<div class="bar-row top-ability">
+<div class="bar-label">メンタル<b>10</b></div>
+<div class="bar"><span style="width:100%"></span></div>
+<p>優勝を狙って突っ込み、敢闘賞で本戦を呼び込んだ。</p>
+</div>
+<div class="bar-row top-ability">
+<div class="bar-label">伸びしろ<b>10</b></div>
+<div class="bar"><span style="width:100%"></span></div>
+<p>本戦経験まで含め、物語と成長余地は最大級。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合6位／115pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス2回戦敗退・10pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン1位・60pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ3位・129回・45pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース12位・平均台リタイア・0pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>敢闘賞によりSASUKE 第42回本戦出場。1stステージに挑戦した、順位だけでは測れない主役の一人。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p07">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>07</b></span>
+<div>
+<h3>真中まな</h3>
+<p class="catch">ゼロから巻き返すFRUITS ZIPPERの粘着力</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 7位</span><span class="pill type type-retry">巻き返し型</span><span class="pill strong">強み：ジャンプ / 障害物適性</span></div><p class="profile-tagline">0点スタートから、着実に順位を押し上げた巻き返し型。</p>
+<p class="basic">所属：FRUITS ZIPPER／タイプ：巻き返し型。ビーチフラッグス0点から、残り3種目を中位以上でまとめて総合7位まで戻した選手。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>序盤で出遅れても、大崩れせずにポイントを積み上げる安定感が特徴。無限ジャンプ4位、タイムレース5位と、身体操作と障害物対応でも上位寄りの成績を残した。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>ビーチフラッグス1回戦敗退で0点発進。しかし、シャトルラン、無限ジャンプ、タイムレースで着実に得点し、最後まで順位を押し上げた。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>スプリント面を改善できれば、巻き返し型から上位争い型へ変わる可能性がある。後半種目での強さをどう序盤から出せるかが焦点。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>4</b></div>
+<div class="bar"><span style="width:40%"></span></div>
+<p>ビーチフラッグス1回戦敗退。序盤の出足は課題。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>シャトルラン6位。中位以上で踏みとどまった。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>無限ジャンプ4位・95回。跳躍系は強い。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>タイムレース5位・21.01秒。障害物対応も良好。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">メンタル<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>0点発進から総合7位まで戻した巻き返し力。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">伸びしろ<b>8</b></div>
+<div class="bar"><span style="width:80%"></span></div>
+<p>序盤の改善で一気に順位を上げられる。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合7位／110pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス1回戦敗退・0pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン6位・30pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ4位・95回・40pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース5位・21.01秒・40pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>第42回では後半3種目で存在感。初開催の中で、崩れない選手として印象を残した。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p08">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>08</b></span>
+<div>
+<h3>正鋳真優</h3>
+<p class="catch">柔らかボディで食らいつくAKBの隠し玉</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 8位</span><span class="pill type type-ceiling">身体操作型</span><span class="pill strong">強み：身体操作 / 伸びしろ</span></div><p class="profile-tagline">身体操作のポテンシャルで、中盤以降に食らいついたAKBの隠し玉。</p>
+<p class="basic">所属：AKB48／タイプ：身体操作型。走力系では苦戦しつつ、無限ジャンプとタイムレースで可能性を見せた選手。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>スプリントや持久力では上位陣に差をつけられた一方、無限ジャンプ5位、タイムレース6位で後半に持ち直した。柔軟性や身のこなしが生きる競技で伸びる余地がある。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>派手な上位進出には届かなかったが、後半2種目で確実にポイントを獲得。順位以上に、競技慣れした後のポテンシャルを感じさせた。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>スピードとスタミナの底上げができれば、身体操作の強みがより生きる。障害物処理や跳躍系での上積みに期待。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>4</b></div>
+<div class="bar"><span style="width:40%"></span></div>
+<p>ビーチフラッグス1回戦敗退。短距離は課題。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>6</b></div>
+<div class="bar"><span style="width:60%"></span></div>
+<p>シャトルラン8位。持久力は中位下。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>無限ジャンプ5位・63回。身体操作系で点を取った。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>タイムレース6位・22.06秒。一定の対応力を見せた。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">メンタル<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>序盤苦戦から後半でポイントを拾った。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">伸びしろ<b>9</b></div>
+<div class="bar"><span style="width:90%"></span></div>
+<p>競技慣れで伸びる余地が大きい。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合8位／85pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス1回戦敗退・0pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン8位・20pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ5位・63回・35pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース6位・22.06秒・30pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>身体操作系のポテンシャルを残した選手として、次回以降の伸びに期待。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p09">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>09</b></span>
+<div>
+<h3>辻野かなみ</h3>
+<p class="catch">後半で息を吹き返すとき宣の粘り腰</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 9位</span><span class="pill type type-retry">後半粘り型</span><span class="pill strong">強み：ジャンプ / 粘り</span></div><p class="profile-tagline">序盤の苦戦から、後半2種目で意地を見せた粘り腰タイプ。</p>
+<p class="basic">所属：超ときめき♡宣伝部／タイプ：後半粘り型。序盤2種目で苦戦しながら、無限ジャンプとタイムレースでポイントを拾った選手。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>走力・持久力を問われる序盤では厳しい展開。それでも、無限ジャンプ6位、タイムレース7位で後半に踏みとどまり、脚力と粘りを見せた。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>上位争いには届かなかったものの、最後まで崩れ切らずに得点を重ねた。序盤の苦戦から後半で息を吹き返す流れが、辻野かなみらしい見せ場になった。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>スタート競技と持久系の底上げができれば、後半の粘りがより生きる。ジャンプ系の中位力を軸に、総合順位をどこまで上げられるか。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>4</b></div>
+<div class="bar"><span style="width:40%"></span></div>
+<p>ビーチフラッグス1回戦敗退。初速は課題。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>5</b></div>
+<div class="bar"><span style="width:50%"></span></div>
+<p>シャトルラン10位。持久力は下位寄り。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>無限ジャンプ6位・61回。後半で得点源になった。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>6</b></div>
+<div class="bar"><span style="width:60%"></span></div>
+<p>タイムレース7位・23.01秒。一定の完走力。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">メンタル<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>苦しい入りから後半で踏みとどまった。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">伸びしろ<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>序盤改善で総合点アップが狙える。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合9位／60pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス1回戦敗退・0pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン10位・10pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ6位・61回・30pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース7位・23.01秒・20pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>後半2種目で存在感。粘り腰タイプとして印象を残した。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p10">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>10</b></span>
+<div>
+<h3>白石まゆみ</h3>
+<p class="catch">最後まで舞台を降りないSWEET STEADYの根性姫</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 10位</span><span class="pill type type-retry">根性完走型</span><span class="pill strong">強み：メンタル / 伸びしろ</span></div><p class="profile-tagline">苦戦しながらも、最後まで競技をやり切った根性型。</p>
+<p class="basic">所属：SWEET STEADY／タイプ：根性完走型。上位争いには届かなかったが、最後のタイムレースをクリアして経験を残した選手。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>体力系種目では苦戦したが、SASUKEタイムレースでは30.90秒でクリア。障害物競技を最後までやり切る力を見せた。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>上位陣の派手さに隠れながらも、最後まで舞台を降りずに挑み切った。下位順位でも、完走経験を次につなげられる点が前向きな材料。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>スプリント・スタミナ・ジャンプの基礎能力を底上げできれば、タイムレース完走経験が生きてくる。次回はまず中位進出を狙いたい。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>5</b></div>
+<div class="bar"><span style="width:50%"></span></div>
+<p>ビーチフラッグス1回戦敗退だが、最低評価までは下げない。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>4</b></div>
+<div class="bar"><span style="width:40%"></span></div>
+<p>シャトルラン9位。持久力は課題。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>5</b></div>
+<div class="bar"><span style="width:50%"></span></div>
+<p>無限ジャンプ10位・43回。下位だが粘った。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>6</b></div>
+<div class="bar"><span style="width:60%"></span></div>
+<p>タイムレース8位・30.90秒。最後の競技をクリア。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">メンタル<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>苦戦しながら最後までやり切った。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">伸びしろ<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>完走経験を土台に伸ばせる余地がある。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合10位／35pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス1回戦敗退・0pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン9位・15pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ10位・43回・10pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース8位・30.90秒・10pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>第43回にも出場。第42回の経験をどう生かすかが次のテーマになった。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p11">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>11</b></span>
+<div>
+<h3>姫野ひなの</h3>
+<p class="catch">60回跳んだ#Mooove!の反骨アイドル</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 11位</span><span class="pill type type-specialist">一点突破型</span><span class="pill strong">強み：ジャンプ / 反骨心</span></div><p class="profile-tagline">下位に沈みながらも、無限ジャンプで意地を見せた反骨型。</p>
+<p class="basic">所属：#Mooove!／タイプ：一点突破型。総合11位ながら、無限ジャンプで60回を記録して存在感を残した選手。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>序盤2種目とタイムレースでは苦戦したが、無限ジャンプでは岩本理瑚との対戦で粘りを見せた。脚力と意地を感じさせる一点突破型。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>上位争いには絡めなかったが、ただ沈んだだけでは終わらない。60回跳んで、下位順位の中でも記憶に残る場面を作った。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>走力・持久力・障害物適性の底上げが課題。ジャンプ系で見せた粘りを、他競技にも広げられるかが注目点。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>4</b></div>
+<div class="bar"><span style="width:40%"></span></div>
+<p>ビーチフラッグス1回戦敗退。短距離は課題。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>3</b></div>
+<div class="bar"><span style="width:30%"></span></div>
+<p>シャトルラン12位。持久力は明確な弱点。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>無限ジャンプ7位・60回。下位の中では大きな見せ場。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>4</b></div>
+<div class="bar"><span style="width:40%"></span></div>
+<p>タイムレース9位・34.38秒。得点圏外。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">メンタル<b>6</b></div>
+<div class="bar"><span style="width:60%"></span></div>
+<p>苦しい展開でも無限ジャンプで粘った。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">伸びしろ<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>一点突破の強みを他競技へ広げたい。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合11位／25pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス1回戦敗退・0pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン12位・0pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ7位・60回・25pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース9位・34.38秒・0pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>無限ジャンプ60回で意地を見せた選手として、初代予選会に爪痕を残した。</td></tr></table></div>
+</details>
+</section>
+<section class="profile-card" id="p12">
+<div class="profile-head">
+<span class="num"><small>PROFILE</small><b>12</b></span>
+<div>
+<h3>菅波美玲</h3>
+<p class="catch">45秒33で爪痕を残した≠MEの完走者</p>
+</div>
+</div>
+<div class="profile-meta"><span class="pill rank">第42回 12位</span><span class="pill type type-retry">完走経験型</span><span class="pill strong">強み：メンタル / 伸びしろ</span></div><p class="profile-tagline">苦しい展開の中でも、最後のタイムレースをやり切った完走型。</p>
+<p class="basic">所属：≠ME／タイプ：完走経験型。総合12位ながら、最終種目のSASUKEタイムレースを45.33秒でクリアした選手。</p>
+<div class="profile-grid">
+<article>
+<h4>プレースタイル</h4>
+<p>体力系・跳躍系では厳しい結果となったが、最後の障害物競技を完走。順位以上に、初代予選会で最後まで走り切った経験を評価したい。</p>
+</article>
+<article>
+<h4>ストーリー</h4>
+<p>総合順位では最下位に沈んだが、挑戦を途中で投げ出すことなく最後まで走り切った。苦しい展開でも完走したことが、次への小さな爪痕になった。</p>
+</article>
+<article>
+<h4>次回注目点</h4>
+<p>基礎体力とジャンプ力の底上げが最優先。タイムレース完走経験を足がかりに、まずは複数競技で得点圏に入れるかが注目点。</p>
+</article>
+</div>
+<details open="">
+<summary>能力パラメータ（評価根拠）</summary>
+<div class="ability-bars">
+<div class="bar-row">
+<div class="bar-label">スプリント<b>4</b></div>
+<div class="bar"><span style="width:40%"></span></div>
+<p>ビーチフラッグス1回戦敗退。短距離は課題。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">スタミナ<b>4</b></div>
+<div class="bar"><span style="width:40%"></span></div>
+<p>シャトルラン11位。持久力も課題。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">ジャンプ<b>2</b></div>
+<div class="bar"><span style="width:20%"></span></div>
+<p>無限ジャンプ11位・2回。明確な弱点。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">障害物適性<b>5</b></div>
+<div class="bar"><span style="width:50%"></span></div>
+<p>タイムレース11位・45.33秒でクリア。完走は評価。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">メンタル<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>苦しい展開でも最後まで走り切った。</p>
+</div>
+<div class="bar-row">
+<div class="bar-label">伸びしろ<b>7</b></div>
+<div class="bar"><span style="width:70%"></span></div>
+<p>基礎能力の底上げで伸びる余地がある。</p>
+</div></div>
+</details>
+<details>
+<summary>第42回予選会成績</summary>
+<h4>第42回アイドル予選会 総合成績</h4>
+<div class="table-wrap"><table><tr><th>大会</th><th>総合成績</th></tr><tr><td>第42回アイドル予選会</td><td>総合12位／10pt</td></tr></table></div>
+<h4>第42回アイドル予選会 競技別詳細</h4>
+<div class="table-wrap"><table><tr><th>競技</th><th>成績詳細</th></tr><tr><td>第1競技</td><td>ビーチフラッグス1回戦敗退・0pt</td></tr><tr><td>第2競技</td><td>地獄のシャトルラン11位・5pt</td></tr><tr><td>第3競技</td><td>無限ジャンプ11位・2回・5pt</td></tr><tr><td>第4競技</td><td>SASUKEタイムレース11位・45.33秒・0pt</td></tr></table></div>
+</details>
+<details>
+<summary>関連メモ</summary>
+<div class="table-wrap"><table><tr><th>項目</th><th>内容</th></tr><tr><td>KUNOICHI・SASUKE関連 / 次回への文脈</td><td>順位は最下位ながら、タイムレース完走で次につながる経験を残した。</td></tr></table></div>
+</details>
+</section>
+<section id="story43"><h2 data-label="NEXT STORY">第43回への伏線</h2><p>第42回の最大の見どころは、単なる初代王者決定戦ではなく、第43回へ続く物語の種が大量に生まれた点です。伊藤実希は初代王者として基準を作り、結城りなは未完の2位から翌大会の飛躍を予感させました。清司麗菜は16.66秒でタイムレース適性を示し、大信田美月は快速型の上位候補として存在感を残しました。</p><p>そして岩本理瑚は、最終競技まで優勝圏内にいながら、勝ちに行った結果として平均台でリタイア。その全力の挑戦が敢闘賞、そして本戦出場へつながるという、第42回を象徴するドラマを生んだ選手です。</p></section>
+<section id="appendix">
+<h2 data-label="APPENDIX">巻末データ</h2>
+<p class="lead">第42回SASUKEアイドル予選会の総合順位と各競技結果をまとめています。</p>
+
+<h3 class="appendix-event-title">第42回SASUKEアイドル予選会結果</h3>
+
+<h4 class="appendix-subtitle">総合順位</h4>
+<div class="scroll-hint">表は左右にスクロールできます</div>
+<div class="table-wrap appendix-table-wrap">
+<table>
+<tr><th>順位</th><th>選手</th><th>成績・ポイント</th></tr>
+<tr><td>1位</td><td>伊藤実希</td><td>総合優勝／160pt</td></tr>
+<tr><td>2位</td><td>結城りな</td><td>総合2位／155pt</td></tr>
+<tr><td>3位</td><td>清司麗菜</td><td>総合3位／150pt</td></tr>
+<tr><td>4位</td><td>大信田美月</td><td>総合4位／125pt</td></tr>
+<tr><td>5位</td><td>風見和香</td><td>総合5位／120pt</td></tr>
+<tr><td>6位</td><td>岩本理瑚</td><td>総合6位／115pt</td></tr>
+<tr><td>7位</td><td>真中まな</td><td>総合7位／110pt</td></tr>
+<tr><td>8位</td><td>正鋳真優</td><td>総合8位／85pt</td></tr>
+<tr><td>9位</td><td>辻野かなみ</td><td>総合9位／60pt</td></tr>
+<tr><td>10位</td><td>白石まゆみ</td><td>総合10位／35pt</td></tr>
+<tr><td>11位</td><td>姫野ひなの</td><td>総合11位／25pt</td></tr>
+<tr><td>12位</td><td>菅波美玲</td><td>総合12位／10pt</td></tr>
+</table>
+</div>
+
+<h4 class="appendix-subtitle">ビーチフラッグス結果</h4>
+<div class="scroll-hint">表は左右にスクロールできます</div>
+<div class="table-wrap appendix-table-wrap">
+<table>
+<tr><th>順位</th><th>選手</th><th>成績・ポイント</th></tr>
+<tr><td>1位</td><td>結城りな</td><td>優勝／30pt</td></tr>
+<tr><td>2位</td><td>大信田美月</td><td>決勝敗退／20pt</td></tr>
+<tr><td>3位タイ</td><td>伊藤実希</td><td>2回戦敗退／10pt</td></tr>
+<tr><td>3位タイ</td><td>岩本理瑚</td><td>2回戦敗退／10pt</td></tr>
+<tr><td>3位タイ</td><td>風見和香</td><td>2回戦敗退／10pt</td></tr>
+<tr><td>3位タイ</td><td>清司麗菜</td><td>2回戦敗退／10pt</td></tr>
+<tr><td>7位タイ</td><td>姫野ひなの</td><td>1回戦敗退／0pt</td></tr>
+<tr><td>7位タイ</td><td>正鋳真優</td><td>1回戦敗退／0pt</td></tr>
+<tr><td>7位タイ</td><td>真中まな</td><td>1回戦敗退／0pt</td></tr>
+<tr><td>7位タイ</td><td>辻野かなみ</td><td>1回戦敗退／0pt</td></tr>
+<tr><td>7位タイ</td><td>菅波美玲</td><td>1回戦敗退／0pt</td></tr>
+<tr><td>7位タイ</td><td>白石まゆみ</td><td>1回戦敗退／0pt</td></tr>
+</table>
+</div>
+
+<h4 class="appendix-subtitle">地獄のシャトルラン結果</h4>
+<div class="scroll-hint">表は左右にスクロールできます</div>
+<div class="table-wrap appendix-table-wrap">
+<table>
+<tr><th>順位</th><th>選手</th><th>成績・ポイント</th></tr>
+<tr><td>1位</td><td>岩本理瑚</td><td>種目優勝／60pt</td></tr>
+<tr><td>2位</td><td>風見和香</td><td>最終レースで敗北／50pt</td></tr>
+<tr><td>3位</td><td>結城りな</td><td>第10レースで脱落／45pt</td></tr>
+<tr><td>4位</td><td>伊藤実希</td><td>第9レースで脱落／40pt</td></tr>
+<tr><td>5位</td><td>大信田美月</td><td>第8レースで脱落／35pt</td></tr>
+<tr><td>6位</td><td>真中まな</td><td>第7レースで脱落／30pt</td></tr>
+<tr><td>7位</td><td>清司麗菜</td><td>第6レースで脱落／25pt</td></tr>
+<tr><td>8位</td><td>正鋳真優</td><td>第5レースで脱落／20pt</td></tr>
+<tr><td>9位</td><td>白石まゆみ</td><td>第4レースで脱落／15pt</td></tr>
+<tr><td>10位</td><td>辻野かなみ</td><td>第3レースで脱落／10pt</td></tr>
+<tr><td>11位</td><td>菅波美玲</td><td>第2レースで脱落／5pt</td></tr>
+<tr><td>12位</td><td>姫野ひなの</td><td>第1レースで脱落／0pt</td></tr>
+</table>
+</div>
+
+<h4 class="appendix-subtitle">無限ジャンプ結果</h4>
+<div class="scroll-hint">表は左右にスクロールできます</div>
+<div class="table-wrap appendix-table-wrap">
+<table>
+<tr><th>順位</th><th>選手</th><th>成績・ポイント</th></tr>
+<tr><td>1位</td><td>風見和香</td><td>152回／60pt</td></tr>
+<tr><td>2位</td><td>伊藤実希</td><td>144回／50pt</td></tr>
+<tr><td>3位</td><td>岩本理瑚</td><td>129回／45pt</td></tr>
+<tr><td>4位</td><td>真中まな</td><td>95回／40pt</td></tr>
+<tr><td>5位</td><td>正鋳真優</td><td>63回／35pt</td></tr>
+<tr><td>6位</td><td>辻野かなみ</td><td>61回／30pt</td></tr>
+<tr><td>7位</td><td>姫野ひなの</td><td>60回／25pt</td></tr>
+<tr><td>8位</td><td>大信田美月</td><td>51回／20pt</td></tr>
+<tr><td>9位</td><td>清司麗菜</td><td>50回／15pt</td></tr>
+<tr><td>10位</td><td>白石まゆみ</td><td>43回／10pt</td></tr>
+<tr><td>11位</td><td>菅波美玲</td><td>2回・片足ジャンプで失格／5pt</td></tr>
+<tr><td>12位</td><td>結城りな</td><td>棄権／0pt</td></tr>
+</table>
+</div>
+
+<h4 class="appendix-subtitle">SASUKEタイムレース結果</h4>
+<div class="scroll-hint">表は左右にスクロールできます</div>
+<div class="table-wrap appendix-table-wrap">
+<table>
+<tr><th>順位</th><th>選手</th><th>成績・ポイント</th></tr>
+<tr><td>1位</td><td>清司麗菜</td><td>16.66秒／100pt</td></tr>
+<tr><td>2位</td><td>結城りな</td><td>19.75秒／80pt</td></tr>
+<tr><td>3位</td><td>伊藤実希</td><td>20.00秒／60pt</td></tr>
+<tr><td>4位</td><td>大信田美月</td><td>20.20秒／50pt</td></tr>
+<tr><td>5位</td><td>真中まな</td><td>21.01秒／40pt</td></tr>
+<tr><td>6位</td><td>正鋳真優</td><td>22.06秒／30pt</td></tr>
+<tr><td>7位</td><td>辻野かなみ</td><td>23.01秒／20pt</td></tr>
+<tr><td>8位</td><td>白石まゆみ</td><td>30.90秒／10pt</td></tr>
+<tr><td>9位</td><td>姫野ひなの</td><td>34.38秒／0pt</td></tr>
+<tr><td>10位</td><td>風見和香</td><td>40.43秒／0pt</td></tr>
+<tr><td>11位</td><td>菅波美玲</td><td>45.33秒／0pt</td></tr>
+<tr><td>12位</td><td>岩本理瑚</td><td>平均台リタイア／0pt</td></tr>
+</table>
+</div>
+
+<div class="note-card appendix-records-card">
+  <h4>他大会・関連成績について</h4>
+  <p>第43回大会、KUNOICHI、SASUKE本戦を含めた横断データは「大会記録・統計データ」ページにまとめています。</p>
+  <a class="records-link" href="../records/">大会記録・統計データを見る</a>
+</div>
+</section>
+<section id="refs">
+<h2 data-label="REFERENCES">事実確認メモ／主な参照情報</h2>
+<div class="site-note unofficial-notice">
+    <strong>非公式ファンコンテンツについて</strong><br>
+    本ページは個人が作成した非公式ファンコンテンツです。TBS、SASUKE公式、各出演者、各所属事務所・団体とは関係ありません。掲載内容は公開情報および番組視聴に基づく個人的な分析・感想を含みます。権利者・関係者からの申し出があった場合は、速やかに修正・削除等の対応を行います。
+  </div>
+<p>公開されている番組結果まとめ、SASUKE Wiki、各グループ公式プロフィール等で照合しました。資料間で表記ゆれがあるものは、到達エリア・総合順位・競技別順位を優先し、未確認の項目は「未確認」としました。</p>
+<ol class="refs">
+<li>SASUKE Wiki / 第42回大会 アイドル予選会</li>
+<li>SASUKE Wiki / 第42回大会</li>
+<li>WEBザテレビジョン / 第42回大会アイドル予選会・伊藤実希関連記事</li>
+<li>ENCOUNT / 第42回大会アイドル予選会・伊藤実希関連記事</li>
+<li>Road to SASUKE / 岩本理瑚 関連記事</li>
+<li>SASUKEアイドル予選会2024結果まとめ</li>
+<li>各グループ公式プロフィール、公開情報</li>
+</ol>
+</section>
+<div class="bottom-home-nav">
+  <a class="home-button-bottom" href="../index.html" aria-label="トップページへ戻る">← トップページへ戻る</a>
+</div>
+
+</main></div>
+<a class="back-to-top" href="#top" aria-label="トップへ戻る">↑</a>
+
+<script>
+(function () {
+  function initSidebar() {
+    var layout = document.querySelector('.layout');
+    var sidebar = document.querySelector('.layout > .sidebar');
+    if (!layout || !sidebar) return;
+
+    function resetSidebar() {
+      sidebar.classList.remove('is-fixed', 'is-bottom');
+      sidebar.style.removeProperty('--sidebar-left');
+      sidebar.style.removeProperty('--sidebar-bottom-top');
+    }
+
+    function updateSidebar() {
+      if (window.innerWidth <= 860) {
+        resetSidebar();
+        return;
+      }
+
+      var topGap = 16;
+      var layoutRect = layout.getBoundingClientRect();
+      var scrollY = window.scrollY || window.pageYOffset;
+      var scrollX = window.scrollX || window.pageXOffset;
+      var layoutTop = layoutRect.top + scrollY;
+      var startFixedAt = layoutTop + 28 - topGap;
+      var sidebarHeight = sidebar.offsetHeight;
+      var bottomFixedAt = layoutTop + layout.offsetHeight - 72 - sidebarHeight - topGap;
+      var sidebarLeft = layoutRect.left + scrollX + (window.innerWidth <= 1040 ? 14 : 18);
+
+      sidebar.style.setProperty('--sidebar-left', sidebarLeft + 'px');
+
+      if (scrollY < startFixedAt) {
+        sidebar.classList.remove('is-fixed', 'is-bottom');
+        return;
+      }
+
+      if (scrollY > bottomFixedAt) {
+        sidebar.style.setProperty('--sidebar-bottom-top', Math.max(28, layout.offsetHeight - 72 - sidebarHeight) + 'px');
+        sidebar.classList.remove('is-fixed');
+        sidebar.classList.add('is-bottom');
+        return;
+      }
+
+      sidebar.classList.remove('is-bottom');
+      sidebar.classList.add('is-fixed');
+    }
+
+    window.addEventListener('scroll', updateSidebar, { passive: true });
+    window.addEventListener('resize', updateSidebar);
+    window.addEventListener('orientationchange', updateSidebar);
+    updateSidebar();
+    setTimeout(updateSidebar, 250);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebar);
+  } else {
+    initSidebar();
+  }
+})();
+</script>
+
+</body>
+</html>

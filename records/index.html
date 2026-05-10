@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大会記録・統計データ | SASUKEアイドル予選会</title>
+<meta name="description" content="SASUKEアイドル予選会の大会記録・統計データを、各大会ごとの成績一覧表としてまとめた非公式データページ。">
+<style>
+:root {
+  --blue:#475569;
+  --blue2:#1f2937;
+  --line:#d1d5db;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f5f5f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", Meiryo, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(148,163,184,.18), transparent 30%),
+    radial-gradient(circle at 88% 8%, rgba(96,165,250,.14), transparent 28%),
+    linear-gradient(180deg,#f8fafc,#edf0f3);
+  line-height: 1.75;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(31,41,55,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31,41,55,.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.10));
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: #f0ede6;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 30%, rgba(255,69,0,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 66%, rgba(255,215,0,.08) 0%, transparent 70%),
+    repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,215,0,.017) 40px, rgba(255,215,0,.017) 41px),
+    linear-gradient(180deg,#0d0d0d 0%, #1a0a00 52%, #0d0d0d 100%);
+  padding: 56px 20px 62px;
+}
+
+.hero::after {
+  content: "RECORDS";
+  position: absolute;
+  right: -2vw;
+  top: 42%;
+  transform: translateY(-50%) rotate(-3deg);
+  font-size: clamp(90px, 18vw, 220px);
+  line-height: .8;
+  letter-spacing: -2px;
+  color: rgba(255,69,0,.06);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: -1;
+  font-weight: 900;
+}
+
+.hero-inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.home-link-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 28px;
+  padding: 8px 13px;
+  border: 1px solid #333;
+  color: #c9a96e;
+  background: rgba(255,255,255,.035);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.hero-tag {
+  display: block;
+  width: fit-content;
+  padding-left: 12px;
+  border-left: 2px solid #ff4500;
+  color: #c9a96e;
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.hero h1 {
+  margin: 18px 0 16px;
+  font-size: clamp(32px, 5.6vw, 66px);
+  line-height: 1.1;
+  letter-spacing: .03em;
+  color: #fff;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  color: #c9c9c9;
+  font-size: 15px;
+  line-height: 1.9;
+  font-weight: 700;
+}
+
+
+/* --- records TOC: matched to public tournament pages --- */
+.records-toc {
+  position: relative;
+  top: auto;
+  align-self: auto;
+  background: rgba(255,255,255,.92);
+  border: 1px solid #d1d5db;
+  border-radius: 18px;
+  padding: 16px;
+  margin: 0 0 22px;
+  box-shadow: 0 8px 28px rgba(31,41,55,.08);
+  max-height: none;
+  overflow: hidden;
+}
+
+.records-toc h2 {
+  font-size: 14px;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+  color: #475569;
+  letter-spacing: .18em;
+  font-weight: 900;
+}
+
+.records-toc a {
+  display: block;
+  text-decoration: none;
+  padding: 7px 9px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #314256;
+  border: 1px solid transparent;
+  transition: background .15s ease, transform .15s ease, border-color .15s ease;
+}
+
+.records-toc a:hover {
+  transform: translateX(2px);
+  border-color: #d1d5db;
+  background: linear-gradient(90deg,#f8fafc,#eef2f7);
+  color: #1f2937;
+}
+
+.toc-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toc-toggle-label {
+  display: none;
+}
+
+.toc-body {
+  display: block;
+}
+
+/* Desktop: keep it as a compact CONTENTS box, not pill buttons */
+@media (min-width: 861px) {
+  .records-toc {
+    overflow: visible;
+  }
+
+  .records-toc .toc-toggle,
+  .records-toc .toc-toggle-label {
+    display: none !important;
+  }
+
+  .records-toc .toc-body {
+    display: block !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .records-toc .toc-body h2 {
+    display: block !important;
+  }
+
+  .records-toc .toc-body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 10px;
+  }
+
+  .records-toc .toc-body h2 {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile: same open/close style as public tournament pages */
+@media (max-width: 860px) {
+  .records-toc {
+    padding: 12px !important;
+    overflow: hidden !important;
+    margin-bottom: 16px !important;
+  }
+
+  .toc-toggle-label {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    min-height: 58px;
+    padding: 14px 14px !important;
+    border: 1px solid #d6dce3 !important;
+    border-radius: 18px !important;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255,255,255,.78), transparent 34%),
+      linear-gradient(135deg,#ffffff 0%,#fbfdff 52%,#f3f6f9 100%) !important;
+    color: #111827;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(31,41,55,.10), inset 0 1px 0 rgba(255,255,255,.95) !important;
+  }
+
+  .toc-toggle-label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px !important;
+    background: linear-gradient(180deg,#475569,#94a3b8) !important;
+  }
+
+  .toc-toggle-label span {
+    position: relative;
+    z-index: 1;
+    padding-left: 8px;
+    color: #6b7280 !important;
+    font-family: inherit !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    letter-spacing: .20em !important;
+  }
+
+  .toc-toggle-label b {
+    position: relative;
+    z-index: 1;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    min-width: 118px !important;
+    padding: 6px 7px 6px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.58) !important;
+    box-shadow: inset 0 0 0 1px rgba(209,213,219,.90), 0 4px 12px rgba(31,41,55,.04) !important;
+    color: #6b7280 !important;
+    font-family: inherit !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: .01em !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  .toc-toggle-label b .toc-text-closed,
+  .toc-toggle-label b .toc-text-open {
+    display: inline-block !important;
+    font: inherit !important;
+    color: inherit !important;
+    letter-spacing: inherit !important;
+    line-height: 1.2 !important;
+  }
+
+  .toc-toggle-label b .toc-text-open {
+    display: none !important;
+  }
+
+  .toc-toggle-label b::after {
+    content: "＋" !important;
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 999px;
+    background: linear-gradient(135deg,#475569,#64748b) !important;
+    color: #ffffff !important;
+    font-family: inherit !important;
+    font-size: 17px !important;
+    font-weight: 900;
+    line-height: 1 !important;
+    box-shadow: 0 5px 12px rgba(71,85,105,.16) !important;
+  }
+
+  .toc-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    padding-top: 0;
+    transition: max-height .28s ease, opacity .2s ease, transform .2s ease;
+  }
+
+  .toc-toggle:checked ~ .toc-body {
+    max-height: 760px;
+    opacity: 1;
+    transform: translateY(0);
+    padding-top: 10px;
+  }
+
+  .toc-toggle:checked + .toc-toggle-label {
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255,255,255,.20), transparent 34%),
+      linear-gradient(135deg,#374151,#64748b) !important;
+    border-color: rgba(17,24,39,.25) !important;
+    box-shadow: 0 12px 26px rgba(31,41,55,.18) !important;
+  }
+
+  .toc-toggle:checked + .toc-toggle-label span,
+  .toc-toggle:checked + .toc-toggle-label b,
+  .toc-toggle:checked + .toc-toggle-label b .toc-text-open {
+    color: #e5e7eb !important;
+  }
+
+  .toc-toggle:checked + .toc-toggle-label b {
+    background: rgba(255,255,255,.12) !important;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.20) !important;
+  }
+
+  .toc-toggle:checked + .toc-toggle-label b .toc-text-closed {
+    display: none !important;
+  }
+
+  .toc-toggle:checked + .toc-toggle-label b .toc-text-open {
+    display: inline-block !important;
+  }
+
+  .toc-toggle:checked + .toc-toggle-label b::after {
+    content: "－" !important;
+    background: rgba(255,255,255,.18) !important;
+    color: #ffffff !important;
+  }
+
+  .toc-body h2 {
+    display: none;
+  }
+
+  .records-toc a {
+    font-size: 13px;
+    padding: 8px 9px;
+  }
+}
+
+
+/* --- structured TOC groups --- */
+.records-toc .toc-group {
+  margin: 8px 0 10px;
+}
+
+.records-toc .toc-parent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 10px 8px 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: linear-gradient(180deg,#ffffff,#f8fafc);
+  color: #111827;
+  font-weight: 900;
+}
+
+.records-toc .toc-parent::before {
+  content: "";
+  width: 4px;
+  height: 18px;
+  margin-right: 9px;
+  border-radius: 999px;
+  background: linear-gradient(180deg,#475569,#94a3b8);
+}
+
+.records-toc .toc-children {
+  margin: 6px 0 0 12px;
+  padding: 4px 0 2px 12px;
+  border-left: 2px solid #d1d5db;
+}
+
+.records-toc .toc-children a {
+  position: relative;
+  padding-left: 13px;
+  color: #475569;
+}
+
+.records-toc .toc-children a::before {
+  content: "└";
+  position: absolute;
+  left: 0;
+  color: #9ca3af;
+  font-weight: 900;
+}
+
+.records-toc .toc-group-single {
+  margin-top: 12px;
+}
+
+.records-toc .toc-group-single .toc-parent::before {
+  background: linear-gradient(180deg,#6b7280,#cbd5e1);
+}
+
+/* Desktop structured TOC should stay grouped, not two-column flat */
+@media (min-width: 861px) {
+  .records-toc .toc-body {
+    display: block !important;
+  }
+
+  .records-toc .toc-body h2 {
+    display: block !important;
+  }
+
+  .records-toc .toc-group {
+    break-inside: avoid;
+  }
+}
+
+@media (max-width: 860px) {
+  .records-toc .toc-group {
+    margin: 8px 0 11px;
+  }
+
+  .records-toc .toc-parent {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .records-toc .toc-children {
+    margin-left: 10px;
+    padding-left: 11px;
+  }
+
+  .records-toc .toc-children a {
+    font-size: 13px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+}
+
+@media print {
+  .toc-toggle, .toc-toggle-label {
+    display: none !important;
+  }
+
+  .toc-body {
+    display: block !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+.container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 28px 18px 72px;
+}
+
+
+
+section {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 26px;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 28px rgba(31,41,55,.06);
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg,#111827,#9ca3af,transparent);
+  opacity: .88;
+}
+
+h2 {
+  color: var(--blue2);
+  font-size: clamp(23px,3vw,34px);
+  margin: 0 0 18px;
+  border-bottom: 3px solid var(--line);
+  padding-bottom: 8px;
+}
+
+h2[data-label] {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+h2[data-label]::before {
+  content: attr(data-label);
+  display: block;
+  margin: 0 0 4px;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: .18em;
+  color: #6b7280;
+  font-weight: 900;
+}
+
+h2[data-label]::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg,#111827,#9ca3af);
+}
+
+
+
+.event-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  margin: -2px 0 16px;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.event-date .date-label {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.event-date .date-value {
+  color: #1f2937;
+  font-weight: 900;
+}
+
+@media (max-width: 860px) {
+  .event-date {
+    width: 100%;
+    margin: 0 0 16px;
+    padding: 9px 11px;
+    font-size: 13.5px;
+  }
+}
+
+.lead {
+  font-size: 15px;
+  color: #344054;
+  margin: 0 0 18px;
+}
+
+
+.scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 8px;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.scroll-hint::before {
+  content: "↔";
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+@media (min-width: 861px) {
+  .scroll-hint {
+    font-size: 12px;
+  }
+}
+
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 12px 0 20px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 18px rgba(31,41,55,.04);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th {
+  background: #374151;
+  color: #fff;
+  text-align: left;
+  font-weight: 800;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+
+
+
+/* --- season grouping: make each year boundary clear --- */
+.season-block {
+  position: relative;
+  padding: 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(148,163,184,.18), transparent 30%),
+    linear-gradient(180deg,#ffffff,#f8fafc);
+  box-shadow: 0 14px 36px rgba(31,41,55,.08);
+}
+
+.season-block::before {
+  height: 6px;
+  background: linear-gradient(90deg,#111827,#64748b,#cbd5e1);
+}
+
+.season-head {
+  padding: 28px 28px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255,255,255,.9), transparent 34%),
+    linear-gradient(135deg,#f8fafc,#eef2f7);
+}
+
+.season-label {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #111827;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .18em;
+}
+
+.season-head h2 {
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  color: #111827;
+  font-size: clamp(26px,3.3vw,38px);
+}
+
+.season-head p {
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.season-item {
+  position: relative;
+  margin: 0;
+  padding: 24px 28px 6px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.season-item + .season-item {
+  border-top: 1px solid #e5e7eb;
+}
+
+.season-item::before {
+  content: none;
+  display: none;
+}
+
+.season-item h2 {
+  font-size: clamp(21px,2.6vw,30px);
+  margin-top: 0;
+}
+
+@media (max-width: 860px) {
+  .season-head {
+    padding: 22px 18px 14px;
+  }
+
+  .season-item {
+    margin: 0;
+    padding: 20px 14px 4px;
+    border-radius: 0;
+  }
+}
+
+/* --- records page: tournament record table --- */
+.record-table {
+  min-width: 1080px;
+  width: 100%;
+  table-layout: auto;
+}
+
+.record-table th,
+.record-table td {
+  white-space: nowrap;
+}
+
+.record-table th:first-child,
+.record-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: #ffffff;
+  font-weight: 800;
+}
+
+.record-table th:first-child {
+  z-index: 3;
+  background: #374151;
+  color: #ffffff;
+}
+
+.record-table tbody tr:nth-child(even) td:first-child {
+  background: #f8fafc;
+}
+
+.record-table td:nth-child(2) {
+  font-weight: 700;
+}
+
+.ks-records {
+  min-width: 760px;
+}
+
+.ks-records td:first-child {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.note {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-left: 5px solid #6b7280;
+  border-radius: 14px;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 13px;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#111827,#4b5563);
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(31,41,55,.26);
+  border: 1px solid rgba(255,255,255,.45);
+  opacity: .94;
+}
+
+.bottom-home-nav {
+  text-align: center;
+  margin: 30px 0 0;
+}
+
+.home-button-bottom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min(100%, 320px);
+  padding: 13px 22px;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  background: linear-gradient(135deg,#111827,#4b5563);
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: 0 12px 26px rgba(31,41,55,.22);
+}
+
+@media (max-width: 860px) {
+  .hero {
+    padding: 42px 18px 48px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .container {
+    padding: 18px 12px 52px;
+  }
+
+  section {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .record-table {
+    min-width: 1120px;
+  }
+
+  .record-table th,
+  .record-table td {
+    font-size: 13px;
+    padding: 8px 9px;
+  }
+
+  .back-to-top {
+    right: 16px;
+    bottom: 18px;
+    width: 50px;
+    height: 50px;
+    font-size: 23px;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  body::before,
+  .hero::after,
+  section::before,
+  .back-to-top,
+  .nav-card,
+  .bottom-home-nav {
+    display: none;
+  }
+
+  .hero {
+    background: #fff;
+    color: #111827;
+    padding: 24px 0;
+  }
+
+  .hero p,
+  .hero-tag {
+    color: #374151;
+  }
+
+  section {
+    box-shadow: none;
+    border-color: #ddd;
+  }
+
+  .record-table {
+    min-width: 0;
+  }
+
+  .record-table th:first-child,
+  .record-table td:first-child {
+    position: static;
+  }
+}
+
+/* --- related event tables: tournament name removed because it is shown in heading --- */
+.ks-records {
+  min-width: 560px;
+}
+
+.ks-records th:first-child,
+.ks-records td:first-child {
+  width: 32% !important;
+  min-width: 32% !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+
+.ks-records th:nth-child(2),
+.ks-records td:nth-child(2) {
+  width: 68% !important;
+  min-width: 68% !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+@media (max-width: 860px) {
+  .ks-records {
+    min-width: 520px;
+  }
+
+  .ks-records th:first-child,
+  .ks-records td:first-child {
+    width: 34% !important;
+    min-width: 34% !important;
+  }
+
+  .ks-records th:nth-child(2),
+  .ks-records td:nth-child(2) {
+    width: 66% !important;
+    min-width: 66% !important;
+  }
+}
+
+
+/* --- premium hero: matched with public tournament pages --- */
+.hero.edition-hero {
+  position: relative !important;
+  min-height: 650px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding: 78px 0 70px !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  text-align: left !important;
+  color: #f0ede6 !important;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 30%, rgba(255,69,0,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 66%, rgba(255,215,0,.08) 0%, transparent 70%),
+    repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,215,0,.017) 40px, rgba(255,215,0,.017) 41px),
+    linear-gradient(180deg,#0d0d0d 0%,#1a0a00 52%,#0d0d0d 100%) !important;
+}
+
+.hero.edition-hero::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  opacity: .045 !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") !important;
+  background-size: 200px 200px !important;
+  z-index: 0 !important;
+}
+
+.hero.edition-hero::after {
+  content: "RECORDS" !important;
+  position: absolute !important;
+  right: -2vw !important;
+  top: 45% !important;
+  transform: translateY(-50%) rotate(-3deg) !important;
+  font-family: Impact, "Arial Black", "Noto Sans JP", sans-serif !important;
+  font-size: clamp(88px, 18vw, 230px) !important;
+  line-height: .8 !important;
+  letter-spacing: -2px !important;
+  color: rgba(255,69,0,.065) !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 1 !important;
+  background: none !important;
+}
+
+.edition-hero .hero-bg,
+.edition-hero .hero-noise {
+  display: none !important;
+}
+
+.edition-hero .hero-tag {
+  position: absolute !important;
+  top: 32px !important;
+  left: 40px !important;
+  z-index: 3 !important;
+  display: block !important;
+  width: auto !important;
+  max-width: calc(100% - 80px) !important;
+  margin: 0 !important;
+  padding-left: 12px !important;
+  border-left: 2px solid #ff4500 !important;
+  color: #c9a96e !important;
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  font-weight: 900 !important;
+}
+
+.edition-hero .unofficial-badge {
+  position: absolute !important;
+  top: 28px !important;
+  right: 40px !important;
+  z-index: 3 !important;
+  display: inline-block !important;
+  width: auto !important;
+  padding: 4px 10px !important;
+  border: 1px solid #333 !important;
+  color: #8e8e8e !important;
+  background: transparent !important;
+  font-size: 9px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  font-weight: 900 !important;
+}
+
+.edition-hero .hero-content {
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(1040px, 100%) !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 72px !important;
+}
+
+.edition-hero .home-link-top {
+  position: static !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 0 28px !important;
+  padding: 9px 14px !important;
+  border-radius: 0 !important;
+  border: 1px solid #333 !important;
+  background: rgba(255,255,255,.035) !important;
+  color: #c9a96e !important;
+  box-shadow: none !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 1.2px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.edition-hero .home-link-top:hover {
+  border-color: #ff4500 !important;
+  color: #ffd700 !important;
+}
+
+.edition-hero .hero-edition {
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  color: #ff4500 !important;
+  font-size: clamp(14px,2vw,19px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: 6px !important;
+  text-transform: uppercase !important;
+  font-weight: 900 !important;
+}
+
+.edition-hero .hero-title {
+  display: block !important;
+  width: 100% !important;
+  max-width: 980px !important;
+  margin: 0 0 22px !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: clamp(46px,5.6vw,78px) !important;
+  line-height: 1.1 !important;
+  letter-spacing: .02em !important;
+  font-weight: 900 !important;
+  background: linear-gradient(135deg,#fff 20%, #ffd700 72%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-align: left !important;
+  overflow: visible !important;
+}
+
+.edition-hero .hero-title span {
+  display: block !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  line-height: inherit !important;
+  font: inherit !important;
+  letter-spacing: inherit !important;
+  background: inherit !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+.edition-hero .hero-sub {
+  margin: 0 0 28px !important;
+  padding: 0 !important;
+  color: #aaa !important;
+  font-size: 14px !important;
+  line-height: 1.8 !important;
+  letter-spacing: 2px !important;
+  font-weight: 900 !important;
+  text-align: left !important;
+}
+
+.edition-hero .hero-divider {
+  width: 72px !important;
+  height: 3px !important;
+  margin: 0 0 28px !important;
+  background: linear-gradient(90deg,#ff4500,#ffd700) !important;
+  border-radius: 999px !important;
+}
+
+.edition-hero .hero-lead {
+  max-width: 760px !important;
+  width: 100% !important;
+  margin: 0 0 28px !important;
+  padding: 0 !important;
+  color: #c9c9c9 !important;
+  font-size: clamp(15px,2vw,17px) !important;
+  line-height: 1.9 !important;
+  letter-spacing: 0 !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+
+.edition-hero .hero-badges {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  width: 100% !important;
+  max-width: 840px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.edition-hero .hero-badges span {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: auto !important;
+  padding: 6px 11px !important;
+  border: 1px solid #444 !important;
+  border-radius: 0 !important;
+  background: rgba(255,255,255,.035) !important;
+  color: #c9a96e !important;
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+  letter-spacing: 1.5px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 800px) {
+  .hero.edition-hero {
+    display: block !important;
+    min-height: auto !important;
+    padding: 24px 0 50px !important;
+  }
+
+  .edition-hero .hero-tag {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    display: block !important;
+    width: auto !important;
+    max-width: calc(100% - 48px) !important;
+    margin: 0 24px 14px !important;
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+    line-height: 1.55 !important;
+  }
+
+  .edition-hero .unofficial-badge {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    display: inline-block !important;
+    margin: 0 24px 28px !important;
+  }
+
+  .edition-hero .hero-content {
+    width: 100% !important;
+    padding: 0 24px !important;
+  }
+
+  .edition-hero .home-link-top {
+    margin-bottom: 30px !important;
+  }
+
+  .edition-hero .hero-edition {
+    font-size: 14px !important;
+    letter-spacing: 4px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .edition-hero .hero-title {
+    max-width: 100% !important;
+    font-size: clamp(31px,8.6vw,42px) !important;
+    line-height: 1.16 !important;
+    letter-spacing: .02em !important;
+    margin-bottom: 20px !important;
+  }
+
+  .edition-hero .hero-sub {
+    font-size: 13px !important;
+    letter-spacing: 1px !important;
+    line-height: 1.75 !important;
+  }
+
+  .edition-hero .hero-lead {
+    font-size: 14px !important;
+  }
+
+  .hero.edition-hero::after {
+    top: 34% !important;
+    right: -30vw !important;
+    font-size: clamp(88px, 26vw, 150px) !important;
+  }
+}
+
+/* --- subtle luxury touches for records page --- */
+.season-block {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 16px 38px rgba(31,41,55,.10) !important;
+}
+
+.season-head {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255,255,255,.9), transparent 34%),
+    linear-gradient(135deg,#ffffff,#f3f6fa) !important;
+}
+
+.season-label {
+  background: linear-gradient(135deg,#111827,#374151) !important;
+  box-shadow: 0 8px 18px rgba(31,41,55,.12);
+}
+
+h2[data-label]::before {
+  letter-spacing: .22em !important;
+}
+
+h2[data-label]::after {
+  background: linear-gradient(90deg,#111827,#9ca3af,#d6a62f) !important;
+}
+
+.event-date {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 6px 14px rgba(31,41,55,.035) !important;
+}
+
+.records-toc {
+  box-shadow: 0 10px 28px rgba(31,41,55,.08) !important;
+}
+
+</style>
+
+<style>
+/* --- safe patch: records TOC collapsible on desktop too --- */
+@media (min-width: 861px) {
+  .records-toc {
+    padding: 12px !important;
+    overflow: hidden !important;
+  }
+
+  .records-toc .toc-toggle {
+    position: absolute !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .records-toc .toc-toggle-label {
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    width: 100% !important;
+    min-height: 58px !important;
+    padding: 14px 14px !important;
+    border: 1px solid #d6dce3 !important;
+    border-radius: 18px !important;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255,255,255,.78), transparent 34%),
+      linear-gradient(135deg,#ffffff 0%,#fbfdff 52%,#f3f6f9 100%) !important;
+    color: #111827 !important;
+    cursor: pointer !important;
+    box-shadow: 0 10px 24px rgba(31,41,55,.10), inset 0 1px 0 rgba(255,255,255,.95) !important;
+  }
+
+  .records-toc .toc-toggle-label::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 4px !important;
+    background: linear-gradient(180deg,#475569,#94a3b8) !important;
+  }
+
+  .records-toc .toc-toggle-label span {
+    position: relative !important;
+    z-index: 1 !important;
+    padding-left: 8px !important;
+    color: #6b7280 !important;
+    font-family: inherit !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    letter-spacing: .20em !important;
+  }
+
+  .records-toc .toc-toggle-label b {
+    position: relative !important;
+    z-index: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    min-width: 118px !important;
+    padding: 6px 7px 6px 10px !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,.58) !important;
+    box-shadow: inset 0 0 0 1px rgba(209,213,219,.90), 0 4px 12px rgba(31,41,55,.04) !important;
+    color: #6b7280 !important;
+    font-family: inherit !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: .01em !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  .records-toc .toc-toggle-label b .toc-text-closed,
+  .records-toc .toc-toggle-label b .toc-text-open {
+    display: inline-block !important;
+    font: inherit !important;
+    color: inherit !important;
+    letter-spacing: inherit !important;
+    line-height: 1.2 !important;
+  }
+
+  .records-toc .toc-toggle-label b .toc-text-open {
+    display: none !important;
+  }
+
+  .records-toc .toc-toggle-label b::after {
+    content: "＋" !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(135deg,#475569,#64748b) !important;
+    color: #ffffff !important;
+    font-family: inherit !important;
+    font-size: 17px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 5px 12px rgba(71,85,105,.16) !important;
+  }
+
+  .records-toc .toc-body {
+    display: block !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    transform: translateY(-4px) !important;
+    padding-top: 0 !important;
+    transition: max-height .28s ease, opacity .2s ease, transform .2s ease !important;
+  }
+
+  .records-toc .toc-toggle:checked ~ .toc-body {
+    max-height: 760px !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    padding-top: 10px !important;
+  }
+
+  .records-toc .toc-toggle:checked + .toc-toggle-label {
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255,255,255,.20), transparent 34%),
+      linear-gradient(135deg,#374151,#64748b) !important;
+    border-color: rgba(17,24,39,.25) !important;
+    box-shadow: 0 12px 26px rgba(31,41,55,.18) !important;
+  }
+
+  .records-toc .toc-toggle:checked + .toc-toggle-label span,
+  .records-toc .toc-toggle:checked + .toc-toggle-label b,
+  .records-toc .toc-toggle:checked + .toc-toggle-label b .toc-text-open {
+    color: #e5e7eb !important;
+  }
+
+  .records-toc .toc-toggle:checked + .toc-toggle-label b {
+    background: rgba(255,255,255,.12) !important;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.20) !important;
+  }
+
+  .records-toc .toc-toggle:checked + .toc-toggle-label b .toc-text-closed {
+    display: none !important;
+  }
+
+  .records-toc .toc-toggle:checked + .toc-toggle-label b .toc-text-open {
+    display: inline-block !important;
+  }
+
+  .records-toc .toc-toggle:checked + .toc-toggle-label b::after {
+    content: "－" !important;
+    background: rgba(255,255,255,.18) !important;
+    color: #ffffff !important;
+  }
+
+  .records-toc .toc-body h2 {
+    display: none !important;
+  }
+}
+</style>
+
+</head>
+
+<body id="top">
+<header class="hero edition-hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <span class="hero-tag">SASUKE IDOL QUALIFIER / RECORDS</span>
+  <span class="unofficial-badge">非公式ファンサイト</span>
+
+  <div class="hero-content">
+    <a class="home-link-top" href="../index.html" aria-label="トップページへ戻る">← トップページへ戻る</a>
+    <p class="hero-edition">Records & Statistics</p>
+    <h1 class="hero-title">
+      <span>大会記録・統計データ</span>
+    </h1>
+    <p class="hero-sub">SASUKEアイドル予選会 シーズン別データアーカイブ</p>
+    <div class="hero-divider"></div>
+    <p class="hero-lead">
+      SASUKEアイドル予選会と、その前後に出場者が挑戦したKUNOICHI・SASUKE本戦成績を、シーズンごとに整理した非公式データページです。
+    </p>
+    <div class="hero-badges">
+      <span>2025年シーズン</span>
+      <span>2024年シーズン</span>
+      <span>KUNOICHI / SASUKE本戦</span>
+      <span>開催日・放送日掲載</span>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <aside class="sidebar records-toc">
+    <input type="checkbox" id="toc-toggle" class="toc-toggle">
+    <label for="toc-toggle" class="toc-toggle-label">
+      <span>CONTENTS</span>
+      <b><span class="toc-text-closed">目次を開く</span><span class="toc-text-open">目次を閉じる</span></b>
+    </label>
+    <div class="toc-body">
+      <h2>CONTENTS</h2>
+
+      <div class="toc-group">
+        <a class="toc-parent" href="#season-2025">2025年シーズン</a>
+        <div class="toc-children">
+          <a href="#kunoichi-2025-winter">KUNOICHI 2025年冬</a>
+          <a href="#record-43">第43回SASUKEアイドル予選会</a>
+          <a href="#kunoichi-2025-autumn">KUNOICHI 2025年秋</a>
+          <a href="#sasuke-43">SASUKE本戦 第43回</a>
+        </div>
+      </div>
+
+      <div class="toc-group">
+        <a class="toc-parent" href="#season-2024">2024年シーズン</a>
+        <div class="toc-children">
+          <a href="#record-42">第42回SASUKEアイドル予選会</a>
+          <a href="#sasuke-42">SASUKE本戦 第42回</a>
+        </div>
+      </div>
+
+      <div class="toc-group">
+        <a class="toc-parent" href="#past-records">過去関連成績</a>
+        <div class="toc-children">
+          <a href="#past-records">SASUKE本戦 第38回</a>
+        </div>
+      </div>
+
+      <div class="toc-group toc-group-single">
+        <a class="toc-parent" href="#notes">注意事項</a>
+      </div>
+    </div>
+  </aside>
+
+<section id="season-2025" class="season-block">
+    <div class="season-head">
+      <span class="season-label">SEASON</span>
+      <h2>2025年シーズン</h2>
+      <p>
+        KUNOICHI 2025年冬、第43回SASUKEアイドル予選会、KUNOICHI 2025年秋、SASUKE本戦 第43回をまとめています。
+      </p>
+    </div>
+    <div id="kunoichi-2025-winter" class="season-item">
+      <h2 data-label="KUNOICHI 2025 WINTER">KUNOICHI 2025年冬</h2>
+      <div class="event-date"><span class="date-label">放送日</span><span class="date-value">2025年1月13日</span></div>
+      <p class="lead">
+        第43回SASUKEアイドル予選会前に行われたKUNOICHI関連成績です。
+      </p>
+      <div class="scroll-hint">表は左右にスクロールできます</div>
+      <div class="table-wrap">
+        <table class="ks-records">
+          <thead>
+            <tr>
+              <th>選手名</th>
+              <th>到達地点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>結城りな</td>
+              <td>1st ドラゴングライダーで落下。</td>
+            </tr>
+            <tr>
+              <td>風見和香</td>
+              <td>1st そり立つ壁でタイムアウト。</td>
+            </tr>
+            <tr>
+              <td>岩本理瑚</td>
+              <td>1st ドラゴングライダー落下。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="record-43" class="season-item">
+    <h2 data-label="43RD IDOL QUALIFIER RECORD">第43回SASUKEアイドル予選会</h2>
+      <div class="event-date"><span class="date-label">開催日</span><span class="date-value">2025年8月13日</span></div>
+
+    <p class="lead">
+      第43回SASUKEアイドル予選会の総合成績と各競技成績を、選手ごとに一覧化しています。
+      各競技欄は「順位 / ポイント / 補足」の形式で記載しています。
+    </p>
+
+    <div class="scroll-hint">表は左右にスクロールできます</div>
+
+    <div class="table-wrap record-table-wrap">
+      <table class="record-table">
+        <thead>
+          <tr>
+            <th>名前</th>
+            <th>総合成績</th>
+            <th>ビーチフラッグス</th>
+            <th>テイルインポッシブル</th>
+            <th>パワーフォース</th>
+            <th>SASUKEタイムレース</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>結城りな</td>
+            <td>1位 / 150pt</td>
+            <td>1位 / 45pt / 優勝</td>
+            <td>5位 / 35pt</td>
+            <td>4位タイ / 10pt / 2回戦敗退</td>
+            <td>2位 / 60pt / 30.96秒</td>
+          </tr>
+          <tr>
+            <td>清司麗菜</td>
+            <td>2位タイ / 125pt</td>
+            <td>3位タイ / 15pt / 2回戦敗退</td>
+            <td>8位 / 20pt</td>
+            <td>4位タイ / 10pt / 2回戦敗退</td>
+            <td>1位 / 80pt / 25.22秒</td>
+          </tr>
+          <tr>
+            <td>大信田美月</td>
+            <td>2位タイ / 125pt</td>
+            <td>2位 / 30pt / 決勝敗退</td>
+            <td>9位 / 15pt</td>
+            <td>2位 / 30pt / 決勝敗退</td>
+            <td>3位 / 50pt / 31.36秒</td>
+          </tr>
+          <tr>
+            <td>佐藤莉華</td>
+            <td>4位 / 110pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>7位 / 30pt / 救済込み</td>
+            <td>1位 / 45pt / 優勝</td>
+            <td>5位 / 35pt / 34.70秒</td>
+          </tr>
+          <tr>
+            <td>涼海すう</td>
+            <td>5位 / 105pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>1位 / 60pt</td>
+            <td>3位 / 25pt / 決勝敗退</td>
+            <td>8位 / 20pt / 36.59秒</td>
+          </tr>
+          <tr>
+            <td>塩釜菜那</td>
+            <td>6位 / 100pt</td>
+            <td>3位タイ / 15pt / 2回戦敗退</td>
+            <td>3位 / 45pt</td>
+            <td>4位タイ / 10pt / 2回戦敗退</td>
+            <td>6位 / 30pt / 35.40秒</td>
+          </tr>
+          <tr>
+            <td>伊藤実希</td>
+            <td>7位 / 95pt</td>
+            <td>3位タイ / 15pt / 2回戦敗退</td>
+            <td>4位 / 40pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>4位 / 40pt / 32.32秒</td>
+          </tr>
+          <tr>
+            <td>風見和香</td>
+            <td>8位 / 65pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>2位 / 50pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>9位 / 15pt / 37.02秒</td>
+          </tr>
+          <tr>
+            <td>瀧脇笙古</td>
+            <td>9位 / 55pt</td>
+            <td>3位タイ / 15pt / 2回戦敗退</td>
+            <td>6位 / 30pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>10位 / 10pt / 38.37秒</td>
+          </tr>
+          <tr>
+            <td>坂下真心</td>
+            <td>10位 / 35pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>10位 / 10pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>7位 / 25pt / 35.48秒</td>
+          </tr>
+          <tr>
+            <td>桐原美月</td>
+            <td>11位 / 5pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>11位 / 5pt</td>
+            <td>7位タイ / 0pt / 棄権</td>
+            <td>12位 / 0pt / 棄権</td>
+          </tr>
+          <tr>
+            <td>白石まゆみ</td>
+            <td>12位 / 0pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>12位 / 0pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>11位 / 0pt / タイムアップ</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+    <div id="kunoichi-2025-autumn" class="season-item">
+      <h2 data-label="KUNOICHI 2025 AUTUMN">KUNOICHI 2025年秋</h2>
+      <div class="event-date"><span class="date-label">放送日</span><span class="date-value">2025年11月24日</span></div>
+      <p class="lead">
+        第43回SASUKEアイドル予選会後に行われたKUNOICHI関連成績です。
+      </p>
+      <div class="scroll-hint">表は左右にスクロールできます</div>
+      <div class="table-wrap">
+        <table class="ks-records">
+          <thead>
+            <tr>
+              <th>選手名</th>
+              <th>到達地点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>結城りな</td>
+              <td>1stクリア。2nd リバースコンベアでタイムアップ。</td>
+            </tr>
+            <tr>
+              <td>清司麗菜</td>
+              <td>1stクリア。2nd リバースコンベアでタイムアップ。</td>
+            </tr>
+            <tr>
+              <td>大信田美月</td>
+              <td>1st ドラゴングライダー敗退。</td>
+            </tr>
+            <tr>
+              <td>佐藤莉華</td>
+              <td>1st 新プリズムシーソー敗退。</td>
+            </tr>
+            <tr>
+              <td>風見和香</td>
+              <td>1stクリア。2nd バックストリームでタイムアップ。</td>
+            </tr>
+            <tr>
+              <td>岩本理瑚</td>
+              <td>1st 新プリズムシーソー敗退。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="sasuke-43" class="season-item">
+      <h2 data-label="SASUKE 43RD">SASUKE本戦 第43回</h2>
+      <div class="event-date"><span class="date-label">放送日</span><span class="date-value">2025年12月24日・25日</span></div>
+      <p class="lead">
+        第43回SASUKEアイドル予選会と接続するSASUKE本戦関連成績です。
+      </p>
+      <div class="scroll-hint">表は左右にスクロールできます</div>
+      <div class="table-wrap">
+        <table class="ks-records">
+          <thead>
+            <tr>
+              <th>選手名</th>
+              <th>到達地点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>結城りな</td>
+              <td>1st 新プリズムシーソー敗退。</td>
+            </tr>
+            <tr>
+              <td>岩本理瑚</td>
+              <td>1st DX敗退。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="season-2024" class="season-block">
+    <div class="season-head">
+      <span class="season-label">SEASON</span>
+      <h2>2024年シーズン</h2>
+      <p>
+        第42回SASUKEアイドル予選会と、それに接続するSASUKE本戦 第42回をまとめています。
+      </p>
+    </div>
+    <div id="record-42" class="season-item">
+    <h2 data-label="42ND IDOL QUALIFIER RECORD">第42回SASUKEアイドル予選会</h2>
+      <div class="event-date"><span class="date-label">開催日</span><span class="date-value">2024年10月7日</span></div>
+
+    <p class="lead">
+      第42回SASUKEアイドル予選会の総合成績と各競技成績を、選手ごとに一覧化しています。
+      各競技欄は「順位 / ポイント / 補足」の形式で記載しています。
+    </p>
+
+    <div class="scroll-hint">表は左右にスクロールできます</div>
+
+    <div class="table-wrap record-table-wrap">
+      <table class="record-table">
+        <thead>
+          <tr>
+            <th>名前</th>
+            <th>総合成績</th>
+            <th>ビーチフラッグス</th>
+            <th>地獄のシャトルラン</th>
+            <th>無限ジャンプ</th>
+            <th>SASUKEタイムレース</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>伊藤実希</td>
+            <td>1位 / 160pt</td>
+            <td>3位タイ / 10pt / 2回戦敗退</td>
+            <td>4位 / 40pt</td>
+            <td>2位 / 50pt / 144回</td>
+            <td>3位 / 60pt / 20.00秒</td>
+          </tr>
+          <tr>
+            <td>結城りな</td>
+            <td>2位 / 155pt</td>
+            <td>1位 / 30pt / 優勝</td>
+            <td>3位 / 45pt</td>
+            <td>12位 / 0pt / 棄権</td>
+            <td>2位 / 80pt / 19.75秒</td>
+          </tr>
+          <tr>
+            <td>清司麗菜</td>
+            <td>3位 / 150pt</td>
+            <td>3位タイ / 10pt / 2回戦敗退</td>
+            <td>7位 / 25pt</td>
+            <td>9位 / 15pt / 50回</td>
+            <td>1位 / 100pt / 16.66秒</td>
+          </tr>
+          <tr>
+            <td>大信田美月</td>
+            <td>4位 / 125pt</td>
+            <td>2位 / 20pt / 決勝敗退</td>
+            <td>5位 / 35pt</td>
+            <td>8位 / 20pt / 51回</td>
+            <td>4位 / 50pt / 20.20秒</td>
+          </tr>
+          <tr>
+            <td>風見和香</td>
+            <td>5位 / 120pt</td>
+            <td>3位タイ / 10pt / 2回戦敗退</td>
+            <td>2位 / 50pt</td>
+            <td>1位 / 60pt / 152回</td>
+            <td>9位タイ / 0pt / 40.43秒</td>
+          </tr>
+          <tr>
+            <td>岩本理瑚</td>
+            <td>6位 / 115pt</td>
+            <td>3位タイ / 10pt / 2回戦敗退</td>
+            <td>1位 / 60pt</td>
+            <td>3位 / 45pt / 129回</td>
+            <td>9位タイ / 0pt / 平均台リタイア</td>
+          </tr>
+          <tr>
+            <td>真中まな</td>
+            <td>7位 / 110pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>6位 / 30pt</td>
+            <td>4位 / 40pt / 95回</td>
+            <td>5位 / 40pt / 21.01秒</td>
+          </tr>
+          <tr>
+            <td>正鋳真優</td>
+            <td>8位 / 85pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>8位 / 20pt</td>
+            <td>5位 / 35pt / 63回</td>
+            <td>6位 / 30pt / 22.06秒</td>
+          </tr>
+          <tr>
+            <td>辻野かなみ</td>
+            <td>9位 / 60pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>10位 / 10pt</td>
+            <td>6位 / 30pt / 61回</td>
+            <td>7位 / 20pt / 23.01秒</td>
+          </tr>
+          <tr>
+            <td>白石まゆみ</td>
+            <td>10位 / 35pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>9位 / 15pt</td>
+            <td>10位 / 10pt / 43回</td>
+            <td>8位 / 10pt / 30.90秒</td>
+          </tr>
+          <tr>
+            <td>姫野ひなの</td>
+            <td>11位 / 25pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>12位 / 0pt</td>
+            <td>7位 / 25pt / 60回</td>
+            <td>9位タイ / 0pt / 34.38秒</td>
+          </tr>
+          <tr>
+            <td>菅波美玲</td>
+            <td>12位 / 10pt</td>
+            <td>7位タイ / 0pt / 1回戦敗退</td>
+            <td>11位 / 5pt</td>
+            <td>11位 / 5pt / 2回・片足ジャンプで失格</td>
+            <td>9位タイ / 0pt / 45.33秒</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+    <div id="sasuke-42" class="season-item">
+      <h2 data-label="SASUKE 42ND">SASUKE本戦 第42回</h2>
+      <div class="event-date"><span class="date-label">放送日</span><span class="date-value">2024年12月25日</span></div>
+      <p class="lead">
+        第42回SASUKEアイドル予選会と接続するSASUKE本戦関連成績です。
+      </p>
+      <div class="scroll-hint">表は左右にスクロールできます</div>
+      <div class="table-wrap">
+        <table class="ks-records">
+          <thead>
+            <tr>
+              <th>選手名</th>
+              <th>到達地点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>伊藤実希</td>
+              <td>1st スクリュードライバー敗退。</td>
+            </tr>
+            <tr>
+              <td>岩本理瑚</td>
+              <td>1st フィッシュボーン敗退。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="past-records">
+    <h2 data-label="SASUKE 38TH">SASUKE本戦 第38回</h2>
+      <div class="event-date"><span class="date-label">関連大会</span><span class="date-value">SASUKE本戦 第38回</span></div>
+    <p class="lead">
+      アイドル予選会以前から関連するSASUKE本戦成績です。
+    </p>
+    <div class="scroll-hint">表は左右にスクロールできます</div>
+    <div class="table-wrap">
+      <table class="ks-records">
+        <thead>
+          <tr>
+            <th>選手名</th>
+            <th>到達地点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>瀧脇笙古</td>
+            <td>1st ローリングヒル敗退。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="notes">
+    <h2 data-label="NOTES">注意事項</h2>
+    <div class="note">
+      ※本ページは個人作成の非公式ファンコンテンツです。掲載内容は公開情報および番組視聴に基づく整理・分析を含みます。
+    </div>
+  </section>
+
+
+  <div class="bottom-home-nav">
+    <a class="home-button-bottom" href="../index.html">← トップページへ戻る</a>
+  </div>
+</main>
+
+<a class="back-to-top" href="#top" aria-label="ページ先頭へ戻る">↑</a>
+</body>
+</html>

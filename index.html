@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SASUKEアイドル予選会データブック</title>
+<meta name="description" content="SASUKEアイドル予選会の大会レビュー・能力値一覧・選手名鑑をまとめた非公式データブック。第43回・第42回大会の記録を収録。"/>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<meta property="og:title" content="SASUKEアイドル予選会データブック"/>
+<meta property="og:description" content="大会レビュー・能力値一覧・選手名鑑で振り返る、SASUKEアイドル予選会の非公式データブック。"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://idol-qualifier-databook.netlify.app/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<style>
+:root {
+  --fire:#ff4500;
+  --gold:#ffd700;
+  --sand:#c9a96e;
+  --dark:#0d0d0d;
+  --surface:#222222;
+  --line:#333333;
+  --text:#f0ede6;
+  --muted:#8e8e8e;
+  --accent:#00d4ff;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body {
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(255,69,0,.10), transparent 70%),
+    linear-gradient(180deg,#0d0d0d 0%, #120a06 34%, #0d0d0d 100%);
+  color:var(--text);
+  font-family:'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  line-height:1.75;
+  overflow-x:hidden;
+}
+a { color:inherit; text-decoration:none; }
+
+.hero {
+  position:relative;
+  min-height:760px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:88px 0 72px;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero-bg {
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 30%, rgba(255,69,0,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 66%, rgba(255,215,0,.08) 0%, transparent 70%),
+    repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,215,0,.017) 40px, rgba(255,215,0,.017) 41px),
+    linear-gradient(180deg, #0d0d0d 0%, #1a0a00 52%, #0d0d0d 100%);
+  z-index:-3;
+}
+.hero-noise {
+  position:absolute;
+  inset:0;
+  opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+  z-index:-2;
+}
+.hero::after {
+  content:"IDOL QUALIFIER";
+  position:absolute;
+  right:-2vw;
+  top:44%;
+  transform:translateY(-50%) rotate(-3deg);
+  font-family:'Bebas Neue', sans-serif;
+  font-size:clamp(74px, 16vw, 210px);
+  line-height:.8;
+  letter-spacing:-2px;
+  color:rgba(255,69,0,.055);
+  white-space:nowrap;
+  pointer-events:none;
+  user-select:none;
+  z-index:-1;
+}
+.hero-tag {
+  position:absolute;
+  top:32px;
+  left:40px;
+  font-family:'Oswald', sans-serif;
+  font-size:11px;
+  letter-spacing:4px;
+  color:var(--sand);
+  text-transform:uppercase;
+  border-left:2px solid var(--fire);
+  padding-left:12px;
+  z-index:3;
+}
+.unofficial-badge {
+  position:absolute;
+  top:28px;
+  right:40px;
+  font-size:9px;
+  letter-spacing:2px;
+  color:var(--muted);
+  text-transform:uppercase;
+  border:1px solid #333;
+  padding:4px 10px;
+  z-index:3;
+}
+.hero-content {
+  position:relative;
+  z-index:2;
+  width:min(1040px, 100%);
+  margin:0 auto;
+  padding:0 72px;
+  animation:fadeUp .85s ease both;
+}
+.hero-edition {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:clamp(14px,2vw,18px);
+  letter-spacing:6px;
+  color:var(--fire);
+  margin-bottom:12px;
+}
+.hero-title {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:clamp(48px, 5.6vw, 74px);
+  line-height:1.08;
+  letter-spacing:1px;
+  background:linear-gradient(135deg,#fff 24%, var(--gold) 72%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:22px;
+  max-width:980px;
+  overflow:visible;
+}
+.hero-title span { display:block; white-space:normal; overflow:visible; }
+.hero-title span:first-child { white-space:nowrap; }
+.hero-title span + span { margin-top:8px; }
+.hero-sub {
+  font-size:14px;
+  color:#aaa;
+  letter-spacing:2px;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:30px;
+}
+.hero-divider {
+  width:72px;
+  height:3px;
+  background:linear-gradient(90deg,var(--fire),var(--gold));
+  margin-bottom:28px;
+}
+.hero-lead {
+  max-width:760px;
+  color:#c9c9c9;
+  font-size:clamp(15px,2vw,17px);
+  line-height:1.9;
+}
+.hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:32px;
+}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-width:190px;
+  padding:13px 18px;
+  border:1px solid #333;
+  font-family:'Oswald', sans-serif;
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:transform .18s ease, border-color .18s ease, background .18s ease;
+}
+.btn:hover { transform:translateY(-2px); }
+.btn.primary {
+  color:#111;
+  background:linear-gradient(135deg,var(--gold),#fff0a5);
+  border-color:rgba(255,215,0,.85);
+  font-weight:900;
+}
+.btn.ghost { color:#bbb; background:transparent; }
+.btn.ghost:hover { border-color:var(--accent); color:var(--accent); }
+
+.section {
+  padding:84px 40px;
+  max-width:1060px;
+  margin:0 auto;
+}
+.section.narrow { max-width:860px; }
+.section-sep {
+  border:none;
+  border-top:1px solid #222;
+  max-width:1060px;
+  margin:0 auto;
+}
+.section-label {
+  font-family:'Oswald', sans-serif;
+  font-size:11px;
+  letter-spacing:5px;
+  color:var(--fire);
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.section-title {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:clamp(34px, 6vw, 58px);
+  letter-spacing:2px;
+  line-height:1;
+  margin-bottom:34px;
+}
+.section-lead {
+  color:#bbb;
+  font-size:15px;
+  line-height:1.9;
+  margin-bottom:18px;
+}
+
+.issue-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+.issue-card {
+  position:relative;
+  overflow:hidden;
+  background:var(--surface);
+  border:1px solid #2f2f2f;
+  padding:24px 28px;
+  min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:22px;
+  transition:transform .18s ease, border-color .18s ease;
+}
+.issue-card:hover { transform:translateY(-2px); border-color:#4a4a4a; }
+.issue-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.045;
+  background:repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(255,255,255,.5) 8px, rgba(255,255,255,.5) 9px);
+  pointer-events:none;
+}
+.issue-card.latest { border-top:3px solid var(--gold); background:linear-gradient(180deg,#25200f 0%, #222 36%, #1b1b1b 100%); }
+.issue-card.archive { border-top:3px solid #666; }
+.issue-num {
+  position:absolute;
+  right:28px;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:'Bebas Neue', sans-serif;
+  font-size:110px;
+  line-height:1;
+  color:rgba(255,255,255,.045);
+  pointer-events:none;
+}
+.badge {
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  gap:6px;
+  color:var(--sand);
+  border:1px solid #444;
+  padding:4px 10px;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:900;
+  margin-bottom:10px;
+}
+.badge.hot { color:var(--gold); border-color:rgba(255,215,0,.6); }
+.issue-title {
+  position:relative;
+  z-index:1;
+  font-family:'Bebas Neue', sans-serif;
+  font-size:clamp(34px, 4vw, 48px);
+  letter-spacing:2px;
+  line-height:1.02;
+  margin-bottom:10px;
+}
+.issue-card.latest .issue-title { color:var(--gold); }
+.issue-copy {
+  position:relative;
+  z-index:1;
+  color:#bdbdbd;
+  font-size:14px;
+  line-height:1.85;
+  max-width:760px;
+  margin-bottom:12px;
+}
+.meta-list {
+  position:relative;
+  z-index:1;
+  list-style:none;
+  display:grid;
+  grid-template-columns: repeat(4, max-content);
+  column-gap:18px;
+  row-gap:6px;
+  margin-bottom:0;
+}
+.meta-list li {
+  color:#aaa;
+  font-size:13px;
+  padding-left:18px;
+  position:relative;
+}
+.meta-list li::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:.78em;
+  width:7px;
+  height:7px;
+  background:linear-gradient(135deg,var(--fire),var(--gold));
+}
+.issue-link {
+  position:relative;
+  z-index:1;
+  display:inline-flex;
+  width:max-content;
+  align-items:center;
+  gap:8px;
+  justify-self:end;
+  align-self:end;
+  white-space:nowrap;
+  color:#111;
+  background:linear-gradient(135deg,var(--gold),#fff0a5);
+  border:1px solid rgba(255,215,0,.75);
+  padding:10px 15px;
+  font-family:'Oswald', sans-serif;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:900;
+}
+.issue-card.archive .issue-link { color:#eee; background:#333; border-color:#4a4a4a; }
+
+/* --- records link card --- */
+.records-card {
+  position:relative;
+  overflow:hidden;
+  margin-top:22px;
+  border:1px solid rgba(201,169,110,.42);
+  border-top:3px solid var(--fire);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255,215,0,.10), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(255,69,0,.12), transparent 34%),
+    linear-gradient(180deg,#241b12 0%, #1d1d1d 48%, #171717 100%);
+  padding:26px 28px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:22px;
+  align-items:center;
+  box-shadow:0 14px 36px rgba(0,0,0,.22);
+}
+.records-card::after {
+  content:"RECORDS";
+  position:absolute;
+  right:-8px;
+  top:50%;
+  transform:translateY(-50%) rotate(-2deg);
+  font-family:'Bebas Neue', sans-serif;
+  font-size:118px;
+  line-height:1;
+  color:rgba(255,215,0,.045);
+  pointer-events:none;
+}
+.records-card-body {
+  position:relative;
+  z-index:1;
+}
+.records-card .badge {
+  color:var(--gold);
+  border-color:rgba(255,215,0,.55);
+}
+.records-title {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:clamp(34px,4vw,50px);
+  letter-spacing:2px;
+  line-height:1.02;
+  color:#fff;
+  margin-bottom:10px;
+}
+.records-copy {
+  max-width:760px;
+  color:#bdbdbd;
+  font-size:14px;
+  line-height:1.85;
+}
+.records-link {
+  position:relative;
+  z-index:1;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:210px;
+  padding:12px 16px;
+  color:#111;
+  background:linear-gradient(135deg,var(--gold),#fff0a5);
+  border:1px solid rgba(255,215,0,.75);
+  font-family:'Oswald', sans-serif;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.feature-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.feature-card {
+  background:var(--surface);
+  border:1px solid #2a2a2a;
+  padding:22px;
+  min-height:210px;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .18s ease, transform .18s ease;
+}
+.feature-card:hover { border-color:#444; transform:translateY(-2px); }
+.feature-icon {
+  display:block;
+  font-family:'Bebas Neue', sans-serif;
+  font-size:42px;
+  color:var(--fire);
+  line-height:1;
+  opacity:.9;
+  margin-bottom:14px;
+}
+.feature-title {
+  font-family:'Oswald', sans-serif;
+  font-size:17px;
+  letter-spacing:1px;
+  color:#fff;
+  margin-bottom:10px;
+}
+.feature-body { color:#aaa; font-size:14px; line-height:1.8; }
+
+.route {
+  display:grid;
+  grid-template-columns:54px 1fr;
+  gap:18px;
+  margin-bottom:28px;
+}
+.route-num {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:46px;
+  color:var(--fire);
+  line-height:1;
+  text-align:right;
+  opacity:.7;
+}
+.route-body {
+  border-bottom:1px solid #292929;
+  padding-bottom:24px;
+}
+.route-heading {
+  font-family:'Oswald', sans-serif;
+  font-size:18px;
+  color:#fff;
+  letter-spacing:1px;
+  margin-bottom:8px;
+}
+.route-text { color:#aaa; font-size:14px; line-height:1.85; }
+.route-text strong { color:var(--gold); }
+
+.notice-box {
+  border-left:4px solid var(--gold);
+  background:rgba(255,215,0,.045);
+  padding:22px 26px;
+  color:#bbb;
+  font-size:14px;
+  line-height:1.85;
+  position:relative;
+}
+.notice-box::before {
+  content:"NOTE";
+  position:absolute;
+  right:18px;
+  top:8px;
+  font-family:'Bebas Neue', sans-serif;
+  font-size:42px;
+  color:rgba(255,215,0,.12);
+  letter-spacing:2px;
+}
+.footer {
+  border-top:1px solid #222;
+  padding:34px 40px 84px;
+  text-align:center;
+  font-size:11px;
+  color:#666;
+  letter-spacing:1px;
+  line-height:2;
+}
+.footer a { color:#999; font-weight:900; }
+.back-to-top {
+  position:fixed;
+  right:18px;
+  bottom:22px;
+  z-index:9999;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#111827,#4b5563);
+  color:#fff;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow:0 10px 24px rgba(31,41,55,.26);
+  font-size:24px;
+  font-weight:800;
+  opacity:.94;
+}
+.back-to-top:active { transform:translateY(1px); }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.fade-in { animation:fadeUp .7s ease both; }
+.stagger-1 { animation-delay:.08s; }
+.stagger-2 { animation-delay:.16s; }
+.stagger-3 { animation-delay:.24s; }
+.stagger-4 { animation-delay:.32s; }
+
+@media (min-width: 801px) and (max-width: 980px) {
+  .issue-card,
+  .records-card {
+    grid-template-columns:1fr;
+  }
+  .issue-link,
+  .records-link {
+    justify-self:start;
+    align-self:start;
+  }
+  .meta-list {
+    grid-template-columns:repeat(2, max-content);
+  }
+}
+
+@media (max-width:800px) {
+  .hero {
+    display:block;
+    min-height:auto;
+    padding:24px 0 48px;
+  }
+  .hero-tag {
+    position:relative;
+    top:auto;
+    left:auto;
+    right:auto;
+    display:block;
+    width:auto;
+    margin:0 24px 12px;
+    font-size:10px;
+    letter-spacing:2px;
+    line-height:1.55;
+  }
+  .unofficial-badge {
+    position:relative;
+    top:auto;
+    left:auto;
+    right:auto;
+    display:inline-block;
+    margin:0 24px 34px;
+  }
+  .hero-content, .section { padding-left:24px; padding-right:24px; }
+  .hero-edition { font-size:14px; letter-spacing:4px; margin-bottom:12px; }
+  .hero-title {
+    font-size:clamp(24px, 7.2vw, 34px);
+    line-height:1.16;
+    letter-spacing:.5px;
+    margin-bottom:22px;
+    max-width:100%;
+  }
+  .hero-title span { white-space:normal; }
+  .hero-title span + span { margin-top:6px; }
+  .hero-sub { font-size:13px; letter-spacing:1px; line-height:1.8; }
+  .hero::after { top:34%; right:-26vw; white-space:normal; width:520px; line-height:.82; }
+  .hero-actions { flex-direction:column; align-items:stretch; max-width:360px; }
+  .btn { width:100%; }
+  .back-to-top { right:16px; bottom:18px; width:50px; height:50px; font-size:23px; }
+  .section { padding-top:64px; padding-bottom:64px; }
+  .issue-grid, .feature-grid { grid-template-columns:1fr; }
+  .issue-card, .records-card {
+    grid-template-columns:1fr;
+    min-height:0;
+    padding:24px;
+  }
+  .issue-num { font-size:92px; }
+  .issue-link,
+  .records-link {
+    justify-self:start;
+    align-self:start;
+    width:100%;
+  }
+  .records-card::after { font-size:88px; right:-18px; top:28px; transform:none; }
+  .meta-list { grid-template-columns:1fr; }
+  .route { grid-template-columns:40px 1fr; gap:14px; }
+  .route-num { font-size:36px; }
+  }
+
+@media print {
+  .hero-actions, body { background:#fff; color:#111; }
+  .hero, .section, .footer { color:#111; }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+<header id="top" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <span class="hero-tag">SASUKE IDOL QUALIFIER / DATA BOOK</span>
+  <span class="unofficial-badge">非公式ファンサイト</span>
+
+  <div class="hero-content">
+    <p class="hero-edition">SASUKE Idol Qualifier</p>
+    <h1 class="hero-title"><span>SASUKEアイドル予選会</span><span>データブック</span></h1>
+    <p class="hero-sub">最新大会 ／ 大会一覧</p>
+    <div class="hero-divider"></div>
+    <p class="hero-lead">
+      アイドルたちがSASUKE本戦出場枠をかけて挑んだ熱戦を、結果・競技内容・選手ごとの特徴から振り返る非公式ファンデータベース。
+      最新大会から過去大会まで、勝負を分けたポイントを“読むデータブック”として整理しています。
+    </p>
+    <div class="hero-actions">
+      <a class="btn primary" href="/43/">(最新)第43回大会を見る</a>
+      <a class="btn ghost" href="#latest">大会一覧へ</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="about" class="section narrow fade-in stagger-2">
+    <p class="section-label">About This Site</p>
+    <h2 class="section-title">このサイトについて</h2>
+    <p class="section-lead">
+      本サイトは、SASUKEアイドル予選会の出場者・結果・競技内容をもとに、大会の流れや選手ごとの特徴を整理した非公式ファンデータブックです。
+    </p>
+    <p class="section-lead">
+      公式情報・放送内容・公開情報を参考にしつつ、能力値やタイプ分類には独自の分析・解釈を含みます。大会ごとの記録を比較しながら、選手の強み・課題・次回への期待を楽しめるようにまとめています。
+    </p>
+  </section>
+
+  <hr class="section-sep">
+
+  <section id="features" class="section fade-in stagger-3">
+    <p class="section-label">Contents</p>
+    <h2 class="section-title">掲載内容</h2>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <span class="feature-icon">01</span>
+        <h3 class="feature-title">大会レビュー</h3>
+        <p class="feature-body">大会全体の流れ、勝負を分けたポイント、上位選手の見どころを競技ごとに整理。</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-icon">02</span>
+        <h3 class="feature-title">能力値一覧</h3>
+        <p class="feature-body">瞬発力・持久力・パワー・障害物処理・メンタル・伸びしろなどを独自評価で比較。</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-icon">03</span>
+        <h3 class="feature-title">選手名鑑</h3>
+        <p class="feature-body">各選手の特徴、強み、課題、次回大会での注目点を個別に掲載。</p>
+      </article>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <section id="guide" class="section narrow fade-in stagger-4">
+    <p class="section-label">Reading Guide</p>
+    <h2 class="section-title">はじめて読むなら</h2>
+
+    <div class="route">
+      <div class="route-num">01</div>
+      <div class="route-body">
+        <h3 class="route-heading">まずは最新の第43回大会へ</h3>
+        <p class="route-text">現在地を把握するなら、まずは<strong>第43回大会</strong>から。上位争い、能力値、次回への見どころまで一気に読めます。</p>
+      </div>
+    </div>
+
+    <div class="route">
+      <div class="route-num">02</div>
+      <div class="route-body">
+        <h3 class="route-heading">流れを追うなら第42回大会へ</h3>
+        <p class="route-text">第43回につながる伏線や、経験者の成長を見るなら<strong>第42回大会</strong>もおすすめです。</p>
+      </div>
+    </div>
+
+    <div class="route">
+      <div class="route-num">03</div>
+      <div class="route-body">
+        <h3 class="route-heading">横断データを見るなら大会記録へ</h3>
+        <p class="route-text"><strong>大会記録・統計データ</strong>では、43回・42回の成績一覧やKUNOICHI/SASUKE本戦成績をシーズン別にまとめています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="latest" class="section fade-in stagger-1">
+    <p class="section-label">Latest & Archive</p>
+    <h2 class="section-title">大会データブック</h2>
+
+    <div class="issue-grid">
+      <article class="issue-card latest">
+        <span class="issue-num">43</span>
+        <div>
+          <span class="badge hot">♛ Latest Edition</span>
+          <h3 class="issue-title">第43回 SASUKEアイドル予選会</h3>
+          <p class="issue-copy">第42回経験者と初出場組が入り混じった大会。本戦出場枠をかけた戦いの結果、能力値、選手ごとの特徴、第44回への見どころを整理。</p>
+          <ul class="meta-list">
+            <li>大会レビュー</li>
+            <li>能力値一覧・タイプ別分類</li>
+            <li>選手名鑑</li>
+            <li>第44回への見どころ</li>
+          </ul>
+        </div>
+        <a class="issue-link" href="/43/">OPEN 43rd DATA BOOK</a>
+      </article>
+
+      <article class="issue-card archive">
+        <span class="issue-num">42</span>
+        <div>
+          <span class="badge">Archive</span>
+          <h3 class="issue-title">第42回 SASUKEアイドル予選会</h3>
+          <p class="issue-copy">アイドル予選会の流れを知るうえで外せない前回大会。第43回につながる伏線や各選手の特徴をアーカイブとして収録。</p>
+          <ul class="meta-list">
+            <li>大会レビュー</li>
+            <li>能力値一覧・タイプ別分類</li>
+            <li>選手名鑑</li>
+            <li>第43回への伏線</li>
+          </ul>
+        </div>
+        <a class="issue-link" href="/42/">OPEN 42nd DATA BOOK</a>
+      </article>
+    </div>
+
+    <article class="records-card">
+      <div class="records-card-body">
+        <span class="badge">Records & Statistics</span>
+        <h3 class="records-title">大会記録・統計データ</h3>
+        <p class="records-copy">
+          総合順位・競技別成績・KUNOICHI/SASUKE本戦成績をシーズン別に整理。
+          各大会ページを読んだあとに、横断データとして振り返れるまとめページです。
+        </p>
+      </div>
+      <a class="records-link" href="/records/">OPEN RECORDS</a>
+    </article>
+  </section>
+
+  <hr class="section-sep">
+
+  <section id="notice" class="section narrow">
+    <p class="section-label">Note</p>
+    <h2 class="section-title">注意事項</h2>
+    <div class="notice-box">
+      本サイトは非公式ファンサイトです。掲載内容は公開情報・放送内容・独自分析をもとに作成しており、人物・団体・番組公式とは関係ありません。公式情報とは異なる場合があります。
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>SASUKEアイドル予選会データブック</p>
+  <p><a href="/43/">第43回</a> / <a href="/42/">第42回</a> / <a href="/records/">大会記録・統計データ</a></p>
+</footer>
+<a aria-label="ページ先頭へ戻る" class="back-to-top" href="#top">↑</a>
+
+
+
+</body>
+</html>
